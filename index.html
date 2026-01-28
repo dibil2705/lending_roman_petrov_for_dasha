@@ -53,6 +53,10 @@
         padding: 6px 0 14px;
         margin-bottom: 34px;
         border-bottom: 2px solid #d8d1c9;
+        opacity: 0;
+        transform: translateY(-24px);
+        animation: navDrop 0.6s ease forwards;
+        animation-delay: 2.6s;
       }
 
       .nav-links {
@@ -110,6 +114,13 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(32px);
+        animation: contentRise 0.8s ease forwards;
+        animation-delay: 1s;
       }
 
       .hero-content > div {
@@ -126,6 +137,10 @@
       .hero-image {
         position: relative;
         border-radius: 16px;
+        opacity: 0;
+        transform: translateX(-40px);
+        animation: imageSlide 0.8s ease forwards;
+        animation-delay: 0.2s;
       }
 
       .hero-image img {
@@ -159,7 +174,6 @@
         text-transform: uppercase;
         letter-spacing: 0.08em;
         margin-bottom: 18px;
-        text-align: justify;
       }
 
       .hero-text {
@@ -167,7 +181,6 @@
         line-height: 1.6;
         max-width: 480px;
         margin-bottom: 28px;
-        text-align: justify;
       }
 
       .stats {
@@ -176,9 +189,13 @@
         gap: 28px;
         align-items: stretch;
         justify-content: center;
-        margin-top: -50px;
+        margin-top: -70px;
         width: 62%;
         margin-inline: auto;
+        opacity: 0;
+        transform: translateY(24px);
+        animation: statsRise 0.8s ease forwards;
+        animation-delay: 1.8s;
       }
 
       .stat-card {
@@ -358,7 +375,7 @@
         font-size: 13px;
         line-height: 1.15;
         color: #2f2a25;
-        margin-top: 12px;
+        margin-top: 24px;
         margin-bottom: 18px;
         padding-left: 20px;
       }
@@ -458,6 +475,45 @@
         width: 18px;
         height: 18px;
         filter: brightness(0) invert(1);
+      }
+
+      @keyframes imageSlide {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes contentRise {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes statsRise {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes navDrop {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .top-nav,
+        .hero-content,
+        .hero-image,
+        .stats {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
       }
 
       @media (max-width: 900px) {
