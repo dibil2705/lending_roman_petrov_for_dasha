@@ -209,6 +209,35 @@
         text-align: center;
       }
 
+      .method-section {
+        margin-top: 36px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        text-align: center;
+      }
+
+      .method-logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        flex-wrap: wrap;
+      }
+
+      .method-logos img {
+        height: 64px;
+        width: auto;
+      }
+
+      .method-divider {
+        width: min(100%, 720px);
+        height: 2px;
+        border-radius: 999px;
+        background: #d2c7bc;
+      }
+
       .hero-note {
         font-size: 14px;
         letter-spacing: 0.02em;
@@ -297,6 +326,10 @@
         .bottom-actions {
           margin-top: 20px;
         }
+
+        .method-logos img {
+          height: 54px;
+        }
       }
     </style>
   </head>
@@ -365,6 +398,15 @@
         <a class="cta" href="https://t.me/PetrovRoma" target="_blank" rel="noreferrer">
           Обсудить мой запрос
         </a>
+      </section>
+
+      <section class="method-section" aria-label="Метод">
+        <div class="method-logos">
+          <img src="assets/School.svg" alt="НИУ ВШЭ" />
+          <img src="assets/Insead.svg" alt="INSEAD" />
+        </div>
+        <a class="cta" href="#about">Узнать о методе</a>
+        <div class="method-divider" aria-hidden="true"></div>
       </section>
 
       <div class="footer-strip"></div>
