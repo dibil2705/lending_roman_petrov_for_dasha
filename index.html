@@ -293,8 +293,8 @@
         content: "";
         position: absolute;
         top: 0;
-        left: 12px;
-        right: 12px;
+        left: 0;
+        right: 0;
         height: 4px;
         border-radius: 999px;
         background: var(--gradient-base);
@@ -360,6 +360,20 @@
         text-decoration: none;
         font-size: 13px;
         letter-spacing: 0.02em;
+      }
+
+      .cta--image {
+        padding: 0;
+        border: none;
+        background: none;
+        box-shadow: none;
+        min-width: 0;
+      }
+
+      .cta--image img {
+        display: block;
+        width: min(260px, 100%);
+        height: auto;
       }
 
       .footer-strip {
@@ -500,8 +514,13 @@
         <p class="hero-note">
           Научно-обоснованный подход к бизнес-запросам от НИУ ВШЭ / INSEAD
         </p>
-        <a class="cta" href="https://t.me/PetrovRoma" target="_blank" rel="noreferrer">
-          Обсудить мой запрос
+        <a
+          class="cta cta--image"
+          href="https://t.me/PetrovRoma"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="assets/obsudit_my_zapros.webp" alt="Обсудить мой запрос" />
         </a>
       </section>
 
@@ -512,7 +531,9 @@
           <img src="assets/School.svg" alt="НИУ ВШЭ" />
           <img src="assets/Insead.svg" alt="INSEAD" />
         </div>
-        <a class="cta" href="#about">Узнать о методе</a>
+        <a class="cta cta--image" href="#about">
+          <img src="assets/uznat_o_metode.webp" alt="Узнать о методе" />
+        </a>
         <div class="footer-strip" aria-hidden="true"></div>
       </section>
 
