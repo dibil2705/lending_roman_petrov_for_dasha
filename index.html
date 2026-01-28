@@ -3,8 +3,287 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Документ</title>
+    <title>Роман Петров</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;600&family=Roboto+Condensed:wght@300;400;500&display=swap"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #fefefc;
+        --text: #000000;
+        --panel: #cdc7c1;
+        --gradient-base: linear-gradient(110deg, #876c5e 0%, #e1cdb5 45%, #876c5e 100%);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family: "Roboto Condensed", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 28px 32px 48px;
+      }
+
+      .menu-strip {
+        height: 12px;
+        border-radius: 999px;
+        background: var(--panel);
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+
+      .menu-strip::after,
+      .shimmer::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--gradient-base);
+        opacity: 0.65;
+        transform: translateX(-80%);
+        animation: shimmer 6s linear infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-80%);
+        }
+        100% {
+          transform: translateX(80%);
+        }
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 34px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(240px, 360px) minmax(320px, 1fr);
+        gap: 36px;
+        align-items: center;
+      }
+
+      .hero-image {
+        position: relative;
+        padding: 14px;
+        border-radius: 26px;
+        background: #faf8f4;
+        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        border-radius: 22px;
+        border: 2px solid rgba(135, 108, 94, 0.35);
+      }
+
+      .hero-image img {
+        display: block;
+        width: 100%;
+        border-radius: 18px;
+      }
+
+      .hero-title {
+        font-family: "Noto Serif Display", serif;
+        font-size: clamp(32px, 4vw, 46px);
+        letter-spacing: 0.02em;
+        margin-bottom: 8px;
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 18px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 480px;
+        margin-bottom: 28px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 18px;
+        margin-bottom: 24px;
+      }
+
+      .stat-card {
+        position: relative;
+        padding: 18px 16px;
+        border-radius: 16px;
+        background: #fffdf8;
+        box-shadow: 0 12px 18px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .stat-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--gradient-base);
+        opacity: 0.2;
+        transform: translateX(-70%);
+        animation: shimmer 7s linear infinite;
+      }
+
+      .stat-card h3 {
+        position: relative;
+        font-family: "Noto Serif Display", serif;
+        font-size: 26px;
+        margin-bottom: 4px;
+        z-index: 1;
+      }
+
+      .stat-card p {
+        position: relative;
+        font-size: 13px;
+        line-height: 1.3;
+        z-index: 1;
+      }
+
+      .hero-note {
+        font-size: 14px;
+        letter-spacing: 0.02em;
+        margin-bottom: 22px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 22px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        background: #2f2a25;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .cta img {
+        width: 18px;
+        height: 18px;
+        filter: brightness(0) invert(1);
+      }
+
+      .footer-strip {
+        position: relative;
+        height: 10px;
+        margin-top: 36px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: var(--gradient-base);
+      }
+
+      .footer-strip::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--gradient-base);
+        opacity: 0.8;
+        transform: translateX(-80%);
+        animation: shimmer 5s linear infinite;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          gap: 24px;
+          flex-wrap: wrap;
+        }
+      }
+    </style>
   </head>
   <body>
+    <main class="page">
+      <div class="menu-strip shimmer"></div>
+      <nav>
+        <a href="#about">Обо мне</a>
+        <a href="#consult">Консультации</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-image">
+          <img src="assets/Roman_Petrov.svg" alt="Роман Петров" />
+        </div>
+        <div>
+          <h1 class="hero-title">Роман Петров</h1>
+          <div class="hero-subtitle">
+            Предприниматель · Бизнес-психолог · Психоаналитический коуч
+          </div>
+          <p class="hero-text">
+            Моя сфера — профессиональные запросы, где ключевая трудность лежит не в
+            техническом, а в психологическом аспекте решений, страхов и внутренних
+            ограничений.
+          </p>
+
+          <div class="stats">
+            <div class="stat-card">
+              <h3>9+</h3>
+              <p>лет опыта в предпринимательстве</p>
+            </div>
+            <div class="stat-card">
+              <h3>11+</h3>
+              <p>лет управленческого опыта</p>
+            </div>
+            <div class="stat-card">
+              <h3>14+</h3>
+              <p>лет в маркетинге</p>
+            </div>
+          </div>
+
+          <p class="hero-note">
+            Научно-обоснованный подход к бизнес-запросам от НИУ ВШЭ / INSEAD
+          </p>
+
+          <a class="cta" href="https://t.me/PetrovRoma" target="_blank" rel="noreferrer">
+            <img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/telegram.svg"
+              alt="Telegram"
+            />
+            Обсудить мой запрос
+          </a>
+        </div>
+      </section>
+
+      <div class="footer-strip"></div>
+    </main>
   </body>
 </html>
