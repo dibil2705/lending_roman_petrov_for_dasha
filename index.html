@@ -53,10 +53,6 @@
         padding: 6px 0 14px;
         margin-bottom: 34px;
         border-bottom: 2px solid #d8d1c9;
-        opacity: 0;
-        transform: translateY(-24px);
-        animation: navDrop 0.6s ease forwards;
-        animation-delay: 2.6s;
       }
 
       .nav-links {
@@ -117,10 +113,6 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        opacity: 0;
-        transform: translateY(32px);
-        animation: contentRise 0.8s ease forwards;
-        animation-delay: 1s;
       }
 
       .hero-content > div {
@@ -137,10 +129,6 @@
       .hero-image {
         position: relative;
         border-radius: 16px;
-        opacity: 0;
-        transform: translateX(-40px);
-        animation: imageSlide 0.8s ease forwards;
-        animation-delay: 0.2s;
       }
 
       .hero-image img {
@@ -192,10 +180,14 @@
         margin-top: -70px;
         width: 62%;
         margin-inline: auto;
+      }
+
+      .reveal-item {
         opacity: 0;
-        transform: translateY(24px);
-        animation: statsRise 0.8s ease forwards;
-        animation-delay: 1.8s;
+        transform: translateY(18px);
+        animation: revealUp 0.35s ease forwards;
+        animation-delay: var(--reveal-delay, 0s);
+        animation-fill-mode: both;
       }
 
       .stat-card {
@@ -477,28 +469,7 @@
         filter: brightness(0) invert(1);
       }
 
-      @keyframes imageSlide {
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes contentRise {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes statsRise {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes navDrop {
+      @keyframes revealUp {
         to {
           opacity: 1;
           transform: translateY(0);
@@ -506,10 +477,7 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .top-nav,
-        .hero-content,
-        .hero-image,
-        .stats {
+        .reveal-item {
           animation: none;
           opacity: 1;
           transform: none;
@@ -678,5 +646,12 @@
         </div>
       </section>
     </main>
+    <script>
+      const revealItems = document.querySelectorAll(".page, .page *");
+      revealItems.forEach((item, index) => {
+        item.classList.add("reveal-item");
+        item.style.setProperty("--reveal-delay", `${index * 0.05}s`);
+      });
+    </script>
   </body>
 </html>
