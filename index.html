@@ -231,11 +231,87 @@
         width: auto;
       }
 
-      .method-divider {
-        width: min(100%, 720px);
-        height: 2px;
+      .requests-section {
+        margin-top: 44px;
+        text-align: center;
+      }
+
+      .requests-title {
+        font-family: "Noto Serif Display", serif;
+        font-size: clamp(28px, 3vw, 36px);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .requests-subtitle {
+        max-width: 720px;
+        margin: 0 auto 28px;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .requests-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 26px;
+      }
+
+      .request-card {
+        position: relative;
+        padding: 26px 20px 22px;
+        border-radius: 16px;
+        background: #ffffff;
+        border: 1px solid #e6ddd4;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+        text-align: center;
+      }
+
+      .request-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 14px;
+        right: 14px;
+        height: 3px;
         border-radius: 999px;
-        background: #d2c7bc;
+        background: var(--gradient-base);
+      }
+
+      .request-card h3 {
+        font-family: "Noto Serif Display", serif;
+        font-size: 20px;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .request-card ul {
+        list-style: none;
+        text-align: left;
+        display: grid;
+        gap: 10px;
+        font-size: 14px;
+        line-height: 1.4;
+        color: #2f2a25;
+        margin-bottom: 18px;
+      }
+
+      .request-card li {
+        position: relative;
+        padding-left: 16px;
+      }
+
+      .request-card li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .request-more {
+        font-size: 14px;
+        font-weight: 600;
       }
 
       .hero-note {
@@ -330,6 +406,10 @@
         .method-logos img {
           height: 54px;
         }
+
+        .requests-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -400,16 +480,54 @@
         </a>
       </section>
 
+      <div class="footer-strip"></div>
+
       <section class="method-section" aria-label="Метод">
         <div class="method-logos">
           <img src="assets/School.svg" alt="НИУ ВШЭ" />
           <img src="assets/Insead.svg" alt="INSEAD" />
         </div>
         <a class="cta" href="#about">Узнать о методе</a>
-        <div class="method-divider" aria-hidden="true"></div>
+        <div class="footer-strip" aria-hidden="true"></div>
       </section>
 
-      <div class="footer-strip"></div>
+      <section class="requests-section" aria-label="Запросы">
+        <h2 class="requests-title">Запросы</h2>
+        <p class="requests-subtitle">
+          Я помогаю предпринимателям, экспертам, руководителям и их командам проходить
+          профессиональные вызовы и изменения через научно-доказанный метод
+          психоаналитического коучинга.
+        </p>
+        <div class="requests-grid">
+          <article class="request-card">
+            <h3>Переходы, рост и развитие</h3>
+            <ul>
+              <li>масштабирование</li>
+              <li>запуск нового бизнеса</li>
+              <li>переход из найма в бизнес</li>
+            </ul>
+            <div class="request-more">Подробнее</div>
+          </article>
+          <article class="request-card">
+            <h3>Партнерство и команда</h3>
+            <ul>
+              <li>конфликты с партнерами</li>
+              <li>сложности в коммуникации</li>
+              <li>страх делегирования</li>
+            </ul>
+            <div class="request-more">Подробнее</div>
+          </article>
+          <article class="request-card">
+            <h3>Ограничения и кризисы</h3>
+            <ul>
+              <li>выгорание</li>
+              <li>страх публичных выступлений</li>
+              <li>поиск новых решений в сложных и нестандартных ситуациях</li>
+            </ul>
+            <div class="request-more">Подробнее</div>
+          </article>
+        </div>
+      </section>
     </main>
   </body>
 </html>
