@@ -169,6 +169,7 @@
         line-height: 1.6;
         max-width: 480px;
         margin-bottom: 28px;
+        text-align: justify;
       }
 
       .stats {
@@ -185,9 +186,36 @@
       .reveal-item {
         opacity: 0;
         transform: translateY(18px);
-        animation: revealUp 0.35s ease forwards;
+      }
+
+      .reveal-item.is-visible {
+        animation: revealUp 0.6s ease forwards;
         animation-delay: var(--reveal-delay, 0s);
         animation-fill-mode: both;
+      }
+
+      .reveal-from-left {
+        transform: translateX(-28px);
+      }
+
+      .reveal-from-bottom {
+        transform: translateY(28px);
+      }
+
+      .reveal-from-top {
+        transform: translateY(-28px);
+      }
+
+      .reveal-from-left.is-visible {
+        animation-name: revealLeft;
+      }
+
+      .reveal-from-bottom.is-visible {
+        animation-name: revealUp;
+      }
+
+      .reveal-from-top.is-visible {
+        animation-name: revealDown;
       }
 
       .stat-card {
@@ -476,8 +504,26 @@
         }
       }
 
+      @keyframes revealLeft {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes revealDown {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
-        .reveal-item {
+        .reveal-item,
+        .reveal-item.is-visible,
+        .reveal-from-left,
+        .reveal-from-bottom,
+        .reveal-from-top {
           animation: none;
           opacity: 1;
           transform: none;
@@ -526,7 +572,11 @@
   </head>
   <body>
     <main class="page">
-      <header class="top-nav">
+      <header
+        class="top-nav reveal-item reveal-from-top"
+        data-reveal
+        data-reveal-delay="0.9s"
+      >
         <nav class="nav-links">
           <a href="#about">Обо мне</a>
           <a href="#consult">Консультации</a>
@@ -548,11 +598,15 @@
 
       <section class="hero">
         <div class="hero-media">
-          <div class="hero-image">
+          <div class="hero-image reveal-item reveal-from-left" data-reveal>
             <img src="assets/Roman2.webp" alt="Роман Петров" />
           </div>
         </div>
-        <div class="hero-content">
+        <div
+          class="hero-content reveal-item reveal-from-bottom"
+          data-reveal
+          data-reveal-delay="0.2s"
+        >
           <div>
             <h1 class="hero-title">РОМАН ПЕТРОВ</h1>
             <div class="hero-subtitle">
@@ -567,22 +621,22 @@
         </div>
       </section>
 
-      <section class="stats" aria-label="Опыт">
-        <div class="stat-card">
+      <section class="stats" aria-label="Опыт" data-reveal>
+        <div class="stat-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.2s">
           <h3>9+</h3>
           <p>лет опыта в предпринимательстве</p>
         </div>
-        <div class="stat-card">
+        <div class="stat-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.35s">
           <h3>11+</h3>
           <p>лет управленческого опыта</p>
         </div>
-        <div class="stat-card">
+        <div class="stat-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.5s">
           <h3>14+</h3>
           <p>лет в маркетинге</p>
         </div>
       </section>
 
-      <section class="bottom-actions" aria-label="Подход и связь">
+      <section class="bottom-actions reveal-item reveal-from-bottom" aria-label="Подход и связь" data-reveal>
         <p class="hero-note">
           Научно-обоснованный подход к бизнес-запросам от НИУ ВШЭ / INSEAD
         </p>
@@ -598,7 +652,7 @@
 
       <div class="footer-strip"></div>
 
-      <section class="method-section" aria-label="Метод">
+      <section class="method-section reveal-item reveal-from-bottom" aria-label="Метод" data-reveal>
         <div class="method-logos">
           <img src="assets/School.svg" alt="НИУ ВШЭ" />
           <img src="assets/Insead.svg" alt="INSEAD" />
@@ -608,7 +662,7 @@
         </a>
       </section>
 
-      <section class="requests-section" aria-label="Запросы">
+      <section class="requests-section reveal-item reveal-from-bottom" aria-label="Запросы" data-reveal>
         <h2 class="requests-title">Запросы</h2>
         <p class="requests-subtitle">
           Я помогаю предпринимателям, экспертам, руководителям и их командам проходить
@@ -647,11 +701,31 @@
       </section>
     </main>
     <script>
-      const revealItems = document.querySelectorAll(".page, .page *");
-      revealItems.forEach((item, index) => {
-        item.classList.add("reveal-item");
-        item.style.setProperty("--reveal-delay", `${index * 0.05}s`);
-      });
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+
+      window.scrollTo({ top: 0, behavior: "auto" });
+
+      const revealItems = document.querySelectorAll("[data-reveal]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+            const item = entry.target;
+            if (item.dataset.revealDelay) {
+              item.style.setProperty("--reveal-delay", item.dataset.revealDelay);
+            }
+            item.classList.add("is-visible");
+            observer.unobserve(item);
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      revealItems.forEach((item) => observer.observe(item));
     </script>
   </body>
 </html>
