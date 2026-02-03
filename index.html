@@ -604,8 +604,9 @@
         position: absolute;
         top: -26px;
         bottom: -26px;
-        width: 2px;
+        width: 4px;
         background: var(--gradient-base);
+        clip-path: polygon(50% 0, 100% 6%, 100% 94%, 50% 100%, 0 94%, 0 6%);
       }
 
       .experience-line--left {
@@ -669,10 +670,11 @@
       .consult-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: clamp(16px, 2vw, 24px);
+        gap: 0;
         max-width: 1640px;
         margin: 0 auto;
         width: min(100%, 1640px);
+        align-items: stretch;
       }
 
       .consult-card {
@@ -686,7 +688,7 @@
         flex-direction: column;
         align-items: center;
         gap: clamp(16px, 2.4vw, 32px);
-        min-height: 100%;
+        min-height: clamp(300px, 24vw, 380px);
       }
 
       .consult-card::before {
@@ -756,7 +758,7 @@
       .contacts-actions {
         display: flex;
         justify-content: center;
-        gap: 90px;
+        gap: 120px;
         flex-wrap: wrap;
       }
 
@@ -971,6 +973,7 @@
           grid-template-columns: 1fr;
           width: 100%;
           padding: 0 16px;
+          gap: 0;
         }
 
         .consult-card {
