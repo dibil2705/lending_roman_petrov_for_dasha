@@ -47,6 +47,12 @@
         color: var(--text);
       }
 
+      h1,
+      h2,
+      h3 {
+        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+      }
+
       .page {
         max-width: 1920px;
         margin: 0 auto;
@@ -187,11 +193,11 @@
       .stats {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: clamp(20px, 3vw, 28px);
+        gap: clamp(10px, 2vw, 16px);
         align-items: stretch;
         justify-content: center;
         justify-items: center;
-        margin-top: -70px;
+        margin-top: -54px;
         width: min(100%, 1200px);
         margin-inline: auto;
       }
@@ -262,28 +268,28 @@
       }
 
       .stat-card h3 {
-        font-family: "Noto Serif Display", serif;
-        font-size: 36px;
+        font-size: 40px;
         font-weight: 600;
         margin-bottom: 0;
         color: #2f2a25;
       }
 
       .stat-card p {
-        font-size: 13px;
-        font-weight: 500;
-        line-height: 1.35;
+        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.3;
         color: #3c332d;
       }
 
       .bottom-actions {
-        margin-top: 32px;
-        margin-bottom: 50px;
-        padding-top: 50px;
+        margin-top: 24px;
+        margin-bottom: 40px;
+        padding-top: 36px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 50px;
+        gap: 36px;
         text-align: center;
       }
 
@@ -324,8 +330,8 @@
 
       .requests-section {
         position: relative;
-        margin-top: 44px;
-        padding: 130px 0 48px;
+        margin-top: 32px;
+        padding: 96px 0 40px;
         text-align: center;
       }
 
@@ -350,7 +356,6 @@
       }
 
       .requests-title {
-        font-family: "Noto Serif Display", serif;
         font-size: clamp(44px, 3.6vw, 68px);
         font-weight: 400;
         letter-spacing: 0.01em;
@@ -359,9 +364,9 @@
 
       .requests-subtitle {
         max-width: 720px;
-        margin: 0 auto 130px;
-        font-family: "Roboto Condensed", system-ui, sans-serif;
-        font-size: 24px;
+        margin: 0 auto 90px;
+        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        font-size: 26px;
         font-weight: 400;
         line-height: 1.35;
         color: #2f2a25;
@@ -369,7 +374,7 @@
 
       .requests-grid {
         display: flex;
-        gap: 36px;
+        gap: 20px;
         max-width: 1632px;
         justify-content: center;
         margin: 0 auto;
@@ -404,8 +409,7 @@
       }
 
       .request-card h3 {
-        font-family: "Noto Serif Display", serif;
-        font-size: 42px;
+        font-size: 44px;
         font-weight: 400;
         margin-bottom: 16px;
         letter-spacing: 0.02em;
@@ -417,8 +421,8 @@
         display: grid;
         gap: 6px;
         align-content: start;
-        font-family: "Roboto Condensed", system-ui, sans-serif;
-        font-size: 22px;
+        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        font-size: 24px;
         font-weight: 400;
         line-height: 1.3;
         color: #2f2a25;
@@ -452,9 +456,10 @@
       }
 
       .hero-note {
-        font-size: 14px;
+        font-size: 20px;
         letter-spacing: 0.02em;
         margin: 0;
+        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
       }
 
       .cta {
@@ -538,7 +543,6 @@
 
       .experience-title {
         display: inline-block;
-        font-family: "Noto Serif Display", serif;
         font-size: clamp(36px, 4vw, 68px);
         font-weight: 400;
         letter-spacing: 0.03em;
@@ -553,7 +557,7 @@
       .experience-text {
         margin: 18px auto 0;
         max-width: 920px;
-        font-size: 30px;
+        font-size: 32px;
         font-weight: 400;
         line-height: 44px;
         color: #ffffff;
@@ -602,6 +606,14 @@
         right: 0;
       }
 
+      .experience-line--left-secondary {
+        left: 12px;
+      }
+
+      .experience-line--right-secondary {
+        right: 12px;
+      }
+
       .experience-logos {
         display: grid;
         grid-template-columns: repeat(8, minmax(0, 1fr));
@@ -647,7 +659,7 @@
       .consult-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 36px;
+        gap: 20px;
         max-width: 1640px;
         margin: 0 auto;
       }
@@ -678,18 +690,18 @@
       }
 
       .consult-title {
-        font-family: "Noto Serif Display", serif;
-        font-size: 42px;
+        font-size: 44px;
         font-weight: 400;
         letter-spacing: 0.02em;
       }
 
       .consult-details {
         display: grid;
-        gap: 8px;
-        font-size: 14px;
+        gap: 10px;
+        font-size: 20px;
         line-height: 1.4;
         color: #2f2a25;
+        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
       }
 
       .consult-button {
@@ -706,7 +718,84 @@
         letter-spacing: 0.02em;
         text-decoration: none;
         width: min(100%, 321px);
-        aspect-ratio: 321 / 90;
+        aspect-ratio: 321 / 70;
+      }
+
+      .contacts-section {
+        margin-top: 90px;
+        padding: 90px 0 80px;
+        text-align: center;
+        background: #ffffff;
+      }
+
+      .contacts-title {
+        font-size: clamp(36px, 4vw, 60px);
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        margin-bottom: 40px;
+      }
+
+      .contacts-actions {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        flex-wrap: wrap;
+      }
+
+      .contact-button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: min(100%, 320px);
+        aspect-ratio: 320 / 78;
+        padding: 0 22px;
+        border-radius: 12px;
+        background: #0a2339;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 18px;
+        letter-spacing: 0.02em;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 8px 16px rgba(0, 0, 0, 0.18);
+        border: 1px solid #f0caa9;
+      }
+
+      .info-footer {
+        background: #0a2339;
+        color: #ffffff;
+        padding: 80px 140px 60px;
+      }
+
+      .info-footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 60px;
+      }
+
+      .info-footer h3 {
+        font-size: 22px;
+        font-weight: 400;
+        color: #e4bca0;
+        margin-bottom: 18px;
+      }
+
+      .info-footer p,
+      .info-footer a {
+        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .info-footer .info-footer-meta {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        font-size: 16px;
+        color: #e4bca0;
+        flex-wrap: wrap;
       }
 
       @keyframes revealUp {
@@ -843,6 +932,32 @@
 
         .consult-card {
           padding: 36px 24px;
+        }
+
+        .contacts-section {
+          padding: 60px 0;
+        }
+
+        .contacts-actions {
+          gap: 20px;
+        }
+
+        .contact-button {
+          width: 100%;
+          max-width: 320px;
+        }
+
+        .info-footer {
+          padding: 60px 24px 50px;
+        }
+
+        .info-footer-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .info-footer .info-footer-meta {
+          margin-top: 32px;
         }
       }
     </style>
@@ -983,7 +1098,15 @@
         </p>
         <div class="experience-strip">
           <span class="experience-line experience-line--left" aria-hidden="true"></span>
+          <span
+            class="experience-line experience-line--left experience-line--left-secondary"
+            aria-hidden="true"
+          ></span>
           <span class="experience-line experience-line--right" aria-hidden="true"></span>
+          <span
+            class="experience-line experience-line--right experience-line--right-secondary"
+            aria-hidden="true"
+          ></span>
           <div class="experience-logos">
             <img src="assets/They trust us/gazpromneft_E4BCA0 1.svg" alt="Газпром нефть" />
             <img src="assets/They trust us/priroda_therapy_E4BCA0_transparent 1.svg" alt="Priroda Therapy" />
@@ -1045,7 +1168,44 @@
           </article>
         </div>
       </section>
+
+      <section class="contacts-section" id="contacts" aria-label="Контакты">
+        <h2 class="contacts-title">КОНТАКТЫ</h2>
+        <div class="contacts-actions">
+          <a class="contact-button" href="https://t.me/psytech_lab" target="_blank" rel="noreferrer">
+            ТГК канал
+          </a>
+          <a class="contact-button" href="https://t.me/PetrovRoma" target="_blank" rel="noreferrer">
+            Телеграм
+          </a>
+          <a class="contact-button" href="mailto:Petrovrs91@bk.ru">Почта</a>
+        </div>
+      </section>
     </main>
+    <footer class="info-footer" aria-label="Информация">
+      <div class="info-footer-grid">
+        <div>
+          <h3>Принцип</h3>
+          <p>Всё обсуждаемое во время консультации остаётся между нами.</p>
+          <p>Я гарантирую полную конфиденциальность и профессиональную этику.</p>
+        </div>
+        <div>
+          <h3>Бизнес</h3>
+          <p>ИП Петров Роман Сергеевич</p>
+          <p>ОГРНИП 410121658151</p>
+        </div>
+        <div>
+          <h3>Документы</h3>
+          <p><a href="#" aria-label="Согласие на обработку персональных данных">Согласие на обработку персональных данных</a></p>
+          <p><a href="#" aria-label="Политика конфиденциальности">Политика конфиденциальности</a></p>
+          <p><a href="#" aria-label="Оферта">Оферта</a></p>
+        </div>
+      </div>
+      <div class="info-footer-meta">
+        <span>Роман Петров 2026</span>
+        <span>Дизайн и разработка сайта ...</span>
+      </div>
+    </footer>
     <script>
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
