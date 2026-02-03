@@ -315,7 +315,7 @@
       }
 
       .method-logos img {
-        height: 64px;
+        height: 160px;
         width: auto;
       }
 
@@ -363,12 +363,12 @@
       }
 
       .requests-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 520px);
+        display: flex;
         gap: 40px;
         max-width: 1640px;
-        justify-content: center;
+        justify-content: space-between;
         margin: 0 auto;
+        width: 100%;
       }
 
       .request-card {
@@ -376,7 +376,7 @@
         display: flex;
         flex-direction: column;
         min-height: 620px;
-        width: 520px;
+        width: 27%;
         height: 620px;
         padding: 36px 32px 60px;
         border-radius: 40px;
@@ -455,8 +455,8 @@
         width: 370px;
         height: 90px;
         justify-content: center;
-        border-radius: 24px;
-        border: 2px solid #a66a3f;
+        border-radius: 10px;
+        border: none;
         background: #0a2339;
         box-shadow: 0 10px 18px rgba(0, 0, 0, 0.24);
         color: #ffffff;
@@ -471,7 +471,7 @@
         content: "";
         position: absolute;
         inset: 6px;
-        border-radius: 18px;
+        border-radius: 8px;
         border: 1px solid #e4bca0;
       }
 
@@ -521,10 +521,24 @@
       }
 
       .experience-title {
+        display: inline-block;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
         font-size: clamp(28px, 3vw, 36px);
         letter-spacing: 0.18em;
         text-transform: uppercase;
+        background: linear-gradient(110deg, #a66a3f 0%, #e4bca0 50%, #a66a3f 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .experience-text {
+        margin: 18px auto 0;
+        max-width: 920px;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 44px;
       }
 
       .experience-strip {
@@ -554,6 +568,22 @@
         bottom: 0;
       }
 
+      .experience-line {
+        position: absolute;
+        top: -8px;
+        bottom: -8px;
+        width: 2px;
+        background: var(--gradient-base);
+      }
+
+      .experience-line--left {
+        left: 0;
+      }
+
+      .experience-line--right {
+        right: 0;
+      }
+
       .experience-logos {
         display: grid;
         grid-template-columns: repeat(8, minmax(0, 1fr));
@@ -563,8 +593,9 @@
       }
 
       .experience-logos img {
-        max-height: 46px;
-        width: 100%;
+        height: 81px;
+        width: auto;
+        max-width: 100%;
         object-fit: contain;
         filter: brightness(0) saturate(100%) invert(86%) sepia(22%) saturate(341%)
           hue-rotate(338deg) brightness(99%) contrast(91%);
@@ -623,6 +654,10 @@
       }
 
       @media (max-width: 900px) {
+        .page {
+          padding: 18px 24px 40px;
+        }
+
         .hero {
           grid-template-columns: 1fr;
         }
@@ -663,11 +698,11 @@
         }
 
         .method-logos img {
-          height: 54px;
+          height: 120px;
         }
 
         .requests-grid {
-          grid-template-columns: 1fr;
+          flex-direction: column;
           max-width: 100%;
         }
 
@@ -818,7 +853,13 @@
 
       <section class="experience-section" aria-label="Опыт">
         <h2 class="experience-title">Опыт</h2>
+        <p class="experience-text">
+          Мой профессиональный опыт в реальной бизнес-среде формировался в работе с
+          компаниями из разных отраслей, масштабов и стадий развития.
+        </p>
         <div class="experience-strip">
+          <span class="experience-line experience-line--left" aria-hidden="true"></span>
+          <span class="experience-line experience-line--right" aria-hidden="true"></span>
           <div class="experience-logos">
             <img src="assets/They trust us/gazpromneft_E4BCA0 1.svg" alt="Газпром нефть" />
             <img src="assets/They trust us/priroda_therapy_E4BCA0_transparent 1.svg" alt="Priroda Therapy" />
@@ -827,7 +868,7 @@
             <img src="assets/They trust us/cesi_E4BCA0_transparent 1.svg" alt="ЦЭН" />
             <img src="assets/They trust us/agrotek_E4BCA0_transparent 1.svg" alt="Агротек" />
             <img src="assets/They trust us/Group 32.svg" alt="Креативные решения" />
-            <img src="assets/They trust us/Ellipse 1.svg" alt="Z" />
+            <img src="assets/They trust us/medteks_E4BCA0_transparent 1.svg" alt="Медтекс" />
           </div>
         </div>
       </section>
