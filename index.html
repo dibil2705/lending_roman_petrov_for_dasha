@@ -186,10 +186,11 @@
 
       .stats {
         display: grid;
-        grid-template-columns: repeat(3, 370px);
-        gap: 28px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(20px, 3vw, 28px);
         align-items: stretch;
         justify-content: center;
+        justify-items: center;
         margin-top: -70px;
         width: min(100%, 1200px);
         margin-inline: auto;
@@ -233,10 +234,11 @@
       .stat-card {
         position: relative;
         min-width: 0;
-        padding: 16px 14px 14px;
+        padding: clamp(14px, 2vw, 16px) clamp(12px, 2vw, 14px) clamp(12px, 2vw, 14px);
         min-height: 320px;
-        width: 370px;
-        height: 320px;
+        width: 100%;
+        max-width: 370px;
+        height: auto;
         border-radius: 40px;
         background: #ffffff;
         border: 1px solid #e6ddd4;
@@ -287,10 +289,11 @@
 
       .method-section {
         margin-top: 36px;
+        padding-top: 71px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 18px;
+        gap: 0;
         text-align: center;
       }
 
@@ -364,7 +367,7 @@
 
       .requests-grid {
         display: flex;
-        gap: 40px;
+        gap: 36px;
         max-width: 1640px;
         justify-content: space-between;
         margin: 0 auto;
@@ -483,6 +486,7 @@
       }
 
       .method-section .cta--secondary {
+        margin-top: 64px;
         margin-bottom: 50px;
       }
 
@@ -513,8 +517,8 @@
       }
 
       .experience-section {
-        margin-top: 80px;
-        padding: 70px 0 80px;
+        margin-top: 250px;
+        padding: 70px 140px 80px;
         background: #0b2b46;
         color: #f6e6d6;
         text-align: center;
@@ -523,7 +527,8 @@
       .experience-title {
         display: inline-block;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
-        font-size: clamp(28px, 3vw, 36px);
+        font-size: clamp(36px, 4vw, 68px);
+        font-weight: 400;
         letter-spacing: 0.18em;
         text-transform: uppercase;
         background: linear-gradient(110deg, #a66a3f 0%, #e4bca0 50%, #a66a3f 100%);
@@ -539,6 +544,7 @@
         font-size: 30px;
         font-weight: 400;
         line-height: 44px;
+        color: #ffffff;
       }
 
       .experience-strip {
@@ -719,6 +725,26 @@
 
         .experience-logos {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 18px;
+        }
+
+        .experience-section {
+          margin-top: 120px;
+          padding: 48px 24px 56px;
+        }
+
+        .experience-title {
+          font-size: clamp(32px, 9vw, 46px);
+          letter-spacing: 0.12em;
+        }
+
+        .experience-text {
+          font-size: 18px;
+          line-height: 28px;
+        }
+
+        .experience-strip {
+          padding: 20px 16px;
         }
       }
     </style>
