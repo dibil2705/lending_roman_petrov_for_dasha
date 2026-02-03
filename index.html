@@ -198,7 +198,7 @@
       .stats {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 60px;
+        gap: 0;
         align-items: stretch;
         justify-content: center;
         justify-items: center;
@@ -656,15 +656,15 @@
       }
 
       .consult-section {
-        margin-top: 120px;
-        padding-bottom: 80px;
+        margin-top: clamp(64px, 8vw, 120px);
+        padding-bottom: clamp(48px, 6vw, 80px);
         text-align: center;
       }
 
       .consult-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: clamp(16px, 2vw, 24px);
         max-width: 1640px;
         margin: 0 auto;
         width: min(100%, 1640px);
@@ -672,7 +672,7 @@
 
       .consult-card {
         position: relative;
-        padding: 48px 42px;
+        padding: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 42px);
         border-radius: 32px;
         background: #ffffff;
         border: 1px solid #e5ded6;
@@ -680,8 +680,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 32px;
-        aspect-ratio: 1.28 / 1;
+        gap: clamp(16px, 2.4vw, 32px);
+        min-height: 100%;
       }
 
       .consult-card::before {
@@ -696,7 +696,7 @@
       }
 
       .consult-title {
-        font-size: 44px;
+        font-size: clamp(26px, 3.2vw, 44px);
         font-weight: 400;
         letter-spacing: 0.02em;
       }
@@ -704,7 +704,7 @@
       .consult-details {
         display: grid;
         gap: 10px;
-        font-size: 20px;
+        font-size: clamp(16px, 2vw, 20px);
         line-height: 1.4;
         color: #2f2a25;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
@@ -720,7 +720,7 @@
         background: var(--gradient-rich);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 10px 18px rgba(0, 0, 0, 0.18);
         color: #ffffff;
-        font-size: 16px;
+        font-size: clamp(14px, 1.6vw, 16px);
         letter-spacing: 0.02em;
         text-decoration: none;
         width: min(100%, 321px);
@@ -962,7 +962,7 @@
         }
 
         .consult-card {
-          padding: 36px 24px;
+          padding: 32px 24px;
           width: 100%;
           max-width: none;
         }
