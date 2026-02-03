@@ -194,7 +194,7 @@
       .stats {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: clamp(4px, 1vw, 8px);
+        gap: 60px;
         align-items: stretch;
         justify-content: center;
         justify-items: center;
@@ -663,6 +663,7 @@
         gap: 20px;
         max-width: 1640px;
         margin: 0 auto;
+        width: min(100%, 1640px);
       }
 
       .consult-card {
@@ -723,7 +724,7 @@
       }
 
       .contacts-section {
-        margin-top: 90px;
+        margin-top: 250px;
         padding: 90px 0 80px;
         text-align: center;
         background: #ffffff;
@@ -748,7 +749,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: min(100%, 321px);
+        width: clamp(240px, 16.7vw, 321px);
         aspect-ratio: 321 / 90;
         padding: 0 24px;
         border-radius: 10px;
@@ -774,6 +775,7 @@
         background: #0a2339;
         color: #ffffff;
         padding: 80px 140px 60px;
+        margin-top: 250px;
       }
 
       .info-footer-grid {
@@ -806,6 +808,10 @@
         font-size: 16px;
         color: #e4bca0;
         flex-wrap: wrap;
+      }
+
+      .info-footer .info-footer-meta span {
+        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
       }
 
       @keyframes revealUp {
@@ -947,10 +953,14 @@
 
         .consult-grid {
           grid-template-columns: 1fr;
+          width: 100%;
+          padding: 0 16px;
         }
 
         .consult-card {
           padding: 36px 24px;
+          width: 100%;
+          max-width: none;
         }
 
         .contacts-section {
@@ -1212,7 +1222,6 @@
           <h3>Бизнес</h3>
           <p>ИП Петров Роман Сергеевич</p>
           <p>ОГРНИП 410121658151</p>
-          <p>Дизайн и разработка сайта ...</p>
         </div>
         <div>
           <h3>Документы</h3>
@@ -1223,6 +1232,7 @@
       </div>
       <div class="info-footer-meta">
         <span>Роман Петров 2026</span>
+        <span>Дизайн и разработка сайта ...</span>
       </div>
     </footer>
     <script>
