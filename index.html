@@ -208,7 +208,8 @@
         justify-content: center;
         justify-items: center;
         margin-top: -54px;
-        width: min(100%, 1200px);
+        width: auto;
+        max-width: 1200px;
         margin-inline: auto;
       }
 
@@ -611,18 +612,26 @@
 
       .experience-line--left {
         left: 0;
+        top: -32px;
+        bottom: -32px;
       }
 
       .experience-line--right {
         right: 0;
+        top: -32px;
+        bottom: -32px;
       }
 
       .experience-line--left-secondary {
         left: 12px;
+        top: -20px;
+        bottom: -20px;
       }
 
       .experience-line--right-secondary {
         right: 12px;
+        top: -20px;
+        bottom: -20px;
       }
 
       .experience-logos {
@@ -669,8 +678,8 @@
 
       .consult-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0;
+        grid-template-columns: minmax(0, 1fr);
+        gap: clamp(20px, 3vw, 32px);
         max-width: 1640px;
         margin: 0 auto;
         width: min(100%, 1640px);
@@ -936,8 +945,9 @@
         }
 
         .cta {
-          width: 100%;
-          max-width: 370px;
+          width: auto;
+          max-width: 300px;
+          min-width: 220px;
         }
 
         .experience-logos {
@@ -973,7 +983,7 @@
           grid-template-columns: 1fr;
           width: 100%;
           padding: 0 16px;
-          gap: 0;
+          gap: 20px;
         }
 
         .consult-card {
@@ -991,8 +1001,9 @@
         }
 
         .contact-button {
-          width: 100%;
-          max-width: 320px;
+          width: auto;
+          max-width: 280px;
+          min-width: 200px;
         }
 
         .info-footer {
