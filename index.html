@@ -51,6 +51,7 @@
       h2,
       h3 {
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        text-transform: uppercase;
       }
 
       .page {
@@ -193,7 +194,7 @@
       .stats {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: clamp(10px, 2vw, 16px);
+        gap: clamp(4px, 1vw, 8px);
         align-items: stretch;
         justify-content: center;
         justify-items: center;
@@ -439,8 +440,8 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: min(100%, 321px);
-        aspect-ratio: 321 / 90;
+        width: min(100%, 240px);
+        aspect-ratio: 240 / 64;
         height: auto;
         padding: 0 24px;
         margin-top: auto;
@@ -674,7 +675,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 18px;
+        gap: 32px;
         aspect-ratio: 1.28 / 1;
       }
 
@@ -714,7 +715,7 @@
         background: var(--gradient-rich);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 10px 18px rgba(0, 0, 0, 0.18);
         color: #ffffff;
-        font-size: 13px;
+        font-size: 16px;
         letter-spacing: 0.02em;
         text-decoration: none;
         width: min(100%, 321px);
@@ -747,17 +748,26 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: min(100%, 320px);
-        aspect-ratio: 320 / 78;
-        padding: 0 22px;
-        border-radius: 12px;
+        width: min(100%, 321px);
+        aspect-ratio: 321 / 90;
+        padding: 0 24px;
+        border-radius: 10px;
+        border: none;
         background: #0a2339;
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.24);
+        overflow: hidden;
         color: #ffffff;
         text-decoration: none;
-        font-size: 18px;
+        font-size: clamp(15px, 1.1vw, 18px);
         letter-spacing: 0.02em;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 8px 16px rgba(0, 0, 0, 0.18);
-        border: 1px solid #f0caa9;
+      }
+
+      .contact-button::before {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        border-radius: 8px;
+        border: 1px solid #e4bca0;
       }
 
       .info-footer {
@@ -876,7 +886,16 @@
         }
 
         .method-logos img {
-          height: 120px;
+          height: 90px;
+        }
+
+        .method-logos {
+          flex-wrap: nowrap;
+          gap: 12px;
+        }
+
+        .method-logos::after {
+          height: 36px;
         }
 
         .requests-grid {
@@ -1193,6 +1212,7 @@
           <h3>Бизнес</h3>
           <p>ИП Петров Роман Сергеевич</p>
           <p>ОГРНИП 410121658151</p>
+          <p>Дизайн и разработка сайта ...</p>
         </div>
         <div>
           <h3>Документы</h3>
@@ -1203,7 +1223,6 @@
       </div>
       <div class="info-footer-meta">
         <span>Роман Петров 2026</span>
-        <span>Дизайн и разработка сайта ...</span>
       </div>
     </footer>
     <script>
