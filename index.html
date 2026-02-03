@@ -162,7 +162,7 @@
         position: relative;
         display: inline-block;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
-        font-size: clamp(32px, 4vw, 46px);
+        font-size: clamp(38px, 5vw, 60px);
         letter-spacing: 0.02em;
         margin-bottom: 14px;
       }
@@ -182,11 +182,11 @@
       .hero-subtitle {
         display: inline-block;
         width: 100%;
-        max-width: 560px;
-        font-size: 16px;
+        max-width: 620px;
+        font-size: clamp(17px, 1.8vw, 20px);
         font-weight: 400;
         text-transform: uppercase;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.12em;
         margin-bottom: 18px;
         text-wrap: balance;
       }
@@ -498,7 +498,7 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 16px;
-        margin: 60px auto 0;
+        margin: -40px auto 0;
         max-width: 980px;
         width: min(100%, 980px);
       }
@@ -515,7 +515,8 @@
         border: 1px solid #e5ded6;
         box-shadow: 0 14px 22px rgba(0, 0, 0, 0.12);
         text-align: center;
-        min-height: 110px;
+        min-height: 0;
+        aspect-ratio: 1 / 1;
       }
 
       .stat-card h3 {
@@ -849,10 +850,10 @@
 
       @keyframes experienceScroll {
         0% {
-          transform: translateX(0);
+          transform: translateX(-50%);
         }
         100% {
-          transform: translateX(-50%);
+          transform: translateX(0);
         }
       }
 
@@ -960,11 +961,11 @@
         .stats {
           grid-template-columns: 1fr;
           gap: 14px;
-          margin-top: 40px;
+          margin-top: -40px;
         }
 
         .stat-card {
-          min-height: 96px;
+          min-height: 0;
           padding: 16px 18px;
         }
 
@@ -987,7 +988,7 @@
         }
 
         .experience-logos-track {
-          animation-direction: reverse;
+          animation-direction: normal;
         }
 
         .consult-section {
