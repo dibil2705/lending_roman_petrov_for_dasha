@@ -48,9 +48,10 @@
       }
 
       .page {
-        max-width: 1100px;
+        max-width: 1920px;
         margin: 0 auto;
-        padding: 22px clamp(24px, 7.5vw, 140px) 48px;
+        padding: 22px 140px 48px;
+        width: 100%;
       }
 
       .top-nav {
@@ -162,9 +163,10 @@
         left: 0;
         bottom: -6px;
         width: 100%;
-        height: 2px;
+        height: 4px;
         border-radius: 999px;
-        background: var(--gradient-tapered);
+        background: var(--gradient-base);
+        clip-path: polygon(0 50%, 6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%);
       }
 
       .hero-subtitle {
@@ -184,7 +186,7 @@
 
       .stats {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(370px, 370px));
+        grid-template-columns: repeat(3, 370px);
         gap: 28px;
         align-items: stretch;
         justify-content: center;
@@ -275,6 +277,7 @@
       .bottom-actions {
         margin-top: 32px;
         margin-bottom: 50px;
+        padding-top: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -328,11 +331,11 @@
         content: "";
         position: absolute;
         left: 50%;
-        width: min(100%, 940px);
-        height: 3px;
-        background: var(--gradient-tapered);
-        opacity: 0.8;
+        width: min(100%, 1400px);
+        height: 4px;
+        background: var(--gradient-base);
         transform: translateX(-50%);
+        clip-path: polygon(0 50%, 6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%);
       }
 
       .requests-section::before {
@@ -361,9 +364,10 @@
 
       .requests-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 26px;
-        max-width: 860px;
+        grid-template-columns: repeat(3, 520px);
+        gap: 40px;
+        max-width: 1640px;
+        justify-content: center;
         margin: 0 auto;
       }
 
@@ -371,8 +375,10 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        min-height: 340px;
-        padding: 26px 22px 50px;
+        min-height: 620px;
+        width: 520px;
+        height: 620px;
+        padding: 36px 32px 60px;
         border-radius: 40px;
         background: #ffffff;
         border: 1px solid #e5ded6;
@@ -386,7 +392,7 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 4px;
+        height: 6px;
         border-radius: 40px 40px 0 0;
         background: var(--gradient-base);
       }
@@ -437,44 +443,43 @@
       .hero-note {
         font-size: 14px;
         letter-spacing: 0.02em;
-        margin: 8px 0 0;
+        margin: 0;
       }
 
       .cta {
+        position: relative;
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        padding: 10px 26px;
-        min-width: 220px;
+        padding: 0;
+        width: 370px;
+        height: 90px;
         justify-content: center;
-        border-radius: 22px;
-        border: 1px solid #6b5a50;
-        background: var(--gradient-rich);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 8px 16px rgba(0, 0, 0, 0.25);
+        border-radius: 24px;
+        border: 2px solid #a66a3f;
+        background: #0a2339;
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.24);
         color: #ffffff;
         text-decoration: none;
-        font-size: 13px;
+        font-size: 18px;
         letter-spacing: 0.02em;
-      }
-
-      .cta--primary {
-        padding: 18px 38px;
-        min-width: min(520px, 100%);
-        font-size: 22px;
-        background: linear-gradient(#0a2339, #0a2339) padding-box,
-          linear-gradient(110deg, #a66a3f 0%, #e4bca0 50%, #a66a3f 100%) border-box;
-        border: 2px solid transparent;
-        border-radius: 28px;
         text-transform: none;
+        overflow: hidden;
       }
 
+      .cta::before {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        border-radius: 18px;
+        border: 1px solid #e4bca0;
+      }
+
+      .cta--primary,
       .cta--secondary {
-        padding: 12px 30px;
-        min-width: 240px;
-        border: 2px solid transparent;
-        background: linear-gradient(#0a2339, #0a2339) padding-box,
-          linear-gradient(110deg, #a66a3f 0%, #e4bca0 50%, #a66a3f 100%) border-box;
-        font-size: 14px;
+        font-size: 18px;
+        width: 370px;
+        height: 90px;
       }
 
       .method-section .cta--secondary {
@@ -497,22 +502,72 @@
 
       .footer-strip {
         position: relative;
-        height: 3px;
+        height: 4px;
         margin-top: 50px;
         border-radius: 999px;
-        overflow: hidden;
-        background: var(--gradient-tapered);
-        width: min(100%, 940px);
+        background: var(--gradient-base);
+        width: min(100%, 1400px);
         margin-left: auto;
         margin-right: auto;
+        clip-path: polygon(0 50%, 6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%);
       }
 
-      .footer-strip::after {
+      .experience-section {
+        margin-top: 80px;
+        padding: 70px 0 80px;
+        background: #0b2b46;
+        color: #f6e6d6;
+        text-align: center;
+      }
+
+      .experience-title {
+        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        font-size: clamp(28px, 3vw, 36px);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .experience-strip {
+        position: relative;
+        margin: 36px auto 0;
+        padding: 26px 40px;
+        max-width: 1520px;
+      }
+
+      .experience-strip::before,
+      .experience-strip::after {
         content: "";
         position: absolute;
-        inset: 0;
-        background: var(--gradient-tapered);
-        opacity: 0.8;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        background: var(--gradient-base);
+        transform: translateX(-50%);
+        clip-path: polygon(0 50%, 4% 0, 96% 0, 100% 50%, 96% 100%, 4% 100%);
+      }
+
+      .experience-strip::before {
+        top: 0;
+      }
+
+      .experience-strip::after {
+        bottom: 0;
+      }
+
+      .experience-logos {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        align-items: center;
+        gap: 26px;
+        padding: 24px 0;
+      }
+
+      .experience-logos img {
+        max-height: 46px;
+        width: 100%;
+        object-fit: contain;
+        filter: brightness(0) saturate(100%) invert(86%) sepia(22%) saturate(341%)
+          hue-rotate(338deg) brightness(99%) contrast(91%);
       }
 
       .telegram-pill {
@@ -613,6 +668,22 @@
 
         .requests-grid {
           grid-template-columns: 1fr;
+          max-width: 100%;
+        }
+
+        .request-card {
+          width: 100%;
+          height: auto;
+          min-height: auto;
+        }
+
+        .cta {
+          width: 100%;
+          max-width: 370px;
+        }
+
+        .experience-logos {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
     </style>
@@ -742,6 +813,22 @@
             </ul>
             <div class="request-more">Подробнее</div>
           </article>
+        </div>
+      </section>
+
+      <section class="experience-section" aria-label="Опыт">
+        <h2 class="experience-title">Опыт</h2>
+        <div class="experience-strip">
+          <div class="experience-logos">
+            <img src="assets/They trust us/gazpromneft_E4BCA0 1.svg" alt="Газпром нефть" />
+            <img src="assets/They trust us/priroda_therapy_E4BCA0_transparent 1.svg" alt="Priroda Therapy" />
+            <img src="assets/They trust us/salmonica_transparent 2.svg" alt="Salmonica Group" />
+            <img src="assets/They trust us/zarechnoe_E4BCA0_transparent 1.svg" alt="Заречное" />
+            <img src="assets/They trust us/cesi_E4BCA0_transparent 1.svg" alt="ЦЭН" />
+            <img src="assets/They trust us/agrotek_E4BCA0_transparent 1.svg" alt="Агротек" />
+            <img src="assets/They trust us/Group 32.svg" alt="Креативные решения" />
+            <img src="assets/They trust us/Ellipse 1.svg" alt="Z" />
+          </div>
         </div>
       </section>
     </main>
