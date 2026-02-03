@@ -200,19 +200,6 @@
         word-break: break-word;
       }
 
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0;
-        align-items: stretch;
-        justify-content: center;
-        justify-items: center;
-        margin-top: -54px;
-        width: auto;
-        max-width: 1200px;
-        margin-inline: auto;
-      }
-
       .reveal-item {
         opacity: 0;
         transform: translateY(18px);
@@ -246,51 +233,6 @@
 
       .reveal-from-top.is-visible {
         animation-name: revealDown;
-      }
-
-      .stat-card {
-        position: relative;
-        min-width: 0;
-        padding: clamp(10px, 1.4vw, 12px) clamp(10px, 1.6vw, 12px) clamp(10px, 1.4vw, 12px);
-        min-height: 220px;
-        width: 100%;
-        max-width: 280px;
-        height: auto;
-        border-radius: 40px;
-        background: #ffffff;
-        border: 1px solid #e6ddd4;
-        box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 8px;
-      }
-
-      .stat-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 12px;
-        border-radius: 40px 40px 0 0;
-        background: var(--gradient-base);
-      }
-
-      .stat-card h3 {
-        font-size: 40px;
-        font-weight: 600;
-        margin-bottom: 0;
-        color: #2f2a25;
-      }
-
-      .stat-card p {
-        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.3;
-        color: #3c332d;
       }
 
       .bottom-actions {
@@ -611,39 +553,46 @@
       }
 
       .experience-line--left {
-        left: 0;
+        left: 24px;
         top: -32px;
         bottom: -32px;
       }
 
       .experience-line--right {
-        right: 0;
+        right: 24px;
         top: -32px;
         bottom: -32px;
       }
 
       .experience-line--left-secondary {
-        left: 12px;
+        left: 36px;
         top: -20px;
         bottom: -20px;
       }
 
       .experience-line--right-secondary {
-        right: 12px;
+        right: 36px;
         top: -20px;
         bottom: -20px;
       }
 
       .experience-logos {
-        display: grid;
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-        align-items: center;
-        gap: 26px;
+        position: relative;
+        overflow: hidden;
         padding: 24px 0;
       }
 
-      .experience-logos img {
-        height: 81px;
+      .experience-logos-track {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        flex-wrap: nowrap;
+        width: max-content;
+        animation: experienceScroll 28s linear infinite;
+      }
+
+      .experience-logos-track img {
+        height: 96px;
         width: auto;
         max-width: 100%;
         object-fit: contain;
@@ -678,7 +627,7 @@
 
       .consult-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: clamp(20px, 3vw, 32px);
         max-width: 1640px;
         margin: 0 auto;
@@ -862,6 +811,15 @@
         }
       }
 
+      @keyframes experienceScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .reveal-item,
         .reveal-item.is-visible,
@@ -870,6 +828,11 @@
         .reveal-from-top {
           animation: none;
           opacity: 1;
+          transform: none;
+        }
+
+        .experience-logos-track {
+          animation: none;
           transform: none;
         }
       }
@@ -901,17 +864,6 @@
 
         .telegram-pill {
           position: static;
-        }
-
-        .stats {
-          grid-template-columns: 1fr;
-          width: 100%;
-          margin-top: 18px;
-        }
-
-        .stat-card {
-          width: 100%;
-          height: auto;
         }
 
         .bottom-actions {
@@ -948,11 +900,6 @@
           width: auto;
           max-width: 300px;
           min-width: 220px;
-        }
-
-        .experience-logos {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 18px;
         }
 
         .experience-section {
@@ -1167,14 +1114,40 @@
             aria-hidden="true"
           ></span>
           <div class="experience-logos">
-            <img src="assets/They trust us/gazpromneft_E4BCA0 1.svg" alt="Газпром нефть" />
-            <img src="assets/They trust us/priroda_therapy_E4BCA0_transparent 1.svg" alt="Priroda Therapy" />
-            <img src="assets/They trust us/salmonica_transparent 2.svg" alt="Salmonica Group" />
-            <img src="assets/They trust us/zarechnoe_E4BCA0_transparent 1.svg" alt="Заречное" />
-            <img src="assets/They trust us/cesi_E4BCA0_transparent 1.svg" alt="ЦЭН" />
-            <img src="assets/They trust us/agrotek_E4BCA0_transparent 1.svg" alt="Агротек" />
-            <img src="assets/They trust us/Group 32.svg" alt="Креативные решения" />
-            <img src="assets/They trust us/medteks_E4BCA0_transparent 1.svg" alt="Медтекс" />
+            <div class="experience-logos-track">
+              <img src="assets/They trust us/gazpromneft_E4BCA0 1.svg" alt="Газпром нефть" />
+              <img src="assets/They trust us/priroda_therapy_E4BCA0_transparent 1.svg" alt="Priroda Therapy" />
+              <img src="assets/They trust us/salmonica_transparent 2.svg" alt="Salmonica Group" />
+              <img src="assets/They trust us/zarechnoe_E4BCA0_transparent 1.svg" alt="Заречное" />
+              <img src="assets/They trust us/cesi_E4BCA0_transparent 1.svg" alt="ЦЭН" />
+              <img src="assets/They trust us/agrotek_E4BCA0_transparent 1.svg" alt="Агротек" />
+              <img src="assets/They trust us/Group 32.svg" alt="Креативные решения" />
+              <img src="assets/They trust us/medteks_E4BCA0_transparent 1.svg" alt="Медтекс" />
+              <img src="assets/They trust us/gazpromneft_E4BCA0 1.svg" alt="Газпром нефть" aria-hidden="true" />
+              <img
+                src="assets/They trust us/priroda_therapy_E4BCA0_transparent 1.svg"
+                alt="Priroda Therapy"
+                aria-hidden="true"
+              />
+              <img
+                src="assets/They trust us/salmonica_transparent 2.svg"
+                alt="Salmonica Group"
+                aria-hidden="true"
+              />
+              <img
+                src="assets/They trust us/zarechnoe_E4BCA0_transparent 1.svg"
+                alt="Заречное"
+                aria-hidden="true"
+              />
+              <img src="assets/They trust us/cesi_E4BCA0_transparent 1.svg" alt="ЦЭН" aria-hidden="true" />
+              <img
+                src="assets/They trust us/agrotek_E4BCA0_transparent 1.svg"
+                alt="Агротек"
+                aria-hidden="true"
+              />
+              <img src="assets/They trust us/Group 32.svg" alt="Креативные решения" aria-hidden="true" />
+              <img src="assets/They trust us/medteks_E4BCA0_transparent 1.svg" alt="Медтекс" aria-hidden="true" />
+            </div>
           </div>
         </div>
       </section>
