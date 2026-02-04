@@ -497,10 +497,10 @@
         align-items: flex-start;
         justify-content: center;
         padding: clamp(20px, 4vw, 40px) var(--page-gutter);
-        background: rgba(8, 12, 16, 0.4);
+        background: rgba(8, 12, 16, 0.55);
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.25s ease;
+        transition: opacity 0.3s ease;
         z-index: 1000;
       }
 
@@ -520,6 +520,10 @@
         box-shadow: 0 22px 38px rgba(0, 0, 0, 0.2);
         text-align: center;
         overflow: hidden;
+        transform-origin: var(--panel-origin-x, 50%) var(--panel-origin-y, 0%);
+        transform: translateY(16px) scale(0.9);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.3s ease;
       }
 
       .method-panel__card::before {
@@ -555,6 +559,23 @@
         width: min(100%, 220px);
         aspect-ratio: 220 / 64;
         font-size: 16px;
+      }
+
+      .method-panel.is-open .method-panel__card {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      .page,
+      .info-footer {
+        transition: opacity 0.2s ease;
+      }
+
+      body.is-panel-open .page,
+      body.is-panel-open .info-footer {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
       }
 
       .experience-section {
@@ -866,7 +887,8 @@
       .request-more,
       .consult-button,
       .telegram-pill {
-        transition: transform 0.15s ease;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        transform-origin: center;
       }
 
       .cta:active,
@@ -874,6 +896,7 @@
       .consult-button:active,
       .telegram-pill:active {
         transform: scale(0.96);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
       }
 
       .info-footer {
@@ -1586,14 +1609,33 @@
       const methodPanel = document.querySelector("[data-method-panel]");
       const openMethodPanel = document.querySelector("[data-method-panel-open]");
       const closeMethodPanel = document.querySelector("[data-method-panel-close]");
+      const methodPanelCard = methodPanel?.querySelector(".method-panel__card");
+
+      const clampValue = (value, min, max) => Math.min(max, Math.max(min, value));
+
+      const setPanelOrigin = () => {
+        if (!openMethodPanel || !methodPanel || !methodPanelCard) {
+          return;
+        }
+        const buttonRect = openMethodPanel.getBoundingClientRect();
+        const cardRect = methodPanelCard.getBoundingClientRect();
+        const originX =
+          ((buttonRect.left + buttonRect.width / 2 - cardRect.left) / cardRect.width) * 100;
+        const originY =
+          ((buttonRect.top + buttonRect.height / 2 - cardRect.top) / cardRect.height) * 100;
+        methodPanel.style.setProperty("--panel-origin-x", `${clampValue(originX, 0, 100)}%`);
+        methodPanel.style.setProperty("--panel-origin-y", `${clampValue(originY, 0, 100)}%`);
+      };
 
       const openPanel = () => {
         if (!methodPanel) {
           return;
         }
+        setPanelOrigin();
         methodPanel.classList.add("is-open");
         methodPanel.setAttribute("aria-hidden", "false");
         document.body.classList.add("is-locked");
+        document.body.classList.add("is-panel-open");
       };
 
       const closePanel = () => {
@@ -1603,6 +1645,7 @@
         methodPanel.classList.remove("is-open");
         methodPanel.setAttribute("aria-hidden", "true");
         document.body.classList.remove("is-locked");
+        document.body.classList.remove("is-panel-open");
       };
 
       if (openMethodPanel) {
