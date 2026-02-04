@@ -160,12 +160,31 @@
       .hero-image {
         position: relative;
         border-radius: 16px;
+        overflow: hidden;
       }
 
       .hero-image img {
         display: block;
         width: 100%;
         border-radius: 16px;
+      }
+
+      .hero-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        padding: 6px;
+        background: var(--gradient-rich);
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        pointer-events: none;
       }
 
       .hero-title {
@@ -894,7 +913,8 @@
       .cta:active,
       .request-more:active,
       .consult-button:active,
-      .telegram-pill:active {
+      .telegram-pill:active,
+      .contacts-actions .cta:active {
         transform: scale(0.96);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
       }
@@ -1238,10 +1258,11 @@
 
         .method-panel {
           padding: 18px var(--page-gutter-tight);
+          align-items: center;
         }
 
         .method-panel__card {
-          margin-top: 12px;
+          margin-top: 0;
           padding: 28px 22px 32px;
           border-radius: 30px;
         }
