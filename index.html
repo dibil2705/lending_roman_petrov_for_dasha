@@ -50,6 +50,10 @@
         color: var(--text);
       }
 
+      body.is-locked {
+        overflow: hidden;
+      }
+
       h1,
       h2,
       h3 {
@@ -484,6 +488,73 @@
         margin-left: auto;
         margin-right: auto;
         clip-path: polygon(0 50%, 6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%);
+      }
+
+      .method-panel {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: clamp(20px, 4vw, 40px) var(--page-gutter);
+        background: rgba(8, 12, 16, 0.4);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        z-index: 1000;
+      }
+
+      .method-panel.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .method-panel__card {
+        position: relative;
+        width: min(100%, 920px);
+        margin-top: clamp(20px, 4vw, 48px);
+        padding: clamp(32px, 5vw, 56px) clamp(24px, 5vw, 56px)
+          clamp(36px, 5vw, 64px);
+        background: #ffffff;
+        border-radius: clamp(28px, 4vw, 44px);
+        box-shadow: 0 22px 38px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .method-panel__card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 12px;
+        border-radius: inherit;
+        background: var(--gradient-rich);
+      }
+
+      .method-panel__title {
+        font-size: clamp(36px, 4.5vw, 54px);
+        letter-spacing: 0.04em;
+        margin-bottom: clamp(18px, 3vw, 32px);
+      }
+
+      .method-panel__text {
+        display: grid;
+        gap: 18px;
+        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        font-size: clamp(16px, 1.6vw, 20px);
+        line-height: 1.6;
+        color: #2f2a25;
+        text-align: left;
+      }
+
+      .method-panel__close {
+        margin-top: clamp(24px, 4vw, 40px);
+      }
+
+      .method-panel__close .cta {
+        width: min(100%, 220px);
+        aspect-ratio: 220 / 64;
+        font-size: 16px;
       }
 
       .experience-section {
@@ -1141,6 +1212,20 @@
         .info-footer .info-footer-meta {
           margin-top: 32px;
         }
+
+        .method-panel {
+          padding: 18px var(--page-gutter-tight);
+        }
+
+        .method-panel__card {
+          margin-top: 12px;
+          padding: 28px 22px 32px;
+          border-radius: 30px;
+        }
+
+        .method-panel__text {
+          text-align: left;
+        }
       }
     </style>
   </head>
@@ -1226,12 +1311,17 @@
 
       <div class="footer-strip"></div>
 
-      <section class="method-section reveal-item reveal-from-bottom" aria-label="Метод" data-reveal>
+      <section
+        class="method-section reveal-item reveal-from-bottom"
+        id="about"
+        aria-label="Метод"
+        data-reveal
+      >
         <div class="method-logos">
           <img src="assets/School.svg" alt="НИУ ВШЭ" />
           <img src="assets/Insead.svg" alt="INSEAD" />
         </div>
-        <a class="cta cta--secondary" href="#about">Узнать о методе</a>
+        <a class="cta cta--secondary" href="#about" data-method-panel-open>Узнать о методе</a>
       </section>
 
       <section class="requests-section reveal-item reveal-from-bottom" aria-label="Запросы" data-reveal>
@@ -1442,6 +1532,30 @@
         <span>Дизайн и разработка сайта ...</span>
       </div>
     </footer>
+    <div class="method-panel" data-method-panel aria-hidden="true">
+      <div class="method-panel__card" role="dialog" aria-modal="true" aria-labelledby="method-panel-title">
+        <h2 class="method-panel__title" id="method-panel-title">О МЕТОДЕ</h2>
+        <div class="method-panel__text">
+          <p>
+            Психоаналитический коучинг — это научный, структурный метод, который
+            сочетает глубину работы с психикой и фокус на конкретном профессиональном
+            результате.
+          </p>
+          <p>
+            Мы работаем не абстрактно, а точечно над тем запросом, с которым вы
+            пришли, и движемся к измеримым изменениям в реальности.
+          </p>
+          <p>
+            Важно понимать, что это не волшебная таблетка, а поступательный метод,
+            который дает реальные изменения в поведении и как следствие помогает
+            решить те запросы, в которых были трудности.
+          </p>
+        </div>
+        <div class="method-panel__close">
+          <button class="cta" type="button" data-method-panel-close>Закрыть</button>
+        </div>
+      </div>
+    </div>
     <script>
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
@@ -1468,6 +1582,53 @@
       );
 
       revealItems.forEach((item) => observer.observe(item));
+
+      const methodPanel = document.querySelector("[data-method-panel]");
+      const openMethodPanel = document.querySelector("[data-method-panel-open]");
+      const closeMethodPanel = document.querySelector("[data-method-panel-close]");
+
+      const openPanel = () => {
+        if (!methodPanel) {
+          return;
+        }
+        methodPanel.classList.add("is-open");
+        methodPanel.setAttribute("aria-hidden", "false");
+        document.body.classList.add("is-locked");
+      };
+
+      const closePanel = () => {
+        if (!methodPanel) {
+          return;
+        }
+        methodPanel.classList.remove("is-open");
+        methodPanel.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("is-locked");
+      };
+
+      if (openMethodPanel) {
+        openMethodPanel.addEventListener("click", (event) => {
+          event.preventDefault();
+          openPanel();
+        });
+      }
+
+      if (closeMethodPanel) {
+        closeMethodPanel.addEventListener("click", closePanel);
+      }
+
+      if (methodPanel) {
+        methodPanel.addEventListener("click", (event) => {
+          if (event.target === methodPanel) {
+            closePanel();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && methodPanel?.classList.contains("is-open")) {
+          closePanel();
+        }
+      });
     </script>
   </body>
 </html>
