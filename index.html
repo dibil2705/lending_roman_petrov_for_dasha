@@ -22,9 +22,9 @@
         --bg: #fefefc;
         --text: #000000;
         --panel: #cdc7c1;
-        --page-gutter: clamp(20px, 6vw, 160px);
-        --page-gutter-tight: clamp(16px, 4vw, 48px);
-        --section-max: 1920px;
+        --page-gutter: clamp(32px, 8vw, 200px);
+        --page-gutter-tight: clamp(20px, 5vw, 64px);
+        --section-max: 1680px;
         --gradient-base: linear-gradient(110deg, #a66a3f 0%, #e4bca0 50%, #a66a3f 100%);
         --gradient-rich: linear-gradient(110deg, #a66a3f 0%, #e4bca0 50%, #a66a3f 100%);
         --gradient-tapered: linear-gradient(
@@ -296,8 +296,7 @@
         text-align: center;
       }
 
-      .requests-section::before,
-      .requests-section::after {
+      .requests-section::before {
         content: "";
         position: absolute;
         left: 50%;
@@ -310,10 +309,6 @@
 
       .requests-section::before {
         top: 0;
-      }
-
-      .requests-section::after {
-        bottom: 0;
       }
 
       .requests-title {
@@ -531,7 +526,7 @@
         justify-content: center;
         gap: 4px;
         padding: 14px 18px;
-        border-radius: 16px;
+        border-radius: 40px;
         background: #ffffff;
         border: 1px solid #e5ded6;
         box-shadow: 0 14px 22px rgba(0, 0, 0, 0.12);
@@ -653,7 +648,7 @@
         gap: 26px;
         flex-wrap: nowrap;
         width: max-content;
-        animation: experienceScroll 28s linear infinite;
+        animation: experienceScroll 28s linear infinite reverse;
         will-change: transform;
         transform: translateZ(0);
       }
@@ -818,6 +813,20 @@
         inset: 6px;
         border-radius: 8px;
         border: 1px solid #e4bca0;
+      }
+
+      .cta,
+      .request-more,
+      .consult-button,
+      .contact-button {
+        transition: transform 0.15s ease;
+      }
+
+      .cta:active,
+      .request-more:active,
+      .consult-button:active,
+      .contact-button:active {
+        transform: scale(0.96);
       }
 
       .info-footer {
@@ -1067,7 +1076,7 @@
         }
 
         .experience-logos-track {
-          animation-direction: normal;
+          animation-direction: reverse;
         }
 
         .consult-section {
@@ -1103,19 +1112,6 @@
           min-width: 200px;
         }
 
-        .cta,
-        .request-more,
-        .consult-button,
-        .contact-button {
-          transition: transform 0.15s ease;
-        }
-
-        .cta:active,
-        .request-more:active,
-        .consult-button:active,
-        .contact-button:active {
-          transform: scale(0.96);
-        }
 
         .info-footer {
           padding: 60px var(--page-gutter) 50px;
