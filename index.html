@@ -793,13 +793,15 @@
 
       .cta,
       .request-more,
-      .consult-button {
+      .consult-button,
+      .telegram-pill {
         transition: transform 0.15s ease;
       }
 
       .cta:active,
       .request-more:active,
-      .consult-button:active {
+      .consult-button:active,
+      .telegram-pill:active {
         transform: scale(0.96);
       }
 
@@ -947,20 +949,23 @@
         .top-nav {
           flex-direction: row;
           gap: 12px;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
         }
 
         .nav-links {
           gap: 16px;
           flex-wrap: wrap;
-          justify-content: flex-start;
+          justify-content: center;
           flex: 1;
         }
 
         .telegram-pill {
-          position: static;
-          margin-left: auto;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          margin-left: 0;
           flex-shrink: 0;
         }
 
@@ -1092,14 +1097,16 @@
         .consult-grid {
           grid-template-columns: 1fr;
           width: 100%;
-          padding: 0 16px;
+          padding: 0 var(--page-gutter-tight);
           gap: 20px;
         }
 
         .consult-card {
-          padding: 32px 24px;
+          padding: 28px 24px 34px;
           width: 100%;
           max-width: none;
+          min-height: 360px;
+          border-radius: 32px;
         }
 
         .contacts-section {
