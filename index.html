@@ -48,6 +48,7 @@
         font-family: "Roboto Condensed", system-ui, sans-serif;
         background: var(--bg);
         color: var(--text);
+        -webkit-text-size-adjust: 100%;
       }
 
       body.is-locked {
@@ -187,6 +188,17 @@
         pointer-events: none;
       }
 
+      @supports not (-webkit-mask-composite: xor) {
+        .hero-image::after {
+          inset: 6px;
+          border-radius: 12px;
+          border: 2px solid #a66a3f;
+          background: none;
+          -webkit-mask: none;
+          mask: none;
+        }
+      }
+
       .hero-title {
         position: relative;
         display: inline-block;
@@ -219,6 +231,7 @@
         letter-spacing: 0.12em;
         margin-bottom: 18px;
         text-wrap: balance;
+        overflow-wrap: break-word;
       }
 
       .hero-text {
@@ -388,6 +401,7 @@
         letter-spacing: 0.02em;
         text-align: center;
         text-wrap: balance;
+        overflow-wrap: break-word;
       }
 
       .request-card ul {
@@ -578,6 +592,25 @@
         width: min(100%, 220px);
         aspect-ratio: 220 / 64;
         font-size: 16px;
+      }
+
+      @supports not (aspect-ratio: 1 / 1) {
+        .request-more {
+          height: 64px;
+        }
+
+        .cta {
+          height: 90px;
+        }
+
+        .method-panel__close .cta {
+          height: 64px;
+        }
+
+        .stat-card {
+          padding-top: 36px;
+          padding-bottom: 36px;
+        }
       }
 
       .method-panel.is-open .method-panel__card {
@@ -1605,50 +1638,71 @@
         history.scrollRestoration = "manual";
       }
 
-      window.scrollTo({ top: 0, behavior: "auto" });
+      if (typeof window.scrollTo === "function") {
+        try {
+          window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        } catch (error) {
+          window.scrollTo(0, 0);
+        }
+      }
 
-      const revealItems = document.querySelectorAll("[data-reveal]");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              return;
-            }
-            const item = entry.target;
-            if (item.dataset.revealDelay) {
-              item.style.setProperty("--reveal-delay", item.dataset.revealDelay);
-            }
-            item.classList.add("is-visible");
-            observer.unobserve(item);
-          });
-        },
-        { threshold: 0.3 }
-      );
+      var revealItems = document.querySelectorAll("[data-reveal]");
+      if ("IntersectionObserver" in window) {
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) {
+                return;
+              }
+              var item = entry.target;
+              if (item.dataset.revealDelay) {
+                item.style.setProperty("--reveal-delay", item.dataset.revealDelay);
+              }
+              item.classList.add("is-visible");
+              observer.unobserve(item);
+            });
+          },
+          { threshold: 0.3 }
+        );
 
-      revealItems.forEach((item) => observer.observe(item));
+        revealItems.forEach(function (item) {
+          observer.observe(item);
+        });
+      } else {
+        revealItems.forEach(function (item) {
+          if (item.dataset.revealDelay) {
+            item.style.setProperty("--reveal-delay", item.dataset.revealDelay);
+          }
+          item.classList.add("is-visible");
+        });
+      }
 
-      const methodPanel = document.querySelector("[data-method-panel]");
-      const openMethodPanel = document.querySelector("[data-method-panel-open]");
-      const closeMethodPanel = document.querySelector("[data-method-panel-close]");
-      const methodPanelCard = methodPanel?.querySelector(".method-panel__card");
+      var methodPanel = document.querySelector("[data-method-panel]");
+      var openMethodPanel = document.querySelector("[data-method-panel-open]");
+      var closeMethodPanel = document.querySelector("[data-method-panel-close]");
+      var methodPanelCard = methodPanel
+        ? methodPanel.querySelector(".method-panel__card")
+        : null;
 
-      const clampValue = (value, min, max) => Math.min(max, Math.max(min, value));
+      var clampValue = function (value, min, max) {
+        return Math.min(max, Math.max(min, value));
+      };
 
-      const setPanelOrigin = () => {
+      var setPanelOrigin = function () {
         if (!openMethodPanel || !methodPanel || !methodPanelCard) {
           return;
         }
-        const buttonRect = openMethodPanel.getBoundingClientRect();
-        const cardRect = methodPanelCard.getBoundingClientRect();
-        const originX =
+        var buttonRect = openMethodPanel.getBoundingClientRect();
+        var cardRect = methodPanelCard.getBoundingClientRect();
+        var originX =
           ((buttonRect.left + buttonRect.width / 2 - cardRect.left) / cardRect.width) * 100;
-        const originY =
+        var originY =
           ((buttonRect.top + buttonRect.height / 2 - cardRect.top) / cardRect.height) * 100;
-        methodPanel.style.setProperty("--panel-origin-x", `${clampValue(originX, 0, 100)}%`);
-        methodPanel.style.setProperty("--panel-origin-y", `${clampValue(originY, 0, 100)}%`);
+        methodPanel.style.setProperty("--panel-origin-x", clampValue(originX, 0, 100) + "%");
+        methodPanel.style.setProperty("--panel-origin-y", clampValue(originY, 0, 100) + "%");
       };
 
-      const openPanel = () => {
+      var openPanel = function () {
         if (!methodPanel) {
           return;
         }
@@ -1659,7 +1713,7 @@
         document.body.classList.add("is-panel-open");
       };
 
-      const closePanel = () => {
+      var closePanel = function () {
         if (!methodPanel) {
           return;
         }
@@ -1670,7 +1724,7 @@
       };
 
       if (openMethodPanel) {
-        openMethodPanel.addEventListener("click", (event) => {
+        openMethodPanel.addEventListener("click", function (event) {
           event.preventDefault();
           openPanel();
         });
@@ -1681,15 +1735,15 @@
       }
 
       if (methodPanel) {
-        methodPanel.addEventListener("click", (event) => {
+        methodPanel.addEventListener("click", function (event) {
           if (event.target === methodPanel) {
             closePanel();
           }
         });
       }
 
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && methodPanel?.classList.contains("is-open")) {
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && methodPanel && methodPanel.classList.contains("is-open")) {
           closePanel();
         }
       });
