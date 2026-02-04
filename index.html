@@ -138,6 +138,8 @@
 
       .hero-content > div {
         margin-top: 18px;
+        width: 100%;
+        max-width: 520px;
       }
 
       .hero-actions {
@@ -165,6 +167,7 @@
         font-size: clamp(38px, 5vw, 60px);
         letter-spacing: 0.02em;
         margin-bottom: 14px;
+        width: 100%;
       }
 
       .hero-title::after {
@@ -182,7 +185,7 @@
       .hero-subtitle {
         display: inline-block;
         width: 100%;
-        max-width: 620px;
+        max-width: 520px;
         font-size: clamp(17px, 1.8vw, 20px);
         font-weight: 400;
         text-transform: uppercase;
@@ -198,6 +201,7 @@
         margin-bottom: 28px;
         text-align: justify;
         word-break: break-word;
+        width: 100%;
       }
 
       .reveal-item {
@@ -412,6 +416,9 @@
         font-weight: 500;
         letter-spacing: 0.02em;
         text-transform: none;
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
       }
 
       .hero-note {
@@ -441,6 +448,9 @@
         letter-spacing: 0.02em;
         text-transform: none;
         overflow: hidden;
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
       }
 
       .cta::before {
@@ -503,10 +513,10 @@
       .stats {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
-        margin: -40px auto 0;
-        max-width: 980px;
-        width: min(100%, 980px);
+        gap: 12px;
+        margin: -72px auto 0;
+        max-width: 900px;
+        width: min(100%, 900px);
       }
 
       .stat-card {
@@ -514,9 +524,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 6px;
-        padding: 18px 20px;
-        border-radius: 18px;
+        gap: 4px;
+        padding: 14px 18px;
+        border-radius: 16px;
         background: #ffffff;
         border: 1px solid #e5ded6;
         box-shadow: 0 14px 22px rgba(0, 0, 0, 0.12);
@@ -526,7 +536,7 @@
       }
 
       .stat-card h3 {
-        font-size: clamp(56px, 7vw, 92px);
+        font-size: clamp(48px, 6.2vw, 80px);
         line-height: 1;
         font-weight: 400;
       }
@@ -575,8 +585,11 @@
         width: 100%;
         height: 2px;
         background: var(--gradient-base);
+        background-size: 200% 100%;
+        background-position: 0 50%;
         transform: translateX(-50%);
         clip-path: polygon(0 50%, 4% 0, 96% 0, 100% 50%, 96% 100%, 4% 100%);
+        animation: stripSweep 6s linear infinite;
       }
 
       .experience-strip::before {
@@ -593,7 +606,10 @@
         bottom: -26px;
         width: 4px;
         background: var(--gradient-base);
+        background-size: 200% 100%;
+        background-position: 0 50%;
         clip-path: polygon(50% 0, 100% 6%, 100% 94%, 50% 100%, 0 94%, 0 6%);
+        animation: stripSweep 6s linear infinite;
       }
 
       .experience-line--left {
@@ -743,6 +759,9 @@
         text-align: center;
         line-height: 1.2;
         word-break: break-word;
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
       }
 
       .contacts-section {
@@ -783,6 +802,9 @@
         text-decoration: none;
         font-size: clamp(15px, 1.1vw, 18px);
         letter-spacing: 0.02em;
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
       }
 
       .contact-button::before {
@@ -866,6 +888,15 @@
         }
       }
 
+      @keyframes stripSweep {
+        0% {
+          background-position: 0 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .reveal-item,
         .reveal-item.is-visible,
@@ -880,6 +911,12 @@
         .experience-logos-track {
           animation: none;
           transform: none;
+        }
+
+        .experience-strip::before,
+        .experience-strip::after,
+        .experience-line {
+          animation: none;
         }
       }
 
@@ -1046,7 +1083,7 @@
 
         .contacts-section {
           margin-top: 0;
-          padding: 48px 0;
+          padding: 28px 0 24px;
         }
 
         .contacts-actions {
