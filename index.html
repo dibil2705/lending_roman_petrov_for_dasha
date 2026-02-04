@@ -535,6 +535,7 @@
         text-align: center;
         min-height: 0;
         aspect-ratio: 1 / 1;
+        overflow: hidden;
       }
 
       .stat-card::before {
@@ -544,7 +545,7 @@
         left: 0;
         right: 0;
         height: 12px;
-        border-radius: 40px 40px 52px 52px;
+        border-radius: inherit;
         background: var(--gradient-base);
       }
 
@@ -656,9 +657,10 @@
       }
 
       .experience-logos-track {
+        --logo-gap: 26px;
         display: flex;
         align-items: center;
-        gap: 26px;
+        gap: var(--logo-gap);
         flex-wrap: nowrap;
         width: max-content;
         animation: experienceScroll 28s linear infinite reverse;
@@ -920,7 +922,7 @@
           transform: translateX(0);
         }
         100% {
-          transform: translateX(-50%);
+          transform: translateX(calc(-50% - var(--logo-gap) / 2));
         }
       }
 
