@@ -138,15 +138,16 @@
         flex-direction: column;
         height: 100%;
         min-height: 520px;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
         text-align: left;
         width: 100%;
         max-width: 560px;
+        padding-top: 10px;
       }
 
       .hero-content > div {
-        margin-top: 18px;
+        margin-top: 0;
         width: 100%;
         max-width: 520px;
       }
@@ -170,40 +171,21 @@
         border-radius: 16px;
       }
 
-      .hero-image::after {
+      .hero-image::before {
         content: "";
         position: absolute;
-        inset: 0;
-        border-radius: 16px;
-        padding: 6px;
-        background: var(--gradient-rich);
-        -webkit-mask:
-          linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask:
-          linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-        mask-composite: exclude;
+        inset: 6px;
+        border-radius: 10px;
+        border: 1px solid #e4bca0;
         pointer-events: none;
-      }
-
-      @supports not (-webkit-mask-composite: xor) {
-        .hero-image::after {
-          inset: 6px;
-          border-radius: 12px;
-          border: 2px solid #a66a3f;
-          background: none;
-          -webkit-mask: none;
-          mask: none;
-        }
       }
 
       .hero-title {
         position: relative;
         display: inline-block;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
-        font-size: clamp(38px, 5vw, 60px);
+        font-size: clamp(44px, 5.6vw, 72px);
+        font-weight: 300;
         letter-spacing: 0.02em;
         margin-bottom: 14px;
         width: 100%;
@@ -225,8 +207,8 @@
         display: inline-block;
         width: 100%;
         max-width: 520px;
-        font-size: clamp(17px, 1.8vw, 20px);
-        font-weight: 400;
+        font-size: clamp(14px, 1.5vw, 16px);
+        font-weight: 300;
         text-transform: uppercase;
         letter-spacing: 0.12em;
         margin-bottom: 18px;
@@ -235,7 +217,7 @@
       }
 
       .hero-text {
-        font-size: 16px;
+        font-size: 17px;
         line-height: 1.6;
         max-width: 520px;
         margin-bottom: 28px;
@@ -451,6 +433,7 @@
         font-size: 20px;
         letter-spacing: 0.02em;
         margin: 0;
+        font-weight: 500;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
       }
 
@@ -648,10 +631,10 @@
       .stats {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
+        gap: 10px;
         margin: -72px auto 0;
-        max-width: 900px;
-        width: min(100%, 900px);
+        max-width: 760px;
+        width: min(100%, 760px);
       }
 
       .stat-card {
@@ -661,8 +644,8 @@
         align-items: center;
         justify-content: center;
         gap: 4px;
-        padding: 14px 18px;
-        border-radius: 40px;
+        padding: 10px 14px;
+        border-radius: 32px;
         background: #ffffff;
         border: none;
         box-shadow: 0 14px 22px rgba(0, 0, 0, 0.12);
@@ -1346,7 +1329,7 @@
           <div>
             <h1 class="hero-title">РОМАН ПЕТРОВ</h1>
             <div class="hero-subtitle">
-              Предприниматель · Бизнес‑психолог · Психоаналитический коуч
+              бизнес-психолог · психоаналитический коуч · Предприниматель
             </div>
             <p class="hero-text">
               Моя сфера — профессиональные запросы, где ключевая трудность лежит не в
