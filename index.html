@@ -363,8 +363,9 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 6px;
-        border-radius: clamp(24px, 4vw, 40px) clamp(24px, 4vw, 40px) 0 0;
+        height: 14px;
+        border-radius: clamp(24px, 4vw, 40px) clamp(24px, 4vw, 40px)
+          clamp(36px, 5vw, 52px) clamp(36px, 5vw, 52px);
         background: var(--gradient-base);
       }
 
@@ -520,6 +521,7 @@
       }
 
       .stat-card {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -533,6 +535,17 @@
         text-align: center;
         min-height: 0;
         aspect-ratio: 1 / 1;
+      }
+
+      .stat-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 12px;
+        border-radius: 40px 40px 52px 52px;
+        background: var(--gradient-base);
       }
 
       .stat-card h3 {
@@ -717,8 +730,8 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 6px;
-        border-radius: 32px 32px 0 0;
+        height: 14px;
+        border-radius: 32px 32px 44px 44px;
         background: var(--gradient-base);
       }
 
@@ -775,7 +788,7 @@
         font-size: clamp(36px, 4vw, 60px);
         font-weight: 400;
         letter-spacing: 0.06em;
-        margin-bottom: 40px;
+        margin-bottom: 56px;
       }
 
       .contacts-actions {
@@ -846,8 +859,12 @@
       .info-footer h3 {
         font-size: 22px;
         font-weight: 400;
-        color: #e4bca0;
         margin-bottom: 18px;
+        background: var(--gradient-base);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
       }
 
       .info-footer p,
@@ -865,12 +882,16 @@
         justify-content: space-between;
         gap: 24px;
         font-size: 16px;
-        color: #e4bca0;
         flex-wrap: wrap;
       }
 
       .info-footer .info-footer-meta span {
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        background: var(--gradient-base);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
       }
 
       @keyframes revealUp {
@@ -1100,6 +1121,10 @@
         .contacts-section {
           margin-top: 0;
           padding: 28px 0 24px;
+        }
+
+        .contacts-title {
+          margin-bottom: 48px;
         }
 
         .contacts-actions {
