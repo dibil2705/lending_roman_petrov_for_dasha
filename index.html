@@ -266,11 +266,12 @@
 
       .method-logos {
         position: relative;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: center;
         justify-content: center;
         gap: 22px;
-        flex-wrap: wrap;
+        width: min(100%, 520px);
       }
 
       .method-logos::after {
@@ -285,6 +286,7 @@
       }
 
       .method-logos img {
+        justify-self: center;
         height: clamp(110px, 8vw, 160px);
         width: auto;
       }
@@ -350,7 +352,7 @@
           clamp(28px, 4vw, 46px);
         border-radius: clamp(24px, 4vw, 40px);
         background: #ffffff;
-        border: 1px solid #e5ded6;
+        border: none;
         box-shadow: 0 14px 22px rgba(0, 0, 0, 0.18);
         text-align: left;
         width: 100%;
@@ -366,7 +368,7 @@
         height: 14px;
         border-radius: clamp(24px, 4vw, 40px) clamp(24px, 4vw, 40px)
           clamp(36px, 5vw, 52px) clamp(36px, 5vw, 52px);
-        background: var(--gradient-base);
+        background: var(--gradient-rich);
       }
 
       .request-card h3 {
@@ -500,6 +502,7 @@
       .experience-section {
         position: relative;
         margin-top: 250px;
+        margin-bottom: 250px;
         width: 100vw;
         margin-left: calc(50% - 50vw);
         margin-right: calc(50% - 50vw);
@@ -530,7 +533,7 @@
         padding: 14px 18px;
         border-radius: 40px;
         background: #ffffff;
-        border: 1px solid #e5ded6;
+        border: none;
         box-shadow: 0 14px 22px rgba(0, 0, 0, 0.12);
         text-align: center;
         min-height: 0;
@@ -546,7 +549,7 @@
         right: 0;
         height: 12px;
         border-radius: inherit;
-        background: var(--gradient-base);
+        background: var(--gradient-rich);
       }
 
       .stat-card h3 {
@@ -717,7 +720,7 @@
         padding: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 42px);
         border-radius: 32px;
         background: #ffffff;
-        border: 1px solid #e5ded6;
+        border: none;
         box-shadow: 0 18px 28px rgba(0, 0, 0, 0.12);
         display: flex;
         flex-direction: column;
@@ -734,7 +737,7 @@
         right: 0;
         height: 14px;
         border-radius: 32px 32px 44px 44px;
-        background: var(--gradient-base);
+        background: var(--gradient-rich);
       }
 
       .consult-title {
@@ -1018,7 +1021,6 @@
         }
 
         .method-logos {
-          flex-wrap: nowrap;
           gap: 12px;
         }
 
@@ -1052,6 +1054,7 @@
 
         .experience-section {
           margin-top: 0;
+          margin-bottom: 0;
           padding: 48px var(--page-gutter);
         }
 
@@ -1283,13 +1286,13 @@
         </div>
       </section>
 
-      <section class="experience-section" aria-label="Опыт">
-        <h2 class="experience-title">Опыт</h2>
-        <p class="experience-text">
+      <section class="experience-section reveal-item reveal-from-bottom" aria-label="Опыт" data-reveal>
+        <h2 class="experience-title reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.15s">Опыт</h2>
+        <p class="experience-text reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.3s">
           Мой профессиональный опыт в реальной бизнес-среде формировался в работе с
           компаниями из разных отраслей, масштабов и стадий развития.
         </p>
-        <div class="experience-strip">
+        <div class="experience-strip reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.45s">
           <span class="experience-line experience-line--left" aria-hidden="true"></span>
           <span
             class="experience-line experience-line--left experience-line--left-secondary"
@@ -1339,9 +1342,14 @@
         </div>
       </section>
 
-      <section class="consult-section" id="consult" aria-label="Консультации">
+      <section
+        class="consult-section reveal-item reveal-from-bottom"
+        id="consult"
+        aria-label="Консультации"
+        data-reveal
+      >
         <div class="consult-grid">
-          <article class="consult-card">
+          <article class="consult-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.15s">
             <h3 class="consult-title">Консультация</h3>
             <div class="consult-details">
               <p>Стоимость: 5000 ₽</p>
@@ -1352,7 +1360,7 @@
               Забронировать консультацию
             </a>
           </article>
-          <article class="consult-card">
+          <article class="consult-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.3s">
             <h3 class="consult-title">Диагностическая встреча</h3>
             <div class="consult-details">
               <p>Длительность: 20 минут</p>
@@ -1363,7 +1371,7 @@
               Забронировать диагностику
             </a>
           </article>
-          <article class="consult-card">
+          <article class="consult-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.45s">
             <h3 class="consult-title">Командный коучинг</h3>
             <div class="consult-details">
               <p>Стоимость: 10000 ₽</p>
@@ -1374,7 +1382,7 @@
               Забронировать консультацию
             </a>
           </article>
-          <article class="consult-card">
+          <article class="consult-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.6s">
             <h3 class="consult-title">Диагностическая встреча</h3>
             <div class="consult-details">
               <p>Длительность: 20 минут</p>
@@ -1388,39 +1396,62 @@
         </div>
       </section>
 
-      <section class="contacts-section" id="contacts" aria-label="Контакты">
-        <h2 class="contacts-title">КОНТАКТЫ</h2>
+      <section class="contacts-section reveal-item reveal-from-bottom" id="contacts" aria-label="Контакты" data-reveal>
+        <h2 class="contacts-title reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.15s">
+          КОНТАКТЫ
+        </h2>
         <div class="contacts-actions">
-          <a class="contact-button" href="https://t.me/psytech_lab" target="_blank" rel="noreferrer">
+          <a
+            class="contact-button reveal-item reveal-from-bottom"
+            href="https://t.me/psytech_lab"
+            target="_blank"
+            rel="noreferrer"
+            data-reveal
+            data-reveal-delay="0.3s"
+          >
             ТГК канал
           </a>
-          <a class="contact-button" href="https://t.me/PetrovRoma" target="_blank" rel="noreferrer">
+          <a
+            class="contact-button reveal-item reveal-from-bottom"
+            href="https://t.me/PetrovRoma"
+            target="_blank"
+            rel="noreferrer"
+            data-reveal
+            data-reveal-delay="0.45s"
+          >
             Телеграм
           </a>
-          <a class="contact-button" href="mailto:Petrovrs91@bk.ru">Почта</a>
+          <a
+            class="contact-button reveal-item reveal-from-bottom"
+            href="mailto:Petrovrs91@bk.ru"
+            data-reveal
+            data-reveal-delay="0.6s"
+          >
+            Почта
+          </a>
         </div>
       </section>
     </main>
-    <footer class="info-footer" aria-label="Информация">
+    <footer class="info-footer reveal-item reveal-from-bottom" aria-label="Информация" data-reveal>
       <div class="info-footer-grid">
-        <div>
+        <div class="reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.15s">
           <h3>Принцип</h3>
           <p>Всё обсуждаемое во время консультации остаётся между нами.</p>
           <p>Я гарантирую полную конфиденциальность и профессиональную этику.</p>
         </div>
-        <div>
+        <div class="reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.3s">
           <h3>Бизнес</h3>
           <p>ИП Петров Роман Сергеевич</p>
           <p>ОГРНИП 410121658151</p>
         </div>
-        <div>
+        <div class="reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.45s">
           <h3>Документы</h3>
           <p><a href="#" aria-label="Согласие на обработку персональных данных">Согласие на обработку персональных данных</a></p>
           <p><a href="#" aria-label="Политика конфиденциальности">Политика конфиденциальности</a></p>
           <p><a href="#" aria-label="Оферта">Оферта</a></p>
         </div>
       </div>
-      <div class="info-footer-meta">
+      <div class="info-footer-meta reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.6s">
         <span>Роман Петров 2026</span>
         <span>Дизайн и разработка сайта ...</span>
       </div>
