@@ -633,6 +633,8 @@
         flex-wrap: nowrap;
         width: max-content;
         animation: experienceScroll 28s linear infinite;
+        will-change: transform;
+        transform: translateZ(0);
       }
 
       .experience-logos-track img {
@@ -857,10 +859,10 @@
 
       @keyframes experienceScroll {
         0% {
-          transform: translateX(-50%);
+          transform: translateX(0);
         }
         100% {
-          transform: translateX(0);
+          transform: translateX(-50%);
         }
       }
 
@@ -882,8 +884,20 @@
       }
 
       @media (max-width: 900px) {
+        :root {
+          --mobile-section-gap: 48px;
+        }
+
         .page {
           padding: 18px 24px 40px;
+        }
+
+        .page > section {
+          margin-top: var(--mobile-section-gap);
+        }
+
+        .page > section:first-of-type {
+          margin-top: 0;
         }
 
         .hero {
@@ -911,7 +925,16 @@
         }
 
         .bottom-actions {
-          margin-top: 20px;
+          margin: 0;
+          padding-top: 0;
+          padding-bottom: 0;
+          gap: 24px;
+        }
+
+        .method-section {
+          margin-top: 0;
+          padding-top: 0;
+          padding-bottom: 0;
         }
 
         .method-logos img {
@@ -933,6 +956,11 @@
           padding: 0;
         }
 
+        .requests-section {
+          margin-top: 0;
+          padding: 48px 0;
+        }
+
         .request-card {
           width: 100%;
           height: auto;
@@ -947,8 +975,8 @@
         }
 
         .experience-section {
-          margin-top: 120px;
-          padding: 48px 24px 56px;
+          margin-top: 0;
+          padding: 48px 24px;
         }
 
         .experience-title {
@@ -999,8 +1027,8 @@
         }
 
         .consult-section {
-          margin-top: 80px;
-          padding-bottom: 60px;
+          margin-top: 0;
+          padding-bottom: 48px;
         }
 
         .consult-grid {
@@ -1017,7 +1045,8 @@
         }
 
         .contacts-section {
-          padding: 60px 0;
+          margin-top: 0;
+          padding: 48px 0;
         }
 
         .contacts-actions {
@@ -1028,6 +1057,20 @@
           width: auto;
           max-width: 280px;
           min-width: 200px;
+        }
+
+        .cta,
+        .request-more,
+        .consult-button,
+        .contact-button {
+          transition: transform 0.15s ease;
+        }
+
+        .cta:active,
+        .request-more:active,
+        .consult-button:active,
+        .contact-button:active {
+          transform: scale(0.96);
         }
 
         .info-footer {
