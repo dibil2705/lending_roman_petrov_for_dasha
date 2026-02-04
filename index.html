@@ -274,17 +274,6 @@
         width: min(100%, 520px);
       }
 
-      .method-logos::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 2px;
-        height: 46px;
-        background: #c9bdb2;
-        transform: translate(-50%, -50%);
-      }
-
       .method-logos img {
         justify-self: center;
         height: clamp(110px, 8vw, 160px);
@@ -365,9 +354,8 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 14px;
-        border-radius: clamp(24px, 4vw, 40px) clamp(24px, 4vw, 40px)
-          clamp(36px, 5vw, 52px) clamp(36px, 5vw, 52px);
+        height: 12px;
+        border-radius: inherit;
         background: var(--gradient-rich);
       }
 
@@ -735,8 +723,8 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 14px;
-        border-radius: 32px 32px 44px 44px;
+        height: 12px;
+        border-radius: inherit;
         background: var(--gradient-rich);
       }
 
@@ -799,51 +787,19 @@
       .contacts-actions {
         display: flex;
         justify-content: center;
-        gap: 120px;
+        gap: clamp(20px, 6vw, 120px);
         flex-wrap: wrap;
-      }
-
-      .contact-button {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: clamp(240px, 16.7vw, 321px);
-        aspect-ratio: 321 / 90;
-        padding: 0 24px;
-        border-radius: 10px;
-        border: none;
-        background: #0a2339;
-        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.24);
-        overflow: hidden;
-        color: #ffffff;
-        text-decoration: none;
-        font-size: clamp(15px, 1.1vw, 18px);
-        letter-spacing: 0.02em;
-        cursor: pointer;
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      .contact-button::before {
-        content: "";
-        position: absolute;
-        inset: 6px;
-        border-radius: 8px;
-        border: 1px solid #e4bca0;
       }
 
       .cta,
       .request-more,
-      .consult-button,
-      .contact-button {
+      .consult-button {
         transition: transform 0.15s ease;
       }
 
       .cta:active,
       .request-more:active,
-      .consult-button:active,
-      .contact-button:active {
+      .consult-button:active {
         transform: scale(0.96);
       }
 
@@ -1024,10 +980,6 @@
           gap: 12px;
         }
 
-        .method-logos::after {
-          height: 36px;
-        }
-
         .requests-grid {
           grid-template-columns: 1fr;
           max-width: 100%;
@@ -1136,12 +1088,6 @@
           gap: 20px;
         }
 
-        .contact-button {
-          width: auto;
-          max-width: 280px;
-          min-width: 200px;
-        }
-
 
         .info-footer {
           padding: 60px var(--page-gutter) 50px;
@@ -1242,8 +1188,8 @@
 
       <section class="method-section reveal-item reveal-from-bottom" aria-label="Метод" data-reveal>
         <div class="method-logos">
-          <img src="assets/School.svg" alt="НИУ ВШЭ" />
           <img src="assets/Insead.svg" alt="INSEAD" />
+          <img src="assets/School.svg" alt="НИУ ВШЭ" />
         </div>
         <a class="cta cta--secondary" href="#about">Узнать о методе</a>
       </section>
@@ -1402,7 +1348,7 @@
         </h2>
         <div class="contacts-actions">
           <a
-            class="contact-button reveal-item reveal-from-bottom"
+            class="cta cta--secondary reveal-item reveal-from-bottom"
             href="https://t.me/psytech_lab"
             target="_blank"
             rel="noreferrer"
@@ -1412,7 +1358,7 @@
             ТГК канал
           </a>
           <a
-            class="contact-button reveal-item reveal-from-bottom"
+            class="cta cta--secondary reveal-item reveal-from-bottom"
             href="https://t.me/PetrovRoma"
             target="_blank"
             rel="noreferrer"
@@ -1422,7 +1368,7 @@
             Телеграм
           </a>
           <a
-            class="contact-button reveal-item reveal-from-bottom"
+            class="cta cta--secondary reveal-item reveal-from-bottom"
             href="mailto:Petrovrs91@bk.ru"
             data-reveal
             data-reveal-delay="0.6s"
