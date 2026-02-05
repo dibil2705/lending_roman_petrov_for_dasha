@@ -385,13 +385,13 @@
         font-size: clamp(14px, 1.2vw, 18px);
         padding: clamp(22px, 3vw, 32px) clamp(20px, 3.4vw, 44px)
           clamp(28px, 4vw, 46px);
-        border-radius: clamp(24px, 4vw, 40px);
-        background: url("assets/panels/Panels_Requests.svg") center/contain no-repeat;
+        border-radius: 0;
+        background: url("assets/panels/Panels_Requests.svg") center/100% 100% no-repeat;
         border: none;
-        box-shadow: 0 18px 28px rgba(0, 0, 0, 0.18);
+        box-shadow: none;
         text-align: left;
         justify-self: center;
-        overflow: hidden;
+        overflow: visible;
       }
 
       .request-card h3 {
@@ -554,12 +554,12 @@
 
       .method-panel__card {
         position: relative;
-        width: min(100%, 920px);
-        max-width: min(100%, 920px);
-        aspect-ratio: 1.17 / 1;
+        width: min(100%, 880px);
+        max-width: min(100%, 880px);
+        aspect-ratio: 1.2 / 1;
         margin-top: clamp(20px, 4vw, 48px);
-        padding: clamp(32px, 5vw, 56px) clamp(24px, 5vw, 56px)
-          clamp(36px, 5vw, 64px);
+        padding: clamp(36px, 5vw, 60px) clamp(24px, 5vw, 56px)
+          clamp(28px, 4vw, 52px);
         background: url("assets/panels/Panels_blure.svg") center/cover no-repeat;
         border-radius: 0;
         box-shadow: none;
@@ -580,14 +580,14 @@
         font-size: clamp(36px, 4.5vw, 54px);
         font-weight: 400;
         letter-spacing: 0.04em;
-        margin-bottom: 0;
+        margin: clamp(8px, 1.4vw, 16px) 0 0;
       }
 
       .method-panel__text {
         display: grid;
         gap: 18px;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
-        font-size: clamp(16px, 1.6vw, 20px);
+        font-size: clamp(15px, 1.5vw, 19px);
         line-height: 1.6;
         color: #2f2a25;
         text-align: left;
@@ -601,12 +601,12 @@
       }
 
       .method-panel[data-method-panel] .method-panel__card {
-        width: min(100%, 840px);
-        max-width: min(100%, 840px);
+        width: min(100%, 800px);
+        max-width: min(100%, 800px);
       }
 
       .method-panel[data-method-panel] .method-panel__text {
-        font-size: clamp(12px, 2.2vw, 18px);
+        font-size: clamp(11px, 2vw, 17px);
         text-align: center;
         justify-items: center;
       }
@@ -1724,17 +1724,18 @@
       <div class="method-panel__card" role="dialog" aria-modal="true" aria-labelledby="method-panel-title">
         <h2 class="method-panel__title" id="method-panel-title">О МЕТОДЕ</h2>
         <div class="method-panel__text">
-          <ul>
-            <li>масштабирование</li>
-            <li>запуск нового бизнеса</li>
-            <li>переход из найма в бизнес</li>
-            <li>конфликты с партнерами</li>
-            <li>сложности в коммуникации</li>
-            <li>страх делегирования</li>
-            <li>выгорание</li>
-            <li>страх публичных выступлений</li>
-            <li>поиск новых решений в сложных и нестандартных ситуациях</li>
-          </ul>
+          <p>
+            Психоаналитический коучинг — это научный, структурный метод, который сочетает глубину
+            работы с психикой и фокус на конкретном профессиональном результате.
+          </p>
+          <p>
+            Мы работаем не абстрактно, а точечно над тем запросом, с которым вы пришли, и движемся
+            к измеримым изменениям в реальности.
+          </p>
+          <p>
+            Это не волшебная таблетка, а поступательный метод, который дает реальные изменения в
+            поведении и помогает решить те запросы, в которых были трудности.
+          </p>
         </div>
         <div class="method-panel__close">
           <button class="cta" type="button" data-method-panel-close>Закрыть</button>
