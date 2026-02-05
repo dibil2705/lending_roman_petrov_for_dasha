@@ -589,7 +589,7 @@
         gap: 18px;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
         font-size: clamp(15px, 1.5vw, 19px);
-        line-height: 1.6;
+        line-height: 1.4;
         color: #2f2a25;
         text-align: left;
       }
@@ -603,14 +603,16 @@
 
       .method-panel[data-method-panel] .method-panel__card,
       .method-panel[data-request-panel] .method-panel__card,
-      .method-panel[data-request-team-panel] .method-panel__card {
+      .method-panel[data-request-team-panel] .method-panel__card,
+      .method-panel[data-request-crisis-panel] .method-panel__card {
         width: min(100%, 800px);
         max-width: min(100%, 800px);
       }
 
       .method-panel[data-method-panel] .method-panel__text,
       .method-panel[data-request-panel] .method-panel__text,
-      .method-panel[data-request-team-panel] .method-panel__text {
+      .method-panel[data-request-team-panel] .method-panel__text,
+      .method-panel[data-request-crisis-panel] .method-panel__text {
         font-size: clamp(11px, 2vw, 17px);
         text-align: left;
         justify-items: start;
@@ -618,14 +620,17 @@
 
       .method-panel[data-method-panel] .method-panel__text ul,
       .method-panel[data-request-panel] .method-panel__text ul,
-      .method-panel[data-request-team-panel] .method-panel__text ul {
+      .method-panel[data-request-team-panel] .method-panel__text ul,
+      .method-panel[data-request-crisis-panel] .method-panel__text ul {
         list-style: none;
         padding: 0;
         margin: 0;
       }
 
       .method-panel__close {
-        margin-top: 0;
+        margin-top: auto;
+        display: flex;
+        justify-content: center;
       }
 
       .method-panel__close .cta {
@@ -1571,7 +1576,7 @@
               <li>страх публичных выступлений</li>
               <li>поиск новых решений в сложных и нестандартных ситуациях</li>
             </ul>
-            <div class="request-more">Подробнее</div>
+            <div class="request-more" data-request-crisis-panel-open>Подробнее</div>
           </article>
         </div>
       </section>
@@ -1777,16 +1782,18 @@
       >
         <h2 class="method-panel__title" id="request-panel-title">Переходы, рост и развитие</h2>
         <div class="method-panel__text">
-          <p>Поддержка в периоды масштабирования и смены профессионального статуса.</p>
           <ul>
-            <li>масштабирование бизнеса и выход на новый уровень</li>
-            <li>запуск нового бизнеса и смена роли в управлении</li>
-            <li>переход из найма в предпринимательство без потери опоры</li>
+            <li>· масштабирование, развитие/оптимизация текущего проекта</li>
+            <li>· запуск нового бизнеса</li>
+            <li>· переход из найма в бизнес</li>
+            <li>· переход на фриланс</li>
+            <li>· смена/поиск новой ниши</li>
+            <li>· переход в новую профессиональную идентичность</li>
+            <li>· поиск своего призвания и новых смыслов в реализации</li>
+            <li>· страх повышать стоимость услуг</li>
+            <li>· страх просить повышения оплаты в найме</li>
+            <li>· желание роста и выхода на новый профессиональный уровень</li>
           </ul>
-          <p>
-            Помогаю выстроить опору, определить приоритеты и сохранить ясность, чтобы
-            решения в росте были устойчивыми и системными.
-          </p>
         </div>
         <div class="method-panel__close">
           <button class="cta" type="button" data-request-panel-close>Закрыть</button>
@@ -1806,15 +1813,42 @@
         </h2>
         <div class="method-panel__text">
           <ul>
-            <li>конфликты с партнёрами и расхождение в видении</li>
-            <li>сложности в коммуникации с сотрудниками и командой</li>
-            <li>страх делегирования и потери контроля</li>
-            <li>понимание скрытой динамики и напряжений внутри команды</li>
-            <li>и другие профессиональные запросы</li>
+            <li>· конфликты с партнёрами и расхождение в видении</li>
+            <li>· сложности в коммуникации с сотрудниками и командой</li>
+            <li>· страх делегирования и потери контроля</li>
+            <li>· понимание скрытой динамики и напряжений внутри команды</li>
+            <li>· и другие профессиональные запросы</li>
           </ul>
         </div>
         <div class="method-panel__close">
           <button class="cta" type="button" data-request-team-panel-close>Закрыть</button>
+        </div>
+      </div>
+    </div>
+    <div class="method-panel" data-request-crisis-panel aria-hidden="true">
+      <div
+        class="method-panel__card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="request-crisis-panel-title"
+      >
+        <h2 class="method-panel__title" id="request-crisis-panel-title">
+          ВНУТРЕННИЕ ОГРАНИЧЕНИЯ<br />
+          И КРИЗИСНЫЕ СОСТОЯНИЯ
+        </h2>
+        <div class="method-panel__text">
+          <ul>
+            <li>· психологическое выдерживание внешних изменений и адаптация к ним</li>
+            <li>· прохождение профессиональной турбулентности и кризисных этапов</li>
+            <li>· поиск новых решений в сложных и нестандартных ситуациях</li>
+            <li>· прокрастинация, откладывание и невозможность начать</li>
+            <li>· перфекционизм, синдром самозванца, внутренний критик</li>
+            <li>· выгорание, хронический стресс, отсутствие удовольствия от деятельности</li>
+            <li>· страх публичного проявления и продвижения</li>
+          </ul>
+        </div>
+        <div class="method-panel__close">
+          <button class="cta" type="button" data-request-crisis-panel-close>Закрыть</button>
         </div>
       </div>
     </div>
@@ -1865,12 +1899,15 @@
       var methodPanel = document.querySelector("[data-method-panel]");
       var requestPanel = document.querySelector("[data-request-panel]");
       var requestTeamPanel = document.querySelector("[data-request-team-panel]");
+      var requestCrisisPanel = document.querySelector("[data-request-crisis-panel]");
       var openMethodPanel = document.querySelector("[data-method-panel-open]");
       var openRequestPanel = document.querySelector("[data-request-panel-open]");
       var openRequestTeamPanel = document.querySelector("[data-request-team-panel-open]");
+      var openRequestCrisisPanel = document.querySelector("[data-request-crisis-panel-open]");
       var closeMethodPanel = document.querySelector("[data-method-panel-close]");
       var closeRequestPanel = document.querySelector("[data-request-panel-close]");
       var closeRequestTeamPanel = document.querySelector("[data-request-team-panel-close]");
+      var closeRequestCrisisPanel = document.querySelector("[data-request-crisis-panel-close]");
 
       var clampValue = function (value, min, max) {
         return Math.min(max, Math.max(min, value));
@@ -1957,7 +1994,20 @@
         });
       }
 
-      [methodPanel, requestPanel, requestTeamPanel].forEach(function (panel) {
+      if (openRequestCrisisPanel) {
+        openRequestCrisisPanel.addEventListener("click", function (event) {
+          event.preventDefault();
+          openPanel(requestCrisisPanel, openRequestCrisisPanel);
+        });
+      }
+
+      if (closeRequestCrisisPanel) {
+        closeRequestCrisisPanel.addEventListener("click", function () {
+          closePanel(requestCrisisPanel);
+        });
+      }
+
+      [methodPanel, requestPanel, requestTeamPanel, requestCrisisPanel].forEach(function (panel) {
         if (!panel) {
           return;
         }
