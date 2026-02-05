@@ -599,6 +599,23 @@
         padding-left: 24px;
       }
 
+      .method-panel[data-method-panel] .method-panel__card {
+        width: min(100%, 840px);
+        max-width: min(100%, 840px);
+      }
+
+      .method-panel[data-method-panel] .method-panel__text {
+        font-size: clamp(12px, 2.2vw, 18px);
+        text-align: center;
+        justify-items: center;
+      }
+
+      .method-panel[data-method-panel] .method-panel__text ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
       .method-panel__close {
         margin-top: 0;
       }
@@ -1365,8 +1382,19 @@
           text-align: left;
         }
 
+        .method-panel[data-method-panel] .method-panel__text {
+          padding: 0;
+          text-align: center;
+        }
+
         .hero-subtitle {
           white-space: normal;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .method-panel[data-method-panel] .method-panel__text {
+          padding: 0 91px;
         }
       }
     </style>
@@ -1696,25 +1724,17 @@
       <div class="method-panel__card" role="dialog" aria-modal="true" aria-labelledby="method-panel-title">
         <h2 class="method-panel__title" id="method-panel-title">О МЕТОДЕ</h2>
         <div class="method-panel__text">
-          <p>
-            Психоаналитический коучинг — это научный, структурный метод,
-            <br />
-            который сочетает глубину работы с психикой и фокус на конкретном
-            <br />
-            профессиональном результате.
-          </p>
-          <p>
-            Мы работаем не абстрактно, а точечно над тем запросом, с которым
-            <br />
-            вы пришли и движемся к измеримым изменениям в реальности.
-          </p>
-          <p>
-            Важно понимать, что это не волшебная таблетка, а поступательный
-            <br />
-            метод, который дает реальные изменения в поведении и как
-            <br />
-            следствие помогает решить те запросы, в которых были трудности.
-          </p>
+          <ul>
+            <li>масштабирование</li>
+            <li>запуск нового бизнеса</li>
+            <li>переход из найма в бизнес</li>
+            <li>конфликты с партнерами</li>
+            <li>сложности в коммуникации</li>
+            <li>страх делегирования</li>
+            <li>выгорание</li>
+            <li>страх публичных выступлений</li>
+            <li>поиск новых решений в сложных и нестандартных ситуациях</li>
+          </ul>
         </div>
         <div class="method-panel__close">
           <button class="cta" type="button" data-method-panel-close>Закрыть</button>
