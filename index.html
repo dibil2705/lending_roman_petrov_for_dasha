@@ -19,7 +19,7 @@
 
       :root {
         color-scheme: light;
-        --bg: #fefefc;
+        --bg: #fdfdfd;
         --text: #000000;
         --panel: #cdc7c1;
         --page-gutter: clamp(32px, 8vw, 200px);
@@ -146,10 +146,11 @@
         padding-top: 10px;
       }
 
-      .hero-content > div {
+      .hero-intro {
         margin-top: 0;
         width: 100%;
         max-width: 520px;
+        font-size: clamp(14px, 1.2vw, 18px);
       }
 
       .hero-actions {
@@ -184,12 +185,12 @@
         position: relative;
         display: inline-block;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
-        font-size: clamp(46px, 6.2vmin, 78px);
+        font-size: 4.2em;
         font-weight: 300;
         letter-spacing: 0.02em;
         margin-bottom: 14px;
         width: 100%;
-        max-width: 520px;
+        max-width: 620px;
         white-space: nowrap;
       }
 
@@ -200,8 +201,8 @@
         right: 0;
         margin: 0 auto;
         bottom: -6px;
-        width: 100%;
-        max-width: 520px;
+        width: 110%;
+        max-width: 620px;
         height: 3px;
         border-radius: 999px;
         background: var(--gradient-base);
@@ -212,7 +213,7 @@
         display: inline-block;
         width: 100%;
         max-width: 520px;
-        font-size: clamp(12px, 2.4vmin, 18px);
+        font-size: 1.1em;
         font-weight: 400;
         text-transform: uppercase;
         letter-spacing: 0.06em;
@@ -222,7 +223,7 @@
       }
 
       .hero-text {
-        font-size: clamp(14px, 2.1vmin, 18px);
+        font-size: 1em;
         line-height: 1.6;
         max-width: 520px;
         margin-bottom: 28px;
@@ -637,10 +638,10 @@
       .stats {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 24px;
+        gap: 28px;
         margin: -72px auto 0;
-        max-width: 760px;
-        width: min(100%, 760px);
+        max-width: 920px;
+        width: min(100%, 920px);
       }
 
       .stat-card {
@@ -650,9 +651,9 @@
         align-items: center;
         justify-content: center;
         gap: 4px;
-        padding: 10px 14px;
-        border-radius: 32px;
-        background: url("assets/panels/Panel_Experience.svg") center/cover no-repeat;
+        padding: 16px 18px;
+        border-radius: 36px;
+        background: url("assets/panels/Panel_Experience2.svg") center/cover no-repeat;
         border: none;
         box-shadow: none;
         text-align: center;
@@ -792,8 +793,8 @@
       .telegram-pill {
         position: absolute;
         right: 0;
-        width: 46px;
-        height: 46px;
+        width: 54px;
+        height: 54px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -803,8 +804,8 @@
       }
 
       .telegram-pill img {
-        width: 26px;
-        height: 26px;
+        width: 32px;
+        height: 32px;
         filter: brightness(0) saturate(100%) invert(54%) sepia(79%) saturate(1677%)
           hue-rotate(169deg) brightness(95%) contrast(92%);
       }
@@ -1335,7 +1336,7 @@
           data-reveal
           data-reveal-delay="0.2s"
         >
-          <div>
+          <div class="hero-intro">
             <h1 class="hero-title">РОМАН ПЕТРОВ</h1>
             <div class="hero-subtitle">
               бизнес-психолог · психоаналитический коуч · Предприниматель
