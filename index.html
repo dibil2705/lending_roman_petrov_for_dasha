@@ -552,14 +552,18 @@
 
       .method-panel__card {
         position: relative;
-        width: min(100%, 920px);
-        aspect-ratio: 1.1764 / 1;
+        width: auto;
+        max-width: min(100%, 920px);
         margin-top: clamp(20px, 4vw, 48px);
         padding: clamp(32px, 5vw, 56px) clamp(24px, 5vw, 56px)
           clamp(36px, 5vw, 64px);
         background: url("assets/panels/Panels_blure.svg") center/cover no-repeat;
         border-radius: clamp(28px, 4vw, 44px);
         box-shadow: 0 22px 38px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: clamp(18px, 2.5vw, 28px);
         text-align: center;
         overflow: hidden;
         transform-origin: var(--panel-origin-x, 50%) var(--panel-origin-y, 0%);
@@ -571,7 +575,7 @@
       .method-panel__title {
         font-size: clamp(36px, 4.5vw, 54px);
         letter-spacing: 0.04em;
-        margin-bottom: clamp(18px, 3vw, 32px);
+        margin-bottom: 0;
       }
 
       .method-panel__text {
@@ -584,8 +588,15 @@
         text-align: left;
       }
 
+      .method-panel__text ul {
+        list-style: disc;
+        display: grid;
+        gap: 8px;
+        padding-left: 24px;
+      }
+
       .method-panel__close {
-        margin-top: clamp(24px, 4vw, 40px);
+        margin-top: 0;
       }
 
       .method-panel__close .cta {
@@ -960,6 +971,12 @@
       .contacts-actions .cta {
         transition: opacity 0.6s ease, transform 0.6s ease;
         transition-delay: var(--reveal-delay, 0s);
+      }
+
+      .contacts-actions .cta:active,
+      .contacts-actions .cta:focus-visible {
+        transform: none;
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.24);
       }
 
       .info-footer {
@@ -1472,7 +1489,7 @@
               <li>запуск нового бизнеса</li>
               <li>переход из найма в бизнес</li>
             </ul>
-            <div class="request-more">Подробнее</div>
+            <div class="request-more" data-request-panel-open>Подробнее</div>
           </article>
           <article class="request-card">
             <h3>Партнерство и команда</h3>
@@ -1689,6 +1706,31 @@
         </div>
       </div>
     </div>
+    <div class="method-panel" data-request-panel aria-hidden="true">
+      <div
+        class="method-panel__card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="request-panel-title"
+      >
+        <h2 class="method-panel__title" id="request-panel-title">Переходы, рост и развитие</h2>
+        <div class="method-panel__text">
+          <p>Поддержка в периоды масштабирования и смены профессионального статуса.</p>
+          <ul>
+            <li>масштабирование бизнеса и выход на новый уровень</li>
+            <li>запуск нового бизнеса и смена роли в управлении</li>
+            <li>переход из найма в предпринимательство без потери опоры</li>
+          </ul>
+          <p>
+            Помогаю выстроить опору, определить приоритеты и сохранить ясность, чтобы
+            решения в росте были устойчивыми и системными.
+          </p>
+        </div>
+        <div class="method-panel__close">
+          <button class="cta" type="button" data-request-panel-close>Закрыть</button>
+        </div>
+      </div>
+    </div>
     <script>
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
@@ -1734,74 +1776,102 @@
       }
 
       var methodPanel = document.querySelector("[data-method-panel]");
+      var requestPanel = document.querySelector("[data-request-panel]");
       var openMethodPanel = document.querySelector("[data-method-panel-open]");
+      var openRequestPanel = document.querySelector("[data-request-panel-open]");
       var closeMethodPanel = document.querySelector("[data-method-panel-close]");
-      var methodPanelCard = methodPanel
-        ? methodPanel.querySelector(".method-panel__card")
-        : null;
+      var closeRequestPanel = document.querySelector("[data-request-panel-close]");
 
       var clampValue = function (value, min, max) {
         return Math.min(max, Math.max(min, value));
       };
 
-      var setPanelOrigin = function () {
-        if (!openMethodPanel || !methodPanel || !methodPanelCard) {
+      var setPanelOrigin = function (panel, trigger) {
+        var panelCard = panel ? panel.querySelector(".method-panel__card") : null;
+        if (!panel || !panelCard || !trigger) {
           return;
         }
-        var buttonRect = openMethodPanel.getBoundingClientRect();
-        var cardRect = methodPanelCard.getBoundingClientRect();
+        var buttonRect = trigger.getBoundingClientRect();
+        var cardRect = panelCard.getBoundingClientRect();
         var originX =
           ((buttonRect.left + buttonRect.width / 2 - cardRect.left) / cardRect.width) * 100;
         var originY =
           ((buttonRect.top + buttonRect.height / 2 - cardRect.top) / cardRect.height) * 100;
-        methodPanel.style.setProperty("--panel-origin-x", clampValue(originX, 0, 100) + "%");
-        methodPanel.style.setProperty("--panel-origin-y", clampValue(originY, 0, 100) + "%");
+        panel.style.setProperty("--panel-origin-x", clampValue(originX, 0, 100) + "%");
+        panel.style.setProperty("--panel-origin-y", clampValue(originY, 0, 100) + "%");
       };
 
-      var openPanel = function () {
-        if (!methodPanel) {
+      var openPanel = function (panel, trigger) {
+        if (!panel) {
           return;
         }
-        setPanelOrigin();
-        methodPanel.classList.add("is-open");
-        methodPanel.setAttribute("aria-hidden", "false");
+        document.querySelectorAll(".method-panel.is-open").forEach(function (openPanelItem) {
+          openPanelItem.classList.remove("is-open");
+          openPanelItem.setAttribute("aria-hidden", "true");
+        });
+        setPanelOrigin(panel, trigger);
+        panel.classList.add("is-open");
+        panel.setAttribute("aria-hidden", "false");
         document.body.classList.add("is-locked");
         document.body.classList.add("is-panel-open");
       };
 
-      var closePanel = function () {
-        if (!methodPanel) {
+      var closePanel = function (panel) {
+        if (!panel) {
           return;
         }
-        methodPanel.classList.remove("is-open");
-        methodPanel.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("is-locked");
-        document.body.classList.remove("is-panel-open");
+        panel.classList.remove("is-open");
+        panel.setAttribute("aria-hidden", "true");
+        if (!document.querySelector(".method-panel.is-open")) {
+          document.body.classList.remove("is-locked");
+          document.body.classList.remove("is-panel-open");
+        }
       };
 
       if (openMethodPanel) {
         openMethodPanel.addEventListener("click", function (event) {
           event.preventDefault();
-          openPanel();
+          openPanel(methodPanel, openMethodPanel);
         });
       }
 
       if (closeMethodPanel) {
-        closeMethodPanel.addEventListener("click", closePanel);
-      }
-
-      if (methodPanel) {
-        methodPanel.addEventListener("click", function (event) {
-          if (event.target === methodPanel) {
-            closePanel();
-          }
+        closeMethodPanel.addEventListener("click", function () {
+          closePanel(methodPanel);
         });
       }
 
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && methodPanel && methodPanel.classList.contains("is-open")) {
-          closePanel();
+      if (openRequestPanel) {
+        openRequestPanel.addEventListener("click", function (event) {
+          event.preventDefault();
+          openPanel(requestPanel, openRequestPanel);
+        });
+      }
+
+      if (closeRequestPanel) {
+        closeRequestPanel.addEventListener("click", function () {
+          closePanel(requestPanel);
+        });
+      }
+
+      [methodPanel, requestPanel].forEach(function (panel) {
+        if (!panel) {
+          return;
         }
+        panel.addEventListener("click", function (event) {
+          if (event.target === panel) {
+            closePanel(panel);
+          }
+        });
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") {
+          return;
+        }
+        document.querySelectorAll(".method-panel.is-open").forEach(function (openPanelItem) {
+          closePanel(openPanelItem);
+        });
       });
     </script>
   </body>
