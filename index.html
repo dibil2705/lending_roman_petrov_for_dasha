@@ -184,7 +184,7 @@
         position: relative;
         display: inline-block;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
-        font-size: clamp(44px, 5.6vw, 72px);
+        font-size: clamp(48px, 6vw, 78px);
         font-weight: 300;
         letter-spacing: 0.02em;
         margin-bottom: 14px;
@@ -197,8 +197,11 @@
         content: "";
         position: absolute;
         left: 0;
+        right: 0;
+        margin: 0 auto;
         bottom: -6px;
         width: 100%;
+        max-width: 520px;
         height: 3px;
         border-radius: 999px;
         background: var(--gradient-base);
@@ -209,19 +212,17 @@
         display: inline-block;
         width: 100%;
         max-width: 520px;
-        font-size: clamp(14px, 1.5vw, 16px);
+        font-size: clamp(10px, 2.2vw, 16px);
         font-weight: 400;
         text-transform: uppercase;
         letter-spacing: 0.12em;
         margin-bottom: 18px;
-        text-wrap: balance;
-        overflow-wrap: break-word;
-        white-space: normal;
+        white-space: nowrap;
         line-height: 1.35;
       }
 
       .hero-text {
-        font-size: 17px;
+        font-size: clamp(14px, 1.5vw, 17px);
         line-height: 1.6;
         max-width: 520px;
         margin-bottom: 28px;
@@ -434,11 +435,12 @@
       }
 
       .hero-note {
-        font-size: 20px;
+        width: 100%;
+        max-width: 520px;
+        font-size: clamp(12px, 2vw, 20px);
         letter-spacing: 0.02em;
         margin: 0;
-        font-weight: 600;
-        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        white-space: nowrap;
       }
 
       .cta {
@@ -1353,9 +1355,9 @@
               бизнес-психолог · психоаналитический коуч · Предприниматель
             </div>
             <p class="hero-text">
-              Моя сфера — профессиональные запросы, где ключевая трудность лежит не в
-              техническом, а в психологическом аспекте решений, страхов и внутренних
-              ограничений.
+              Моя сфера — профессиональные запросы, где ключевая<br />
+              трудность лежит не в техническом, а в психологическом<br />
+              аспекте решений, страхов и внутренних ограничений.
             </p>
           </div>
         </div>
