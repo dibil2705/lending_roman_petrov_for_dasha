@@ -380,7 +380,7 @@
         display: flex;
         flex-direction: column;
         width: min(100%, 522px);
-        aspect-ratio: 1 / 1.19;
+        min-height: clamp(360px, 36vw, 520px);
         height: auto;
         font-size: clamp(14px, 1.2vw, 18px);
         padding: clamp(22px, 3vw, 32px) clamp(20px, 3.4vw, 44px)
@@ -561,8 +561,9 @@
         padding: clamp(32px, 5vw, 56px) clamp(24px, 5vw, 56px)
           clamp(36px, 5vw, 64px);
         background: url("assets/panels/Panels_blure.svg") center/cover no-repeat;
-        border-radius: clamp(28px, 4vw, 44px);
-        box-shadow: 0 22px 38px rgba(0, 0, 0, 0.2);
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
         display: flex;
         flex-direction: column;
         align-items: stretch;
@@ -1233,7 +1234,6 @@
           height: auto;
           padding: 28px 24px 34px;
           border-radius: 40px;
-          aspect-ratio: 1 / 1.19;
           min-height: 420px;
         }
 
