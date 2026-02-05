@@ -351,6 +351,11 @@
         letter-spacing: 0.02em;
       }
 
+      .requests-subtitle-line {
+        display: block;
+        white-space: nowrap;
+      }
+
       .requests-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -367,6 +372,7 @@
         display: flex;
         flex-direction: column;
         width: min(100%, 522px);
+        aspect-ratio: 1 / 1.189;
         height: auto;
         padding: clamp(22px, 3vw, 32px) clamp(20px, 3.4vw, 44px)
           clamp(28px, 4vw, 46px);
@@ -436,10 +442,8 @@
         width: 100%;
         max-width: 520px;
         font-size: clamp(16px, 2.2vw, 24px);
-        font-weight: 500;
-        letter-spacing: 0.02em;
         margin: 0;
-        white-space: nowrap;
+        text-align: center;
       }
 
       .cta {
@@ -1377,7 +1381,11 @@
           </div>
           <div class="stat-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.35s">
             <h3>11+</h3>
-            <p>лет управленческого опыта</p>
+            <p>
+              лет управленческого
+              <br />
+              опыта
+            </p>
           </div>
           <div class="stat-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.5s">
             <h3>14+</h3>
@@ -1418,9 +1426,15 @@
       <section class="requests-section reveal-item reveal-from-bottom" aria-label="Запросы" data-reveal>
         <h2 class="requests-title">Запросы</h2>
         <p class="requests-subtitle">
-          Я помогаю предпринимателям, экспертам, руководителям и их командам проходить
-          профессиональные вызовы и изменения через научно-доказанный метод
-          психоаналитического коучинга.
+          <span class="requests-subtitle-line">
+            Я помогаю предпринимателям, экспертам, руководителям и их командам
+          </span>
+          <span class="requests-subtitle-line">
+            проходить профессиональные вызовы и изменения
+          </span>
+          <span class="requests-subtitle-line">
+            через научно-доказанный метод психоаналитического коучинга.
+          </span>
         </p>
         <div class="requests-grid">
           <article class="request-card">
