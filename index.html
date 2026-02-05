@@ -184,7 +184,7 @@
         position: relative;
         display: inline-block;
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
-        font-size: clamp(48px, 6vw, 78px);
+        font-size: clamp(46px, 6.2vmin, 78px);
         font-weight: 300;
         letter-spacing: 0.02em;
         margin-bottom: 14px;
@@ -212,17 +212,17 @@
         display: inline-block;
         width: 100%;
         max-width: 520px;
-        font-size: clamp(10px, 2.2vw, 16px);
+        font-size: clamp(12px, 2.4vmin, 18px);
         font-weight: 400;
         text-transform: uppercase;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.06em;
         margin-bottom: 18px;
         white-space: nowrap;
         line-height: 1.35;
       }
 
       .hero-text {
-        font-size: clamp(14px, 1.5vw, 17px);
+        font-size: clamp(14px, 2.1vmin, 18px);
         line-height: 1.6;
         max-width: 520px;
         margin-bottom: 28px;
@@ -652,24 +652,13 @@
         gap: 4px;
         padding: 10px 14px;
         border-radius: 32px;
-        background: #ffffff;
+        background: url("assets/panels/Panel_Experience.svg") center/cover no-repeat;
         border: none;
-        box-shadow: 0 14px 22px rgba(0, 0, 0, 0.12);
+        box-shadow: none;
         text-align: center;
         min-height: 0;
         aspect-ratio: 1 / 1;
         overflow: hidden;
-      }
-
-      .stat-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 12px;
-        border-radius: inherit;
-        background: var(--gradient-rich);
       }
 
       .stat-card h3 {
@@ -803,8 +792,8 @@
       .telegram-pill {
         position: absolute;
         right: 0;
-        width: 36px;
-        height: 36px;
+        width: 46px;
+        height: 46px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -814,10 +803,10 @@
       }
 
       .telegram-pill img {
-        width: 18px;
-        height: 18px;
-        filter: brightness(0) saturate(100%) invert(86%) sepia(22%) saturate(341%)
-          hue-rotate(338deg) brightness(99%) contrast(91%);
+        width: 26px;
+        height: 26px;
+        filter: brightness(0) saturate(100%) invert(54%) sepia(79%) saturate(1677%)
+          hue-rotate(169deg) brightness(95%) contrast(92%);
       }
 
       .consult-section {
@@ -939,6 +928,7 @@
       .consult-button:active,
       .telegram-pill:active,
       .contacts-actions .cta:active {
+        animation: none;
         transform: scale(0.96);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
       }
@@ -1203,10 +1193,6 @@
           padding: 10px 14px 12px;
           border-radius: 24px;
           aspect-ratio: 1 / 1;
-        }
-
-        .stat-card::before {
-          height: 8px;
         }
 
         .stat-card h3 {
