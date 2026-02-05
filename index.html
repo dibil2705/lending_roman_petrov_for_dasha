@@ -356,7 +356,6 @@
         line-height: 1.45;
         color: var(--text);
         letter-spacing: 0;
-        text-align: left;
       }
 
       .requests-subtitle-line {
@@ -380,8 +379,9 @@
         display: flex;
         flex-direction: column;
         width: min(100%, 522px);
-        min-height: clamp(360px, 36vw, 520px);
+        min-height: auto;
         height: auto;
+        aspect-ratio: 1 / 1.19;
         font-size: clamp(14px, 1.2vw, 18px);
         padding: clamp(22px, 3vw, 32px) clamp(20px, 3.4vw, 44px)
           clamp(28px, 4vw, 46px);
@@ -559,7 +559,7 @@
         aspect-ratio: 1.2 / 1;
         margin-top: clamp(20px, 4vw, 48px);
         padding: clamp(36px, 5vw, 60px) clamp(24px, 5vw, 56px)
-          clamp(16px, 2.5vw, 28px);
+          clamp(8px, 2vw, 18px);
         background: url("assets/panels/Panels_blure.svg") center/contain no-repeat;
         border-radius: 0;
         box-shadow: none;
@@ -717,7 +717,7 @@
 
       .experience-title {
         display: inline-block;
-        font-size: clamp(12px, 2.2vw, 18px);
+        font-size: clamp(24px, 3vw, 36px);
         font-weight: 400;
         letter-spacing: 0.03em;
         text-transform: uppercase;
@@ -869,7 +869,7 @@
       .consult-card {
         position: relative;
         padding: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 42px);
-        border-radius: 32px;
+        border-radius: 25px;
         background: url("assets/panels/Panels_Consultations.svg") center/contain no-repeat;
         border: none;
         box-shadow: 0 18px 28px rgba(0, 0, 0, 0.12);
@@ -1234,7 +1234,8 @@
           height: auto;
           padding: 28px 24px 34px;
           border-radius: 40px;
-          min-height: 420px;
+          min-height: auto;
+          aspect-ratio: 1 / 1.19;
         }
 
         .cta {
@@ -1330,8 +1331,18 @@
           width: 100%;
           max-width: none;
           min-height: 0;
-          border-radius: 40px;
+          border-radius: 19px;
           aspect-ratio: 1.28 / 1;
+        }
+
+        .consult-title {
+          font-size: clamp(22px, 7vw, 30px);
+        }
+
+        .consult-button {
+          width: min(100%, 240px);
+          aspect-ratio: 240 / 52;
+          font-size: 12px;
         }
 
         .contacts-section {
@@ -1536,7 +1547,7 @@
               <li>сложности в коммуникации</li>
               <li>страх делегирования</li>
             </ul>
-            <div class="request-more">Подробнее</div>
+            <div class="request-more" data-request-team-panel-open>Подробнее</div>
           </article>
           <article class="request-card">
             <h3>Ограничения и кризисы</h3>
@@ -1767,6 +1778,31 @@
         </div>
       </div>
     </div>
+    <div class="method-panel" data-request-team-panel aria-hidden="true">
+      <div
+        class="method-panel__card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="request-team-panel-title"
+      >
+        <h2 class="method-panel__title" id="request-team-panel-title">
+          ПАРТНЁРСТВО<br />
+          И КОМАНДА
+        </h2>
+        <div class="method-panel__text">
+          <ul>
+            <li>конфликты с партнёрами и расхождение в видении</li>
+            <li>сложности в коммуникации с сотрудниками и командой</li>
+            <li>страх делегирования и потери контроля</li>
+            <li>понимание скрытой динамики и напряжений внутри команды</li>
+            <li>и другие профессиональные запросы</li>
+          </ul>
+        </div>
+        <div class="method-panel__close">
+          <button class="cta" type="button" data-request-team-panel-close>Закрыть</button>
+        </div>
+      </div>
+    </div>
     <script>
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
@@ -1813,10 +1849,13 @@
 
       var methodPanel = document.querySelector("[data-method-panel]");
       var requestPanel = document.querySelector("[data-request-panel]");
+      var requestTeamPanel = document.querySelector("[data-request-team-panel]");
       var openMethodPanel = document.querySelector("[data-method-panel-open]");
       var openRequestPanel = document.querySelector("[data-request-panel-open]");
+      var openRequestTeamPanel = document.querySelector("[data-request-team-panel-open]");
       var closeMethodPanel = document.querySelector("[data-method-panel-close]");
       var closeRequestPanel = document.querySelector("[data-request-panel-close]");
+      var closeRequestTeamPanel = document.querySelector("[data-request-team-panel-close]");
 
       var clampValue = function (value, min, max) {
         return Math.min(max, Math.max(min, value));
@@ -1890,7 +1929,20 @@
         });
       }
 
-      [methodPanel, requestPanel].forEach(function (panel) {
+      if (openRequestTeamPanel) {
+        openRequestTeamPanel.addEventListener("click", function (event) {
+          event.preventDefault();
+          openPanel(requestTeamPanel, openRequestTeamPanel);
+        });
+      }
+
+      if (closeRequestTeamPanel) {
+        closeRequestTeamPanel.addEventListener("click", function () {
+          closePanel(requestTeamPanel);
+        });
+      }
+
+      [methodPanel, requestPanel, requestTeamPanel].forEach(function (panel) {
         if (!panel) {
           return;
         }
