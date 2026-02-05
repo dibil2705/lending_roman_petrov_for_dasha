@@ -534,9 +534,9 @@
         align-items: flex-start;
         justify-content: center;
         padding: clamp(20px, 4vw, 40px) var(--page-gutter);
-        background: rgba(8, 12, 16, 0.4);
-        backdrop-filter: blur(24px) saturate(165%);
-        -webkit-backdrop-filter: blur(24px) saturate(165%);
+        background: rgba(8, 12, 16, 0.32);
+        backdrop-filter: blur(36px) saturate(175%);
+        -webkit-backdrop-filter: blur(36px) saturate(175%);
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
@@ -546,17 +546,18 @@
       .method-panel.is-open {
         opacity: 1;
         pointer-events: auto;
-        backdrop-filter: blur(28px) saturate(170%);
-        -webkit-backdrop-filter: blur(28px) saturate(170%);
+        backdrop-filter: blur(44px) saturate(180%);
+        -webkit-backdrop-filter: blur(44px) saturate(180%);
       }
 
       .method-panel__card {
         position: relative;
         width: min(100%, 920px);
+        aspect-ratio: 1.1764 / 1;
         margin-top: clamp(20px, 4vw, 48px);
         padding: clamp(32px, 5vw, 56px) clamp(24px, 5vw, 56px)
           clamp(36px, 5vw, 64px);
-        background: #ffffff;
+        background: url("assets/panels/Panels_blure.svg") center/cover no-repeat;
         border-radius: clamp(28px, 4vw, 44px);
         box-shadow: 0 22px 38px rgba(0, 0, 0, 0.2);
         text-align: center;
@@ -565,15 +566,6 @@
         transform: translateY(16px) scale(0.9);
         opacity: 0;
         transition: transform 0.4s ease, opacity 0.3s ease;
-      }
-
-      .method-panel__card::before {
-        content: "";
-        position: absolute;
-        inset: 0 0 auto 0;
-        height: 12px;
-        border-radius: inherit;
-        background: var(--gradient-rich);
       }
 
       .method-panel__title {
@@ -968,13 +960,6 @@
       .contacts-actions .cta {
         transition: opacity 0.6s ease, transform 0.6s ease;
         transition-delay: var(--reveal-delay, 0s);
-      }
-
-      .contacts-actions .cta:active,
-      .contacts-actions .cta:focus-visible {
-        transform: none;
-        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.24);
-        background: #0a2339;
       }
 
       .info-footer {
