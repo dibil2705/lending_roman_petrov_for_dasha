@@ -349,14 +349,14 @@
 
       .requests-subtitle {
         max-width: 720px;
-        margin: 0 auto 90px;
+        margin: 0 0 90px;
         font-family: "Roboto Condensed", system-ui, sans-serif;
         font-size: clamp(12px, 2.2vw, 24px);
         font-weight: 400;
         line-height: 1.45;
         color: var(--text);
         letter-spacing: 0;
-        white-space: nowrap;
+        text-align: left;
       }
 
       .requests-subtitle-line {
@@ -388,7 +388,7 @@
         border-radius: 0;
         background: url("assets/panels/Panels_Requests.svg") center/100% 100% no-repeat;
         border: none;
-        box-shadow: none;
+        box-shadow: 0 18px 28px rgba(0, 0, 0, 0.18);
         text-align: left;
         justify-self: center;
         overflow: visible;
@@ -397,7 +397,7 @@
       .request-card h3 {
         font-size: clamp(20px, 2.2vw, 30px);
         font-weight: 500;
-        margin-bottom: 16px;
+        margin: clamp(10px, 1.2vw, 16px) 0 16px;
         letter-spacing: 0.02em;
         text-align: center;
         text-wrap: balance;
@@ -559,8 +559,8 @@
         aspect-ratio: 1.2 / 1;
         margin-top: clamp(20px, 4vw, 48px);
         padding: clamp(36px, 5vw, 60px) clamp(24px, 5vw, 56px)
-          clamp(28px, 4vw, 52px);
-        background: url("assets/panels/Panels_blure.svg") center/cover no-repeat;
+          clamp(16px, 2.5vw, 28px);
+        background: url("assets/panels/Panels_blure.svg") center/contain no-repeat;
         border-radius: 0;
         box-shadow: none;
         background-color: transparent;
@@ -580,7 +580,7 @@
         font-size: clamp(36px, 4.5vw, 54px);
         font-weight: 400;
         letter-spacing: 0.04em;
-        margin: clamp(8px, 1.4vw, 16px) 0 0;
+        margin: clamp(16px, 2vw, 24px) 0 0;
       }
 
       .method-panel__text {
@@ -607,8 +607,8 @@
 
       .method-panel[data-method-panel] .method-panel__text {
         font-size: clamp(11px, 2vw, 17px);
-        text-align: center;
-        justify-items: center;
+        text-align: left;
+        justify-items: start;
       }
 
       .method-panel[data-method-panel] .method-panel__text ul {
@@ -1374,7 +1374,7 @@
 
         .method-panel__card {
           margin-top: 0;
-          padding: 28px 22px 32px;
+          padding: 28px 22px 22px;
           border-radius: 30px;
         }
 
@@ -1384,7 +1384,7 @@
 
         .method-panel[data-method-panel] .method-panel__text {
           padding: 0;
-          text-align: center;
+          text-align: left;
         }
 
         .hero-subtitle {
