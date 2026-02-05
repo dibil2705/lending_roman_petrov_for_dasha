@@ -349,13 +349,14 @@
 
       .requests-subtitle {
         max-width: 720px;
-        margin: 0 0 90px;
+        margin: 0 auto 90px;
         font-family: "Roboto Condensed", system-ui, sans-serif;
         font-size: clamp(12px, 2.2vw, 24px);
         font-weight: 400;
         line-height: 1.45;
         color: var(--text);
         letter-spacing: 0;
+        text-align: center;
       }
 
       .requests-subtitle-line {
@@ -385,8 +386,8 @@
         font-size: clamp(14px, 1.2vw, 18px);
         padding: clamp(22px, 3vw, 32px) clamp(20px, 3.4vw, 44px)
           clamp(28px, 4vw, 46px);
-        border-radius: 0;
-        background: url("assets/panels/Panels_Requests.svg") center/100% 100% no-repeat;
+        border-radius: 20px;
+        background: url("assets/panels/Panels_Requests.svg") top center/100% 100% no-repeat;
         border: none;
         box-shadow: 0 18px 28px rgba(0, 0, 0, 0.18);
         text-align: left;
@@ -600,18 +601,24 @@
         padding-left: 24px;
       }
 
-      .method-panel[data-method-panel] .method-panel__card {
+      .method-panel[data-method-panel] .method-panel__card,
+      .method-panel[data-request-panel] .method-panel__card,
+      .method-panel[data-request-team-panel] .method-panel__card {
         width: min(100%, 800px);
         max-width: min(100%, 800px);
       }
 
-      .method-panel[data-method-panel] .method-panel__text {
+      .method-panel[data-method-panel] .method-panel__text,
+      .method-panel[data-request-panel] .method-panel__text,
+      .method-panel[data-request-team-panel] .method-panel__text {
         font-size: clamp(11px, 2vw, 17px);
         text-align: left;
         justify-items: start;
       }
 
-      .method-panel[data-method-panel] .method-panel__text ul {
+      .method-panel[data-method-panel] .method-panel__text ul,
+      .method-panel[data-request-panel] .method-panel__text ul,
+      .method-panel[data-request-team-panel] .method-panel__text ul {
         list-style: none;
         padding: 0;
         margin: 0;
@@ -1233,7 +1240,7 @@
           width: 100%;
           height: auto;
           padding: 28px 24px 34px;
-          border-radius: 40px;
+          border-radius: 20px;
           min-height: auto;
           aspect-ratio: 1 / 1.19;
         }
@@ -1393,7 +1400,9 @@
           text-align: left;
         }
 
-        .method-panel[data-method-panel] .method-panel__text {
+        .method-panel[data-method-panel] .method-panel__text,
+        .method-panel[data-request-panel] .method-panel__text,
+        .method-panel[data-request-team-panel] .method-panel__text {
           padding: 0;
           text-align: left;
         }
@@ -1401,10 +1410,16 @@
         .hero-subtitle {
           white-space: normal;
         }
+
+        .hero-text {
+          margin-bottom: 40px;
+        }
       }
 
       @media (min-width: 1024px) {
-        .method-panel[data-method-panel] .method-panel__text {
+        .method-panel[data-method-panel] .method-panel__text,
+        .method-panel[data-request-panel] .method-panel__text,
+        .method-panel[data-request-team-panel] .method-panel__text {
           padding: 0 91px;
         }
       }
