@@ -643,6 +643,18 @@
         justify-items: start;
       }
 
+      .method-panel[data-method-panel] .method-panel__text {
+        font-family: inherit;
+        font-size: clamp(12px, 2.2vw, 24px);
+        line-height: 1.45;
+        letter-spacing: 0;
+        text-align: center;
+      }
+
+      .method-panel[data-method-panel] .method-panel__text p {
+        margin: 0;
+      }
+
       .method-panel[data-method-panel] .method-panel__text ul,
       .method-panel[data-request-panel] .method-panel__text ul,
       .method-panel[data-request-team-panel] .method-panel__text ul,
@@ -1051,9 +1063,11 @@
       }
 
       .info-footer-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 60px;
+        display: block;
+      }
+
+      .info-footer-grid > div + div {
+        margin-top: 28px;
       }
 
       .info-footer h3 {
@@ -1407,8 +1421,7 @@
         }
 
         .info-footer-grid {
-          grid-template-columns: 1fr;
-          gap: 28px;
+          display: block;
         }
 
         .info-footer .info-footer-meta {
@@ -1447,6 +1460,20 @@
       }
 
       @media (min-width: 1024px) {
+        .info-footer-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 60px;
+        }
+
+        .info-footer-grid > div + div {
+          margin-top: 0;
+        }
+
+        .method-panel[data-method-panel] .method-panel__close {
+          margin-bottom: 78px;
+        }
+
         .method-panel[data-method-panel] .method-panel__text,
         .method-panel[data-request-panel] .method-panel__text,
         .method-panel[data-request-team-panel] .method-panel__text {
