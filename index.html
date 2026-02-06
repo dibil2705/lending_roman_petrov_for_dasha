@@ -611,6 +611,9 @@
 
       .method-panel[data-request-team-panel] .method-panel__card {
         background-image: url("assets/panels/bluer/Panels_Partnership and team.svg");
+        width: min(100%, 1188px);
+        max-width: min(100%, 1188px);
+        aspect-ratio: 1188 / 886;
         padding: clamp(28px, 4vw, 48px) clamp(18px, 4vw, 40px) clamp(20px, 3vw, 36px);
       }
 
@@ -627,11 +630,16 @@
 
       .method-panel[data-request-crisis-panel] .method-panel__title {
         margin-inline: clamp(-12px, -2vw, -28px);
+        font-size: clamp(36px, 4.5vw, 40px);
       }
 
       .method-panel[data-request-crisis-panel] .method-panel__text {
         text-align: center;
         justify-items: center;
+      }
+
+      .method-panel[data-request-crisis-panel] .method-panel__text ul {
+        margin: 0 auto 90px;
       }
 
       .method-panel[data-method-panel] .method-panel__text,
