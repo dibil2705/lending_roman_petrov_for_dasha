@@ -557,7 +557,7 @@
         position: relative;
         width: min(100%, 880px);
         max-width: min(100%, 880px);
-        aspect-ratio: 1.2 / 1;
+        aspect-ratio: 1.37 / 1;
         margin-top: clamp(20px, 4vw, 48px);
         padding: clamp(36px, 5vw, 60px) clamp(24px, 5vw, 56px)
           clamp(8px, 2vw, 18px);
@@ -613,7 +613,7 @@
         background-image: url("assets/panels/bluer/Panels_Partnership and team.svg");
         width: min(100%, 1188px);
         max-width: min(100%, 1188px);
-        aspect-ratio: 1188 / 886;
+        aspect-ratio: 1.37 / 1;
         padding: clamp(28px, 4vw, 48px) clamp(18px, 4vw, 40px) clamp(20px, 3vw, 36px);
       }
 
@@ -681,10 +681,16 @@
         transform: translateY(-8px);
       }
 
+      .method-panel[data-request-panel] .method-panel__close,
+      .method-panel[data-request-team-panel] .method-panel__close,
+      .method-panel[data-request-crisis-panel] .method-panel__close {
+        transform: translateY(-16px);
+      }
+
       .method-panel__close .cta {
-        width: min(100%, 220px);
+        width: clamp(140px, 18vw, 220px);
         aspect-ratio: 220 / 64;
-        font-size: 16px;
+        font-size: clamp(12px, 1.2vw, 16px);
       }
 
       @supports not (aspect-ratio: 1 / 1) {
@@ -1482,10 +1488,6 @@
 
         .info-footer-grid > div + div {
           margin-top: 0;
-        }
-
-        .method-panel[data-method-panel] .method-panel__close {
-          margin-bottom: 78px;
         }
 
       }
