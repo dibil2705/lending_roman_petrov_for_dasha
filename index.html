@@ -646,9 +646,11 @@
       .method-panel[data-method-panel] .method-panel__text {
         font-family: inherit;
         font-size: clamp(12px, 2.2vw, 24px);
-        line-height: 1.45;
         letter-spacing: 0;
-        text-align: center;
+      }
+
+      .method-panel[data-method-panel] .method-panel__title {
+        margin: clamp(8px, 2vw, 20px) 0;
       }
 
       .method-panel[data-method-panel] .method-panel__text p {
@@ -1450,6 +1452,10 @@
           text-align: left;
         }
 
+        .method-panel[data-method-panel] .method-panel__text {
+          font-size: clamp(12px, 2.2vw, 20px);
+        }
+
         .hero-subtitle {
           white-space: normal;
         }
@@ -1474,11 +1480,6 @@
           margin-bottom: 78px;
         }
 
-        .method-panel[data-method-panel] .method-panel__text,
-        .method-panel[data-request-panel] .method-panel__text,
-        .method-panel[data-request-team-panel] .method-panel__text {
-          padding: 0 91px;
-        }
       }
     </style>
   </head>
