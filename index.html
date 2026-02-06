@@ -581,7 +581,7 @@
         font-size: clamp(36px, 4.5vw, 54px);
         font-weight: 400;
         letter-spacing: 0.04em;
-        margin: clamp(16px, 2vw, 24px) 0 0;
+        margin: 0;
       }
 
       .method-panel__text {
@@ -609,6 +609,14 @@
         max-width: min(100%, 800px);
       }
 
+      .method-panel[data-request-team-panel] .method-panel__card {
+        background-image: url("assets/panels/bluer/Panels_Partnership and team.svg");
+      }
+
+      .method-panel[data-request-crisis-panel] .method-panel__card {
+        background-image: url("assets/panels/bluer/Panels_Internal restrictions.svg");
+      }
+
       .method-panel[data-method-panel] .method-panel__text,
       .method-panel[data-request-panel] .method-panel__text,
       .method-panel[data-request-team-panel] .method-panel__text,
@@ -631,6 +639,7 @@
         margin-top: auto;
         display: flex;
         justify-content: center;
+        transform: translateY(-8px);
       }
 
       .method-panel__close .cta {
@@ -729,7 +738,7 @@
 
       .experience-title {
         display: inline-block;
-        font-size: clamp(24px, 3vw, 36px);
+        font-size: clamp(44px, 3.6vw, 68px);
         font-weight: 400;
         letter-spacing: 0.03em;
         text-transform: uppercase;
@@ -1266,7 +1275,7 @@
         }
 
         .experience-title {
-          font-size: clamp(32px, 9vw, 46px);
+          font-size: clamp(44px, 3.6vw, 68px);
           letter-spacing: 0.06em;
         }
 
@@ -1780,7 +1789,10 @@
         aria-modal="true"
         aria-labelledby="request-panel-title"
       >
-        <h2 class="method-panel__title" id="request-panel-title">Переходы, рост и развитие</h2>
+        <h2 class="method-panel__title" id="request-panel-title">
+          Переходы, рост и развитие<br>
+          и развитие
+        </h2>
         <div class="method-panel__text">
           <ul>
             <li>· масштабирование, развитие/оптимизация текущего проекта</li>
@@ -1808,7 +1820,7 @@
         aria-labelledby="request-team-panel-title"
       >
         <h2 class="method-panel__title" id="request-team-panel-title">
-          ПАРТНЁРСТВО<br />
+          ПАРТНЁРСТВО<br>
           И КОМАНДА
         </h2>
         <div class="method-panel__text">
@@ -1833,7 +1845,7 @@
         aria-labelledby="request-crisis-panel-title"
       >
         <h2 class="method-panel__title" id="request-crisis-panel-title">
-          ВНУТРЕННИЕ ОГРАНИЧЕНИЯ<br />
+          ВНУТРЕННИЕ ОГРАНИЧЕНИЯ<br>
           И КРИЗИСНЫЕ СОСТОЯНИЯ
         </h2>
         <div class="method-panel__text">
