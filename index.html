@@ -1208,6 +1208,10 @@
           white-space: nowrap;
           overflow-wrap: normal;
         }
+
+        .method-panel__close .cta {
+          aspect-ratio: 220 / 80;
+        }
       }
 
       @media (max-width: 900px) {
@@ -1469,6 +1473,12 @@
 
         .method-panel[data-method-panel] .method-panel__text {
           font-size: clamp(12px, 2.2vw, 20px);
+        }
+
+        .method-panel__close .cta {
+          width: clamp(110px, 40vw, 150px);
+          aspect-ratio: 150 / 36;
+          font-size: 10px;
         }
 
         .hero-subtitle {
