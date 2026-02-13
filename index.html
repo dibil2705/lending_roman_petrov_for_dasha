@@ -379,10 +379,10 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        width: min(100%, 522px);
+        width: min(100%, 500px);
         min-height: auto;
         height: auto;
-        aspect-ratio: 1 / 1.08;
+        aspect-ratio: 1 / 1.19;
         font-size: clamp(14px, 1.2vw, 18px);
         padding: clamp(22px, 3vw, 32px) clamp(20px, 3.4vw, 44px)
           clamp(20px, 3vw, 34px);
@@ -907,14 +907,15 @@
 
 
       .experience-footer {
-        width: min(100%, 920px);
+        width: fit-content;
+        max-width: 100%;
         margin: 42px auto 0;
       }
 
       .experience-footer-line {
         height: 2px;
         width: 100%;
-        margin-bottom: 14px;
+        margin-top: 14px;
         background: var(--gradient-base);
         clip-path: polygon(0 50%, 4% 0, 96% 0, 100% 50%, 96% 100%, 4% 100%);
       }
@@ -923,8 +924,12 @@
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
         font-size: clamp(18px, 1.8vw, 28px);
         letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #e4bca0;
+        text-transform: none;
+        background: linear-gradient(110deg, #a66a3f 0%, #e4bca0 50%, #a66a3f 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
       }
       .telegram-pill {
         position: absolute;
@@ -1155,7 +1160,7 @@
 
       .info-footer p,
       .info-footer a {
-        font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        font-family: "Roboto Condensed", system-ui, sans-serif;
         font-size: 18px;
         line-height: 1.6;
         color: #ffffff;
@@ -1358,7 +1363,7 @@
           padding: 28px 24px 28px;
           border-radius: 36px;
           min-height: auto;
-          aspect-ratio: 1 / 1.08;
+          aspect-ratio: 1 / 1.19;
         }
 
         .cta {
@@ -1551,6 +1556,17 @@
           margin-top: 0;
         }
 
+        .info-footer .info-footer-meta {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          align-items: start;
+        }
+
+        .info-footer .info-footer-meta span:last-child {
+          grid-column: 3;
+          justify-self: start;
+        }
+
       }
     </style>
   </head>
@@ -1584,7 +1600,7 @@
         <section class="hero">
           <div class="hero-media">
             <div class="hero-image reveal-item reveal-from-left" data-reveal>
-              <img src="assets/Roman3.webp" alt="Роман Петров" />
+              <img src="assets/Roman4.webp" alt="Роман Петров" />
             </div>
           </div>
           <div
@@ -1754,8 +1770,8 @@
           </div>
         </div>
         <div class="experience-footer reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.55s">
+          <p class="experience-footer-text">Прочитать полный список компаний</p>
           <div class="experience-footer-line" aria-hidden="true"></div>
-          <p class="experience-footer-text">Мне доверяют</p>
         </div>
       </section>
 
