@@ -993,8 +993,8 @@
       .consult-details {
         display: grid;
         gap: 4px;
-        font-size: clamp(12px, 2.2vw, 24px);
-        line-height: 1.2;
+        font-size: clamp(12px, 2.2vw, 18px);
+        line-height: 1.45;
         color: var(--text);
         font-family: "Roboto Condensed", system-ui, sans-serif;
         letter-spacing: 0;
@@ -1162,6 +1162,7 @@
       .info-footer a {
         font-family: "Roboto Condensed", system-ui, sans-serif;
         font-size: 18px;
+        font-weight: 300;
         line-height: 1.6;
         color: #ffffff;
         text-decoration: none;
@@ -1169,15 +1170,16 @@
 
       .info-footer .info-footer-meta {
         margin-top: 60px;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: start;
         gap: 24px;
         font-size: 16px;
-        flex-wrap: wrap;
       }
 
       .info-footer .info-footer-meta span {
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+        font-weight: 300;
         background: var(--gradient-base);
         -webkit-background-clip: text;
         background-clip: text;
@@ -1796,9 +1798,9 @@
           <article class="consult-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.3s">
             <h3 class="consult-title">Диагностическая встреча</h3>
             <div class="consult-details">
+              <p>Бесплатно</p>
               <p>Длительность: 20 минут</p>
               <p>Формат: онлайн</p>
-              <p>Бесплатно</p>
             </div>
             <a class="consult-button" href="https://t.me/PetrovRoma" target="_blank" rel="noreferrer">
               Забронировать диагностику
@@ -1816,14 +1818,14 @@
             </a>
           </article>
           <article class="consult-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.6s">
-            <h3 class="consult-title">Диагностическая встреча</h3>
+            <h3 class="consult-title">ПСИХОДИНАМИЧЕСКИЙ РАЗБОР МАРКЕТИНГА</h3>
             <div class="consult-details">
-              <p>Длительность: 20 минут</p>
-              <p>Формат: онлайн</p>
-              <p>Бесплатно</p>
+              <p>Стоимость: 10000 ₽</p>
+              <p>Длительность: 120 минут</p>
+              <p>Формат: онлайн и очно</p>
             </div>
             <a class="consult-button" href="https://t.me/PetrovRoma" target="_blank" rel="noreferrer">
-              Забронировать диагностику
+              Забронировать разбор
             </a>
           </article>
         </div>
