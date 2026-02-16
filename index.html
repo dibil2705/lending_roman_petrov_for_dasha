@@ -1789,6 +1789,13 @@
       }
 
       @media (max-width: 560px) {
+        .method-panel__close .cta {
+          width: clamp(94px, 28vw, 116px);
+          aspect-ratio: 116 / 36;
+          font-size: clamp(9px, 2.8vw, 11px);
+          padding: 0 10px;
+        }
+
         .method-logos {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
