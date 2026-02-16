@@ -645,6 +645,27 @@
         overflow-y: auto;
         border-radius: 24px;
         scrollbar-gutter: stable;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.45) rgba(255, 255, 255, 0.08);
+      }
+
+      .method-panel[data-experience-panel] .method-panel__card::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .method-panel[data-experience-panel] .method-panel__card::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+      }
+
+      .method-panel[data-experience-panel] .method-panel__card::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.45);
+        border-radius: 999px;
+      }
+
+      .method-panel[data-experience-panel] .method-panel__card::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.65);
       }
 
       .method-panel__image {
@@ -655,8 +676,8 @@
 
       .method-panel[data-experience-panel] .method-panel__close {
         margin-top: 18px;
-        margin-bottom: 4px;
-        transform: none;
+        margin-bottom: 0;
+        transform: translateY(-8px);
       }
 
       .method-panel[data-request-crisis-panel] .method-panel__card {
@@ -1985,7 +2006,7 @@
 
     <div class="method-panel" data-experience-panel aria-hidden="true">
       <div class="method-panel__card" role="dialog" aria-modal="true" aria-label="Полный список компаний">
-        <img class="method-panel__image" src="assets/panels/Experience.svg" alt="Полный список компаний" />
+        <img class="method-panel__image" src="assets/panels/Experience 2.svg" alt="Полный список компаний" />
         <div class="method-panel__close">
           <button class="cta" type="button" data-experience-panel-close>Закрыть</button>
         </div>
