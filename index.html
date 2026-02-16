@@ -229,18 +229,6 @@
         overflow-wrap: anywhere;
       }
 
-      .hero-subtitle::before {
-        content: "";
-        position: absolute;
-        top: -12px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        border-radius: 999px;
-        background: var(--gradient-base);
-        clip-path: polygon(0 50%, 6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%);
-      }
-
       .hero-text {
         font-size: clamp(18px, 1.4vw, 22px);
         line-height: 1.6;
@@ -751,9 +739,9 @@
       }
 
       .method-panel__close .cta {
-        width: clamp(140px, 18vw, 220px);
-        aspect-ratio: 220 / 64;
-        font-size: clamp(12px, 1.2vw, 16px);
+        width: clamp(94px, 11vw, 132px);
+        aspect-ratio: 132 / 44;
+        font-size: clamp(10px, 1vw, 12px);
       }
 
       @supports not (aspect-ratio: 1 / 1) {
@@ -1631,7 +1619,7 @@
 
 
         .info-footer {
-          padding: 40px 0 32px;
+          padding: 40px var(--page-gutter) 32px;
           text-align: left;
         }
 
@@ -1657,6 +1645,12 @@
           align-items: center;
         }
 
+        .method-panel[data-experience-panel] {
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+          background: rgba(8, 12, 16, 0.55);
+        }
+
         .method-panel__card {
           margin-top: 0;
           padding: clamp(20px, 5vw, 28px) clamp(14px, 4vw, 22px)
@@ -1680,10 +1674,10 @@
         }
 
         .method-panel__close .cta {
-          width: clamp(132px, 38vw, 160px);
-          aspect-ratio: 160 / 56;
+          width: clamp(86px, 28vw, 112px);
+          aspect-ratio: 112 / 38;
           border-radius: 6px;
-          font-size: 13px;
+          font-size: 11px;
         }
 
         .method-panel__close .cta::before {
@@ -1697,10 +1691,6 @@
           margin-bottom: 24px;
           text-align: center;
           color: var(--mobile-text-soft);
-        }
-
-        .hero-subtitle::before {
-          top: -10px;
         }
 
         .hero-title {
@@ -1723,7 +1713,7 @@
         }
 
         .hero-text {
-          margin-bottom: 20px;
+          margin: 0 auto 20px;
           font-size: clamp(15px, 4.2vw, 20px);
           line-height: 1.52;
           text-align: center;
