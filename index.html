@@ -1710,10 +1710,24 @@
           padding: 0 10px;
         }
 
+        .method-panel[data-experience-panel] .method-panel__close .cta {
+          width: clamp(240px, 16.7vw, 321px);
+          aspect-ratio: 321 / 90;
+          border-radius: 8px;
+          font-size: clamp(15px, 1.1vw, 18px);
+          padding: 0 18px;
+        }
+
         .method-panel__close .cta::before {
           inset: 2px;
           border-radius: 2px;
           border-width: 1px;
+        }
+
+        .method-panel[data-experience-panel] .method-panel__close .cta::before {
+          inset: 4px;
+          border-radius: 4px;
+          border-width: 2px;
         }
 
         .method-panel[data-request-panel] .method-panel__close,
