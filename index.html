@@ -613,6 +613,10 @@
         max-width: min(100%, 800px);
       }
 
+      .method-panel[data-request-panel] .method-panel__card {
+        background-image: url("assets/panels/bluer/Panels_Transitions, growth, and development.svg");
+      }
+
       .method-panel[data-request-team-panel] .method-panel__card {
         background-image: url("assets/panels/bluer/Panels_Partnership and team.svg");
         width: min(100%, 800px);
@@ -739,9 +743,9 @@
       }
 
       .method-panel__close .cta {
-        width: clamp(94px, 11vw, 132px);
-        aspect-ratio: 132 / 44;
-        font-size: clamp(10px, 1vw, 12px);
+        width: clamp(240px, 16.7vw, 321px);
+        aspect-ratio: 321 / 90;
+        font-size: clamp(15px, 1.1vw, 18px);
       }
 
       @supports not (aspect-ratio: 1 / 1) {
@@ -1619,7 +1623,7 @@
 
 
         .info-footer {
-          padding: 40px var(--page-gutter) 32px;
+          padding: 40px var(--page-gutter) 40px;
           text-align: left;
         }
 
@@ -1641,14 +1645,21 @@
         }
 
         .method-panel {
-          padding: 14px var(--page-gutter-tight);
+          padding: 14px var(--page-gutter);
           align-items: center;
         }
 
         .method-panel[data-experience-panel] {
-          backdrop-filter: none;
-          -webkit-backdrop-filter: none;
-          background: rgba(8, 12, 16, 0.55);
+          background: rgba(8, 12, 16, 0.45);
+        }
+
+        .method-panel[data-experience-panel] .method-panel__card {
+          width: min(100%, 800px);
+          max-width: min(100%, 800px);
+          max-height: calc(100vh - 72px);
+          border-radius: 22px;
+          overflow: hidden;
+          background: rgba(0, 0, 0, 0.08);
         }
 
         .method-panel__card {
@@ -1674,10 +1685,10 @@
         }
 
         .method-panel__close .cta {
-          width: clamp(86px, 28vw, 112px);
-          aspect-ratio: 112 / 38;
+          width: clamp(210px, 64vw, 280px);
+          aspect-ratio: 321 / 90;
           border-radius: 6px;
-          font-size: 11px;
+          font-size: 14px;
         }
 
         .method-panel__close .cta::before {
