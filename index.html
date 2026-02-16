@@ -675,7 +675,7 @@
       .method-panel[data-experience-panel] .method-panel__close {
         position: absolute;
         left: 50%;
-        bottom: clamp(12px, 2vw, 24px);
+        bottom: clamp(8px, 1.6vw, 16px);
         z-index: 2;
         margin: 0;
         padding: 0;
@@ -1816,9 +1816,13 @@
         .method-panel[data-experience-panel].is-open .method-panel__close {
           position: fixed;
           left: 50%;
-          bottom: clamp(20px, 2.8vw, 32px);
+          bottom: max(8px, env(safe-area-inset-bottom));
           transform: translateX(-50%);
           z-index: 1003;
+        }
+
+        .method-panel[data-experience-panel].is-open .method-panel__card {
+          padding-bottom: 84px;
         }
       }
 
