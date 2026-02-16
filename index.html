@@ -1370,6 +1370,8 @@
           --mobile-section-gap: clamp(40px, 9vw, 64px);
           --page-gutter: clamp(14px, 5vw, 28px);
           --page-gutter-tight: clamp(12px, 4vw, 22px);
+          --mobile-text-soft: #2a211d;
+          --mobile-title-gradient: linear-gradient(105deg, #8f512a 0%, #d09f83 52%, #7a411d 100%);
         }
 
         .page {
@@ -1388,6 +1390,7 @@
           grid-template-columns: 1fr;
           gap: clamp(18px, 4.6vw, 34px);
           width: 100%;
+          justify-items: center;
         }
 
         .hero-cluster {
@@ -1409,6 +1412,7 @@
           align-items: center;
           text-align: center;
           padding-top: 0;
+          gap: clamp(10px, 2.8vw, 18px);
         }
 
         .hero-intro {
@@ -1422,6 +1426,7 @@
           align-items: center;
           padding-bottom: 12px;
           margin-bottom: 20px;
+          text-align: center;
         }
 
         .nav-links {
@@ -1476,6 +1481,12 @@
         .requests-subtitle {
           font-size: clamp(14px, 3.8vw, 17px);
           margin-bottom: 24px;
+          max-width: min(100%, 36ch);
+          color: var(--mobile-text-soft);
+        }
+
+        .requests-subtitle-line {
+          white-space: normal;
         }
 
         .request-card {
@@ -1504,11 +1515,18 @@
         .experience-title {
           font-size: clamp(34px, 10vw, 54px);
           letter-spacing: 0.06em;
+          background: var(--mobile-title-gradient);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          -webkit-text-fill-color: transparent;
         }
 
         .experience-text {
           font-size: clamp(16px, 4.4vw, 20px);
           line-height: 1.5;
+          max-width: min(100%, 34ch);
+          color: #f7ebe1;
         }
 
         .experience-strip {
@@ -1567,6 +1585,8 @@
 
         .consult-title {
           font-size: clamp(20px, 6.4vw, 28px);
+          text-align: center;
+          text-wrap: balance;
         }
 
         .info-footer-meta-branding {
@@ -1586,6 +1606,8 @@
 
         .contacts-title {
           margin-bottom: 24px;
+          text-align: center;
+          line-height: 1.15;
         }
 
         .contacts-actions {
@@ -1601,6 +1623,7 @@
 
         .info-footer {
           padding: 40px 0 32px;
+          text-align: center;
         }
 
         .info-footer-grid {
@@ -1609,6 +1632,8 @@
 
         .info-footer .info-footer-meta {
           margin-top: 24px;
+          justify-items: center;
+          text-align: center;
         }
 
         .method-panel {
@@ -1623,7 +1648,7 @@
         }
 
         .method-panel__text {
-          text-align: left;
+          text-align: center;
         }
 
         .method-panel[data-method-panel] .method-panel__text,
@@ -1631,7 +1656,7 @@
         .method-panel[data-request-team-panel] .method-panel__text,
         .method-panel[data-experience-panel] .method-panel__text {
           padding: 0;
-          text-align: left;
+          text-align: center;
         }
 
         .method-panel[data-method-panel] .method-panel__text {
@@ -1648,6 +1673,8 @@
           width: 100%;
           max-width: 100%;
           margin-bottom: 24px;
+          text-align: center;
+          color: var(--mobile-text-soft);
         }
 
         .hero-subtitle::before {
@@ -1661,6 +1688,12 @@
           white-space: normal;
           text-wrap: balance;
           margin-bottom: 10px;
+          text-align: center;
+          background: var(--mobile-title-gradient);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          -webkit-text-fill-color: transparent;
         }
 
         .hero-title::after {
@@ -1671,11 +1704,38 @@
           margin-bottom: 20px;
           font-size: clamp(15px, 4.2vw, 20px);
           line-height: 1.52;
-          text-align: left;
+          text-align: center;
+          max-width: min(100%, 35ch);
+          color: var(--mobile-text-soft);
         }
 
         .hero-text-line {
           white-space: normal;
+        }
+
+        .hero-note,
+        .request-card ul,
+        .stat-card p,
+        .consult-card p {
+          text-align: center;
+          color: var(--mobile-text-soft);
+        }
+
+        .info-footer p,
+        .info-footer a {
+          text-align: center;
+        }
+
+        .request-card ul {
+          list-style-position: inside;
+          padding-left: 0;
+        }
+
+        .consult-section,
+        .contacts-section,
+        .requests-section,
+        .method-section {
+          text-align: center;
         }
 
       }
