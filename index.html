@@ -672,14 +672,9 @@
       }
 
       .method-panel[data-experience-panel] .method-panel__close {
-        position: fixed;
-        left: 50%;
-        bottom: clamp(20px, 2.8vw, 32px);
         margin: 0;
         padding: 0;
         text-align: center;
-        transform: translateX(-50%);
-        z-index: 1003;
       }
 
       .method-panel[data-request-crisis-panel] .method-panel__card {
@@ -1712,7 +1707,7 @@
         .method-panel__close .cta::before {
           inset: 2px;
           border-radius: 2px;
-          border-width: 2px;
+          border-width: 1px;
         }
 
         .method-panel[data-request-panel] .method-panel__close,
@@ -1810,6 +1805,16 @@
 
         .bottom-actions {
           align-items: center;
+        }
+      }
+
+      @media (min-width: 901px) {
+        .method-panel[data-experience-panel].is-open .method-panel__close {
+          position: fixed;
+          left: 50%;
+          bottom: clamp(20px, 2.8vw, 32px);
+          transform: translateX(-50%);
+          z-index: 1003;
         }
       }
 
