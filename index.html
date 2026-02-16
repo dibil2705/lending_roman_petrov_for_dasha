@@ -1440,7 +1440,7 @@
         .telegram-pill {
           position: static;
           transform: none;
-          margin-left: 0;
+          margin-left: clamp(18px, 6vw, 34px);
         }
 
         .bottom-actions {
@@ -1547,6 +1547,7 @@
             clamp(10px, 3vw, 12px);
           aspect-ratio: 370 / 320;
           height: auto;
+          justify-content: center;
         }
 
         .stat-card h3 {
@@ -1599,6 +1600,14 @@
           font-size: 12px;
         }
 
+        .request-more,
+        .consult-button {
+          width: min(100%, 220px);
+          aspect-ratio: 220 / 54;
+          padding: 0 16px;
+          font-size: 13px;
+        }
+
         .contacts-section {
           margin-top: 0;
           padding: 12px 0 0;
@@ -1623,11 +1632,18 @@
 
         .info-footer {
           padding: 40px 0 32px;
-          text-align: center;
+          text-align: left;
         }
 
         .info-footer-grid {
           display: block;
+          text-align: left;
+        }
+
+        .info-footer-grid h3,
+        .info-footer-grid p,
+        .info-footer-grid a {
+          text-align: left;
         }
 
         .info-footer .info-footer-meta {
@@ -1664,8 +1680,14 @@
         }
 
         .method-panel__close .cta {
-          width: clamp(90px, 26vw, 120px);
-          font-size: 11px;
+          width: clamp(132px, 38vw, 160px);
+          aspect-ratio: 160 / 56;
+          border-radius: 6px;
+          font-size: 13px;
+        }
+
+        .method-panel__close .cta::before {
+          border-radius: 4px;
         }
 
         .hero-subtitle {
@@ -1723,7 +1745,7 @@
 
         .info-footer p,
         .info-footer a {
-          text-align: center;
+          text-align: left;
         }
 
         .request-card ul {
