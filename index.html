@@ -1412,27 +1412,37 @@
         }
 
         .top-nav {
-          flex-direction: column;
-          gap: 10px;
+          flex-direction: row;
+          gap: 0;
           justify-content: center;
           align-items: center;
-          padding-bottom: 12px;
+          padding: 4px clamp(54px, 15vw, 72px) 12px 0;
           margin-bottom: 20px;
           text-align: center;
         }
 
         .nav-links {
           gap: clamp(10px, 3.8vw, 20px);
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
           justify-content: center;
           font-size: clamp(11px, 3.2vw, 13px);
           letter-spacing: 0.06em;
+          width: 100%;
         }
 
         .telegram-pill {
-          position: static;
-          transform: none;
-          margin-left: clamp(18px, 6vw, 34px);
+          position: absolute;
+          right: clamp(4px, 2vw, 10px);
+          top: 50%;
+          transform: translateY(-54%);
+          margin-left: 0;
+          width: clamp(38px, 10vw, 44px);
+          height: clamp(38px, 10vw, 44px);
+        }
+
+        .telegram-pill img {
+          width: clamp(20px, 5.8vw, 24px);
+          height: clamp(20px, 5.8vw, 24px);
         }
 
         .bottom-actions {
@@ -1645,7 +1655,7 @@
         }
 
         .method-panel {
-          padding: 14px var(--page-gutter);
+          padding: 14px clamp(10px, 3vw, 16px);
           align-items: center;
         }
 
@@ -1664,8 +1674,17 @@
 
         .method-panel__card {
           margin-top: 0;
+          width: min(100%, 520px);
           padding: clamp(20px, 5vw, 28px) clamp(14px, 4vw, 22px)
             clamp(16px, 4vw, 22px);
+        }
+
+        .method-panel[data-method-panel] .method-panel__card,
+        .method-panel[data-request-panel] .method-panel__card,
+        .method-panel[data-request-team-panel] .method-panel__card,
+        .method-panel[data-request-crisis-panel] .method-panel__card {
+          width: min(100%, 520px);
+          max-width: min(100%, 520px);
         }
 
         .method-panel__text {
@@ -1685,10 +1704,12 @@
         }
 
         .method-panel__close .cta {
-          width: clamp(210px, 64vw, 280px);
-          aspect-ratio: 321 / 90;
+          width: clamp(112px, 36vw, 148px);
+          aspect-ratio: 148 / 40;
           border-radius: 6px;
-          font-size: 14px;
+          font-size: clamp(10px, 2.8vw, 12px);
+          min-width: 0;
+          padding: 0 10px;
         }
 
         .method-panel__close .cta::before {
