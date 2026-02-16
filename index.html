@@ -636,10 +636,6 @@
         padding: 0;
         overflow: visible;
         border-radius: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: clamp(14px, 2vw, 24px);
       }
 
       .method-panel[data-experience-panel] .method-panel__card::-webkit-scrollbar {
@@ -670,8 +666,7 @@
       .method-panel[data-experience-panel] .method-panel__close {
         position: static;
         z-index: 2;
-        margin: 0;
-        width: 100%;
+        margin: clamp(12px, 1.8vw, 20px) 0 0;
         padding: 0;
         text-align: center;
         transform: none;
