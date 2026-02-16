@@ -673,14 +673,14 @@
       }
 
       .method-panel[data-experience-panel] .method-panel__close {
-        position: absolute;
-        left: 50%;
-        bottom: clamp(8px, 1.6vw, 16px);
+        position: relative;
+        left: auto;
+        bottom: auto;
         z-index: 2;
-        margin: 0;
+        margin: -35px 0 0;
         padding: 0;
         text-align: center;
-        transform: translateX(-50%);
+        transform: none;
       }
 
       .method-panel[data-request-crisis-panel] .method-panel__card {
@@ -1665,7 +1665,7 @@
         }
 
         .method-panel[data-experience-panel] .method-panel__close {
-          bottom: clamp(10px, 3.4vw, 18px);
+          display: none;
         }
 
         .method-panel__card {
