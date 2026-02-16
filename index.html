@@ -210,7 +210,6 @@
         width: 100%;
         max-width: none;
         height: 3px;
-        border-radius: 999px;
         background: var(--gradient-base);
         clip-path: polygon(0 50%, 6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%);
       }
@@ -218,8 +217,8 @@
       .hero-subtitle {
         position: relative;
         display: block;
-        width: min(100%, var(--hero-title-width, max-content));
-        max-width: 100%;
+        width: var(--hero-title-width, max-content);
+        max-width: var(--hero-title-width, max-content);
         font-size: clamp(12px, 1.4vw, 20px);
         font-weight: 400;
         text-transform: none;
@@ -675,12 +674,10 @@
       }
 
       .method-panel[data-experience-panel] .method-panel__close {
-        position: fixed;
-        left: 50%;
-        bottom: max(clamp(12px, 2vw, 24px), env(safe-area-inset-bottom));
+        position: static;
         margin: 0;
-        transform: translateX(-50%);
-        z-index: 1001;
+        padding: clamp(14px, 2vw, 22px) 0 clamp(20px, 2.6vw, 30px);
+        text-align: center;
       }
 
       .method-panel[data-request-crisis-panel] .method-panel__card {
