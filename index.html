@@ -63,7 +63,7 @@
       h2,
       h3 {
         font-family: "Literaturnaya Book", "Noto Serif Display", serif;
-        text-transform: uppercase;
+        text-transform: none;
       }
 
       .page {
@@ -216,17 +216,30 @@
       }
 
       .hero-subtitle {
-        display: inline-block;
-        width: fit-content;
+        position: relative;
+        display: block;
+        width: min(100%, var(--hero-title-width, max-content));
         max-width: 100%;
         font-size: clamp(12px, 1.4vw, 20px);
         font-weight: 400;
-        text-transform: uppercase;
+        text-transform: none;
         letter-spacing: 0;
         margin-bottom: 38px;
         white-space: normal;
         line-height: 1.35;
         overflow-wrap: anywhere;
+      }
+
+      .hero-subtitle::before {
+        content: "";
+        position: absolute;
+        top: -12px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 999px;
+        background: var(--gradient-base);
+        clip-path: polygon(0 50%, 6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%);
       }
 
       .hero-text {
@@ -546,6 +559,7 @@
         pointer-events: none;
         transition: opacity 0.3s ease;
         z-index: 1000;
+        overflow-y: auto;
       }
 
       .method-panel.is-open {
@@ -618,6 +632,31 @@
         max-width: min(100%, 800px);
         aspect-ratio: 1100 / 798;
         padding: clamp(28px, 4vw, 48px) clamp(18px, 4vw, 40px) clamp(20px, 3vw, 36px);
+      }
+
+      .method-panel[data-experience-panel] .method-panel__card {
+        background: none;
+        width: min(100%, 900px);
+        max-width: min(100%, 900px);
+        max-height: calc(100vh - 40px);
+        aspect-ratio: auto;
+        margin-top: 20px;
+        padding: 0 0 22px;
+        overflow-y: auto;
+        border-radius: 24px;
+        scrollbar-gutter: stable;
+      }
+
+      .method-panel__image {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .method-panel[data-experience-panel] .method-panel__close {
+        margin-top: 18px;
+        margin-bottom: 4px;
+        transform: none;
       }
 
       .method-panel[data-request-crisis-panel] .method-panel__card {
@@ -756,9 +795,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 4px;
-        padding: 16px 18px;
+        justify-content: flex-start;
+        gap: 14px;
+        padding: 48px 18px 16px;
         border-radius: 36px;
         background: url("assets/panels/Panel_Experience.svg") center/cover no-repeat;
         border: none;
@@ -774,6 +813,8 @@
         font-size: clamp(48px, 6.2vw, 80px);
         line-height: 1;
         font-weight: 400;
+        margin: 0;
+        min-height: 1em;
       }
 
       .stat-card p {
@@ -796,7 +837,7 @@
         font-size: clamp(44px, 3.6vw, 68px);
         font-weight: 400;
         letter-spacing: 0.03em;
-        text-transform: uppercase;
+        text-transform: none;
         background: linear-gradient(110deg, #a66a3f 0%, #e4bca0 50%, #a66a3f 100%);
         -webkit-background-clip: text;
         background-clip: text;
@@ -950,6 +991,11 @@
         background-clip: text;
         color: transparent;
         -webkit-text-fill-color: transparent;
+      }
+
+      .experience-footer-text,
+      .experience-footer-line {
+        cursor: pointer;
       }
       .telegram-pill {
         position: absolute;
@@ -1536,7 +1582,8 @@
 
         .method-panel[data-method-panel] .method-panel__text,
         .method-panel[data-request-panel] .method-panel__text,
-        .method-panel[data-request-team-panel] .method-panel__text {
+        .method-panel[data-request-team-panel] .method-panel__text,
+        .method-panel[data-experience-panel] .method-panel__text {
           padding: 0;
           text-align: left;
         }
@@ -1552,6 +1599,10 @@
 
         .hero-subtitle {
           white-space: normal;
+        }
+
+        .hero-subtitle::before {
+          top: -10px;
         }
 
         .hero-text {
@@ -1625,7 +1676,7 @@
             <div class="hero-intro">
               <h1 class="hero-title">РОМАН ПЕТРОВ</h1>
               <div class="hero-subtitle">
-                бизнес-психолог · психоаналитический коуч · Предприниматель
+                Бизнес-психолог · психоаналитический коуч · предприниматель
               </div>
               <p class="hero-text">
                 <span class="hero-text-line"
@@ -1784,8 +1835,8 @@
           </div>
         </div>
         <div class="experience-footer reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.55s">
-          <p class="experience-footer-text">Прочитать полный список компаний</p>
-          <div class="experience-footer-line" aria-hidden="true"></div>
+          <p class="experience-footer-text" data-experience-panel-open role="button" tabindex="0">Прочитать полный список компаний</p>
+          <div class="experience-footer-line" data-experience-panel-open aria-hidden="true"></div>
         </div>
       </section>
 
@@ -1830,7 +1881,7 @@
             </a>
           </article>
           <article class="consult-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.6s">
-            <h3 class="consult-title">ПСИХОДИНАМИЧЕСКИЙ РАЗБОР МАРКЕТИНГА</h3>
+            <h3 class="consult-title">Психодинамический разбор маркетинга</h3>
             <div class="consult-details">
               <p>Стоимость: 10000 ₽</p>
               <p>Длительность: 120 минут</p>
@@ -1845,7 +1896,7 @@
 
       <section class="contacts-section reveal-item reveal-from-bottom" id="contacts" aria-label="Контакты" data-reveal>
         <h2 class="contacts-title reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.15s">
-          КОНТАКТЫ
+          Контакты
         </h2>
         <div class="contacts-actions">
           <a
@@ -1931,6 +1982,15 @@
         </div>
       </div>
     </div>
+
+    <div class="method-panel" data-experience-panel aria-hidden="true">
+      <div class="method-panel__card" role="dialog" aria-modal="true" aria-label="Полный список компаний">
+        <img class="method-panel__image" src="assets/panels/Experience.svg" alt="Полный список компаний" />
+        <div class="method-panel__close">
+          <button class="cta" type="button" data-experience-panel-close>Закрыть</button>
+        </div>
+      </div>
+    </div>
     <script>
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
@@ -1943,6 +2003,18 @@
           window.scrollTo(0, 0);
         }
       }
+
+      var syncHeroSubtitleWidth = function () {
+        var heroTitle = document.querySelector(".hero-title");
+        var heroIntro = document.querySelector(".hero-intro");
+        if (!heroTitle || !heroIntro) {
+          return;
+        }
+        heroIntro.style.setProperty("--hero-title-width", heroTitle.offsetWidth + "px");
+      };
+
+      syncHeroSubtitleWidth();
+      window.addEventListener("resize", syncHeroSubtitleWidth);
 
       var revealItems = document.querySelectorAll("[data-reveal]");
       if ("IntersectionObserver" in window) {
@@ -1979,14 +2051,17 @@
       var requestPanel = document.querySelector("[data-request-panel]");
       var requestTeamPanel = document.querySelector("[data-request-team-panel]");
       var requestCrisisPanel = document.querySelector("[data-request-crisis-panel]");
+      var experiencePanel = document.querySelector("[data-experience-panel]");
       var openMethodPanel = document.querySelector("[data-method-panel-open]");
       var openRequestPanel = document.querySelector("[data-request-panel-open]");
       var openRequestTeamPanel = document.querySelector("[data-request-team-panel-open]");
       var openRequestCrisisPanel = document.querySelector("[data-request-crisis-panel-open]");
+      var openExperiencePanel = document.querySelectorAll("[data-experience-panel-open]");
       var closeMethodPanel = document.querySelector("[data-method-panel-close]");
       var closeRequestPanel = document.querySelector("[data-request-panel-close]");
       var closeRequestTeamPanel = document.querySelector("[data-request-team-panel-close]");
       var closeRequestCrisisPanel = document.querySelector("[data-request-crisis-panel-close]");
+      var closeExperiencePanel = document.querySelector("[data-experience-panel-close]");
 
       var clampValue = function (value, min, max) {
         return Math.min(max, Math.max(min, value));
@@ -2086,7 +2161,34 @@
         });
       }
 
-      [methodPanel, requestPanel, requestTeamPanel, requestCrisisPanel].forEach(function (panel) {
+      if (openExperiencePanel.length) {
+        openExperiencePanel.forEach(function (trigger) {
+          trigger.addEventListener("click", function (event) {
+            event.preventDefault();
+            openPanel(experiencePanel, trigger);
+          });
+        });
+      }
+
+      if (openExperiencePanel.length) {
+        openExperiencePanel.forEach(function (trigger) {
+          trigger.addEventListener("keydown", function (event) {
+            if (event.key !== "Enter" && event.key !== " ") {
+              return;
+            }
+            event.preventDefault();
+            openPanel(experiencePanel, trigger);
+          });
+        });
+      }
+
+      if (closeExperiencePanel) {
+        closeExperiencePanel.addEventListener("click", function () {
+          closePanel(experiencePanel);
+        });
+      }
+
+      [methodPanel, requestPanel, requestTeamPanel, requestCrisisPanel, experiencePanel].forEach(function (panel) {
         if (!panel) {
           return;
         }
