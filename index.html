@@ -1713,6 +1713,13 @@
           padding: 0 8px;
         }
 
+        .method-panel[data-experience-panel] [data-experience-panel-close] {
+          width: clamp(82px, 24vw, 104px);
+          aspect-ratio: 104 / 30;
+          font-size: clamp(8px, 2.2vw, 10px);
+          padding: 0 8px;
+        }
+
         .method-panel__close .cta::before {
           inset: 2px;
           border-radius: 2px;
@@ -1795,6 +1802,13 @@
 
       @media (max-width: 560px) {
         .method-panel__close .cta {
+          width: clamp(94px, 28vw, 116px);
+          aspect-ratio: 116 / 36;
+          font-size: clamp(9px, 2.8vw, 11px);
+          padding: 0 10px;
+        }
+
+        .method-panel[data-experience-panel] [data-experience-panel-close] {
           width: clamp(94px, 28vw, 116px);
           aspect-ratio: 116 / 36;
           font-size: clamp(9px, 2.8vw, 11px);
