@@ -675,12 +675,12 @@
       }
 
       .method-panel[data-experience-panel] .method-panel__close {
-        position: absolute;
+        position: fixed;
         left: 50%;
-        bottom: clamp(12px, 2vw, 24px);
+        bottom: max(clamp(12px, 2vw, 24px), env(safe-area-inset-bottom));
         margin: 0;
         transform: translateX(-50%);
-        z-index: 2;
+        z-index: 1001;
       }
 
       .method-panel[data-request-crisis-panel] .method-panel__card {
@@ -821,7 +821,7 @@
         align-items: center;
         justify-content: flex-start;
         gap: 14px;
-        padding: clamp(58px, 6vw, 72px) 18px 16px;
+        padding: clamp(48px, 5vw, 62px) 16px 14px;
         border-radius: 36px;
         background: url("assets/panels/Panel_Experience.svg") center/cover no-repeat;
         border: none;
