@@ -631,20 +631,11 @@
         position: relative;
         width: min(100%, 900px);
         max-width: min(100%, 900px);
-        max-height: calc(100vh - 40px);
         aspect-ratio: auto;
         margin-top: 20px;
         padding: 0;
-        overflow-y: auto;
+        overflow: visible;
         border-radius: 24px;
-        scrollbar-gutter: stable;
-        -webkit-overflow-scrolling: touch;
-        transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        isolation: isolate;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(255, 255, 255, 0.45) rgba(255, 255, 255, 0.08);
       }
 
       .method-panel[data-experience-panel] .method-panel__card::-webkit-scrollbar {
@@ -673,14 +664,12 @@
       }
 
       .method-panel[data-experience-panel] .method-panel__close {
-        position: absolute;
-        left: 50%;
-        bottom: clamp(8px, 1.6vw, 16px);
+        position: static;
         z-index: 2;
-        margin: 0;
+        margin: clamp(12px, 1.8vw, 20px) 0 0;
         padding: 0;
         text-align: center;
-        transform: translateX(-50%);
+        transform: none;
       }
 
       .method-panel[data-request-crisis-panel] .method-panel__card {
@@ -1660,12 +1649,25 @@
           max-width: min(100%, 800px);
           max-height: calc(100vh - 72px);
           border-radius: 22px;
-          overflow: hidden;
+          overflow-x: hidden;
+          overflow-y: auto;
+          scrollbar-gutter: stable;
+          -webkit-overflow-scrolling: touch;
+          transform: translateZ(0);
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          isolation: isolate;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(255, 255, 255, 0.45) rgba(255, 255, 255, 0.08);
           background: rgba(0, 0, 0, 0.08);
         }
 
         .method-panel[data-experience-panel] .method-panel__close {
+          position: absolute;
+          left: 50%;
           bottom: clamp(10px, 3.4vw, 18px);
+          margin: 0;
+          transform: translateX(-50%);
         }
 
         .method-panel__card {
@@ -1809,20 +1811,6 @@
 
         .bottom-actions {
           align-items: center;
-        }
-      }
-
-      @media (min-width: 901px) {
-        .method-panel[data-experience-panel].is-open .method-panel__close {
-          position: fixed;
-          left: 50%;
-          bottom: max(8px, env(safe-area-inset-bottom));
-          transform: translateX(-50%);
-          z-index: 1003;
-        }
-
-        .method-panel[data-experience-panel].is-open .method-panel__card {
-          padding-bottom: 84px;
         }
       }
 
