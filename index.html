@@ -2006,6 +2006,144 @@
         }
       }
 
+      @media (min-width: 481px) and (max-width: 1024px) {
+        :root {
+          --mobile-header-height: 76px;
+        }
+
+        .top-nav {
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          margin: 0 0 18px;
+          padding: 10px 12px 12px;
+          background: rgba(255, 255, 255, 0.92);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border-radius: 0 0 12px 12px;
+          flex-direction: column;
+        }
+
+        .top-nav::after {
+          height: 1px;
+          bottom: 0;
+          left: 10px;
+          right: 10px;
+          background: linear-gradient(90deg, transparent, #a66a3f 24%, #e4bca0 50%, #a66a3f 76%, transparent);
+          clip-path: none;
+        }
+
+        .nav-links {
+          width: 100%;
+          justify-content: center;
+          gap: clamp(12px, 2vw, 20px);
+          font-size: clamp(14px, 1.8vw, 18px);
+          letter-spacing: 0.08em;
+          line-height: 1.2;
+          color: #0a2339;
+        }
+
+        .nav-links a {
+          padding-bottom: 0;
+        }
+
+        .nav-links a::after {
+          display: none;
+        }
+
+        .telegram-pill {
+          display: none;
+        }
+
+        #about,
+        #consult,
+        #contacts {
+          scroll-margin-top: calc(var(--mobile-header-height) + 10px);
+        }
+
+        .stats,
+        .requests-grid,
+        .consult-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          gap: 12px;
+        }
+
+        .stat-card,
+        .request-card,
+        .consult-card {
+          width: 100%;
+          aspect-ratio: auto;
+          min-height: 0;
+          border-top: 3px solid #a66a3f;
+          border-radius: 10px;
+          background: #ffffff;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-card {
+          padding: 14px 16px;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 8px;
+          text-align: left;
+        }
+
+        .stat-card h3,
+        .stat-card p {
+          color: #0a2339;
+          text-align: left;
+        }
+
+        .stat-card h3 {
+          font-size: clamp(36px, 6vw, 44px);
+        }
+
+        .stat-card p {
+          font-size: clamp(15px, 2.2vw, 18px);
+          line-height: 1.35;
+        }
+
+        .request-card,
+        .consult-card {
+          padding: 16px 16px 18px;
+        }
+
+        .request-card h3,
+        .consult-title {
+          color: #0a2339;
+          text-align: center;
+        }
+
+        .request-card ul {
+          list-style: disc;
+          list-style-position: outside;
+          padding-left: 20px;
+          margin-top: 14px;
+          color: #0a2339;
+          text-align: left;
+          line-height: 1.45;
+        }
+
+        .consult-details {
+          color: #0a2339;
+          text-shadow: none;
+        }
+
+        .request-more,
+        .consult-button {
+          width: 100%;
+          max-width: none;
+          height: 50px;
+          min-height: 50px;
+          aspect-ratio: auto;
+          border-radius: 10px;
+          font-size: 16px;
+        }
+      }
+
       @media (min-width: 1024px) {
         .info-footer-grid {
           display: grid;
