@@ -188,6 +188,11 @@
         display: none;
       }
 
+      .hero-media > .hero-subtitle--mobile {
+        display: none;
+      }
+
+
       .hero-image img {
         display: block;
         width: 100%;
@@ -1502,6 +1507,23 @@
           clip-path: polygon(0 50%, 6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%);
         }
 
+
+        .hero-media > .hero-subtitle--mobile {
+          display: block;
+          margin: 12px auto 0;
+          color: #0a2339;
+          -webkit-text-fill-color: #0a2339;
+          text-shadow: none;
+          text-align: center;
+          position: relative;
+          max-width: min(100%, 480px);
+        }
+
+        .hero-media > .hero-subtitle--mobile::after {
+          left: 8%;
+          right: 8%;
+        }
+
         .hero-content {
           width: 100%;
           min-height: auto;
@@ -1516,6 +1538,15 @@
 
         .hero-intro {
           max-width: 100%;
+        }
+
+        .hero-text {
+          text-align: center;
+        }
+
+        .hero-text-line {
+          white-space: normal;
+          text-align: center;
         }
 
         .top-nav {
@@ -2385,6 +2416,11 @@
           text-align: left;
           line-height: 1.35;
         }
+
+        .stat-card--entrepreneurship p {
+          margin-left: -6px;
+        }
+
       }
 
       @media (min-width: 1024px) {
@@ -2445,10 +2481,10 @@
               <img src="assets/Roman4.webp" alt="Роман Петров" />
               <div class="hero-image-overlay" aria-hidden="true">
                 <h1 class="hero-title hero-title--mobile">РОМАН ПЕТРОВ</h1>
-                <div class="hero-subtitle hero-subtitle--mobile">
-                  БИЗНЕС-ПСИХОЛОГ · ПСИХОАНАЛИТИЧЕСКИЙ КОУЧ · ПРЕДПРИНИМАТЕЛЬ
-                </div>
               </div>
+            </div>
+            <div class="hero-subtitle hero-subtitle--mobile">
+              БИЗНЕС-ПСИХОЛОГ · ПСИХОАНАЛИТИЧЕСКИЙ КОУЧ · ПРЕДПРИНИМАТЕЛЬ
             </div>
           </div>
           <div
@@ -2477,7 +2513,7 @@
         </section>
 
         <section class="stats is-visible" aria-label="Опыт" data-reveal>
-          <div class="stat-card reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.2s">
+          <div class="stat-card stat-card--entrepreneurship reveal-item reveal-from-bottom" data-reveal data-reveal-delay="0.2s">
             <h3>9+</h3>
             <p>лет опыта в предпринимательстве</p>
           </div>
