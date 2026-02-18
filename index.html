@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Роман Петров</title>
     <link
       rel="stylesheet"
@@ -1848,6 +1848,161 @@
 
         .bottom-actions {
           align-items: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        :root {
+          --mobile-header-height: 70px;
+        }
+
+        body {
+          background: #f7f5f3;
+        }
+
+        .page,
+        .info-footer {
+          max-width: 402px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .page {
+          padding: 10px 12px 36px;
+        }
+
+        .top-nav {
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          margin: 0 -4px 18px;
+          padding: 10px 8px 12px;
+          background: rgba(255, 255, 255, 0.92);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border-radius: 0 0 12px 12px;
+          flex-direction: column;
+        }
+
+        .top-nav::after {
+          height: 1px;
+          bottom: 0;
+          left: 10px;
+          right: 10px;
+          background: linear-gradient(90deg, transparent, #a66a3f 24%, #e4bca0 50%, #a66a3f 76%, transparent);
+          clip-path: none;
+        }
+
+        .nav-links {
+          width: 100%;
+          justify-content: center;
+          gap: 12px;
+          font-size: 14px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          line-height: 1.2;
+          color: #0a2339;
+        }
+
+        .nav-links a {
+          padding-bottom: 0;
+        }
+
+        .nav-links a::after {
+          display: none;
+        }
+
+        .telegram-pill {
+          display: none;
+        }
+
+        #about,
+        #consult,
+        #contacts {
+          scroll-margin-top: calc(var(--mobile-header-height) + 10px);
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .stat-card {
+          background: #ffffff;
+          border-top: 3px solid #a66a3f;
+          border-radius: 10px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          padding: 14px 16px;
+          min-height: 90px;
+          aspect-ratio: auto;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 8px;
+          text-align: left;
+        }
+
+        .stat-card h3 {
+          font-size: 40px;
+          color: #0a2339;
+        }
+
+        .stat-card p {
+          text-align: left;
+          color: #0a2339;
+          font-size: 16px;
+          line-height: 1.35;
+        }
+
+        .requests-grid,
+        .consult-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .request-card,
+        .consult-card {
+          width: 100%;
+          aspect-ratio: auto;
+          min-height: 0;
+          border-top: 3px solid #a66a3f;
+          border-radius: 10px;
+          background: #ffffff;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          padding: 16px 16px 18px;
+        }
+
+        .request-card h3,
+        .consult-title {
+          font-size: clamp(22px, 6vw, 28px);
+          text-align: center;
+          color: #0a2339;
+        }
+
+        .request-card ul {
+          list-style: disc;
+          list-style-position: outside;
+          padding-left: 20px;
+          margin-top: 14px;
+          color: #0a2339;
+          text-align: left;
+          font-size: 17px;
+          line-height: 1.45;
+        }
+
+        .consult-details {
+          color: #0a2339;
+          text-shadow: none;
+        }
+
+        .request-more,
+        .consult-button {
+          width: 100%;
+          max-width: none;
+          height: 50px;
+          min-height: 50px;
+          aspect-ratio: auto;
+          border-radius: 10px;
+          font-size: 16px;
         }
       }
 
