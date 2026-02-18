@@ -1355,6 +1355,50 @@
         }
       }
 
+      @media (max-width: 1200px) {
+        .experience-strip {
+          margin-top: 34px;
+          padding: 24px 0;
+          max-width: min(100%, 760px);
+        }
+
+        .experience-strip::before,
+        .experience-strip::after {
+          width: 100%;
+          clip-path: polygon(0 50%, 2.8% 0, 97.2% 0, 100% 50%, 97.2% 100%, 2.8% 100%);
+        }
+
+        .experience-line {
+          display: none;
+        }
+
+        .experience-logos {
+          padding: 14px 0;
+          -webkit-mask-image: none;
+          mask-image: none;
+        }
+
+        .experience-logos-track {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: clamp(12px, 3.2vw, 30px);
+          justify-items: center;
+          animation: none;
+          -webkit-animation: none;
+          transform: none;
+        }
+
+        .experience-logos-track img {
+          height: clamp(40px, 5.2vw, 62px);
+          max-width: min(100%, 180px);
+        }
+
+        .experience-logos-track img:nth-child(n + 4) {
+          display: none;
+        }
+      }
+
       @media (max-width: 900px) {
         :root {
           --mobile-section-gap: clamp(40px, 9vw, 64px);
@@ -1531,7 +1575,8 @@
         }
 
         .experience-strip {
-          padding: 20px 16px;
+          margin-top: 30px;
+          padding: 20px 0;
         }
 
         .stats {
@@ -1560,8 +1605,9 @@
           letter-spacing: 0.01em;
         }
 
-        .experience-logos {
-          padding: 18px 0;
+        .experience-logos-track img {
+          height: clamp(32px, 8vw, 48px);
+          max-width: min(100%, 120px);
         }
 
         .consult-section {
