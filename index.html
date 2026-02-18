@@ -2515,6 +2515,56 @@
 
       }
 
+      @media (max-width: 900px) {
+        .requests-grid {
+          justify-items: center;
+          gap: clamp(18px, 5vw, 26px);
+          padding: 0;
+        }
+
+        .requests-grid .request-card {
+          width: min(100%, 360px);
+          aspect-ratio: 1 / 1;
+          min-height: 0;
+          padding: clamp(20px, 5.4vw, 28px) clamp(16px, 4.8vw, 22px)
+            clamp(18px, 5vw, 24px);
+          border-top: 2px solid #a66a3f;
+          border-radius: 14px;
+          background: #f3f3f3;
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+          justify-content: flex-start;
+        }
+
+        .requests-grid .request-card h3 {
+          margin: 0;
+          font-size: clamp(24px, 9vw, 34px);
+          line-height: 1.1;
+          font-weight: 400;
+          text-transform: none;
+        }
+
+        .requests-grid .request-card ul {
+          width: 100%;
+          max-width: none;
+          margin-top: clamp(10px, 3vw, 14px);
+          margin-bottom: clamp(14px, 4vw, 24px);
+          padding-left: 18px;
+          font-size: clamp(15px, 4.2vw, 18px);
+          line-height: 1.45;
+          align-self: stretch;
+        }
+
+        .requests-grid .request-more {
+          width: min(100%, 180px);
+          min-height: 42px;
+          height: auto;
+          aspect-ratio: 3.2 / 1;
+          border-radius: 10px;
+          font-size: clamp(14px, 3.8vw, 17px);
+          margin-top: auto;
+        }
+      }
+
       @media (min-width: 1024px) {
         .info-footer-grid {
           display: grid;
