@@ -190,6 +190,10 @@
         border-radius: 28px;
       }
 
+      .hero-image-caption {
+        display: none;
+      }
+
       .hero-image::before {
         content: "";
         position: absolute;
@@ -2266,6 +2270,32 @@
         }
       }
 
+      @media (max-width: 1024px) {
+        .hero-image-caption {
+          position: absolute;
+          left: 12px;
+          right: 12px;
+          bottom: 14px;
+          z-index: 2;
+          display: block;
+          border-radius: 14px;
+          border: 1px solid #e4bca0;
+          background: rgba(10, 35, 57, 0.95);
+          color: #e4bca0;
+          text-align: center;
+          text-transform: uppercase;
+          font-family: "Literaturnaya Book", "Noto Serif Display", serif;
+          font-size: clamp(28px, 6.2vw, 54px);
+          letter-spacing: 0.02em;
+          line-height: 1;
+          padding: clamp(8px, 1.6vw, 12px) 10px;
+        }
+
+        .hero-title {
+          display: none;
+        }
+      }
+
       @media (min-width: 1024px) {
         .info-footer-grid {
           display: grid;
@@ -2322,6 +2352,7 @@
           <div class="hero-media">
             <div class="hero-image reveal-item reveal-from-left" data-reveal>
               <img src="assets/Roman4.webp" alt="Роман Петров" />
+              <div class="hero-image-caption">РОМАН ПЕТРОВ</div>
             </div>
           </div>
           <div
