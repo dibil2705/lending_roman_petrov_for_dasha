@@ -262,7 +262,11 @@
 
       .hero-text-line {
         display: block;
-        white-space: nowrap;
+        white-space: normal;
+      }
+
+      .hero-text-break-mobile {
+        display: none;
       }
 
       .reveal-item {
@@ -1996,14 +2000,18 @@
           margin: 0 auto 20px;
           font-size: clamp(15px, 4.2vw, 20px);
           line-height: 1.46;
-          text-align: left;
-          max-width: min(100%, 31ch);
-          padding-inline: 18px;
+          text-align: center;
+          max-width: 100%;
+          padding-inline: 24px;
           color: var(--mobile-text-soft);
         }
 
         .hero-text-line {
-          display: contents;
+          display: inline;
+        }
+
+        .hero-text-break-mobile {
+          display: block;
         }
 
         .hero-note,
@@ -2236,9 +2244,9 @@
         }
 
         .hero-text {
-          max-width: min(100%, 32ch);
+          max-width: 100%;
           line-height: 1.46;
-          padding-inline: 16px;
+          padding-inline: 24px;
         }
 
         .top-nav {
@@ -2501,13 +2509,7 @@
               </div>
               <p class="hero-text">
                 <span class="hero-text-line"
-                  >Моя сфера — профессиональные запросы, где ключевая</span
-                >
-                <span class="hero-text-line"
-                  >сложность связана не с техническими задачами, а с</span
-                >
-                <span class="hero-text-line"
-                  >психологическими аспектами: решениями, страхами и внутренними ограничениями.</span
+                  >Моя сфера — профессиональные запросы, <br class="hero-text-break-mobile" />где ключевая трудность лежит не в технической, <br class="hero-text-break-mobile" />а в психологическом аспекте решений, страхов <br class="hero-text-break-mobile" />и внутренних ограничений.</span
                 >
               </p>
             </div>
