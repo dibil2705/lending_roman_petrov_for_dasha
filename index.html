@@ -1898,9 +1898,10 @@
         .hero-text {
           margin: 0 auto 20px;
           font-size: clamp(15px, 4.2vw, 20px);
-          line-height: 1.52;
+          line-height: 1.46;
           text-align: center;
-          max-width: min(100%, 35ch);
+          max-width: min(100%, 31ch);
+          padding-inline: 18px;
           color: var(--mobile-text-soft);
         }
 
@@ -2054,21 +2055,24 @@
           border-top: 3px solid #a66a3f;
           border-radius: 10px;
           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-          padding: 14px 16px;
+          padding: 12px 16px;
           min-height: 90px;
           aspect-ratio: auto;
-          align-items: flex-start;
+          align-items: center;
           justify-content: center;
-          gap: 8px;
+          flex-direction: row;
+          gap: 14px;
           text-align: left;
         }
 
         .stat-card h3 {
+          flex: 0 0 56px;
           font-size: 40px;
           color: #0a2339;
         }
 
         .stat-card p {
+          flex: 1;
           text-align: left;
           color: #0a2339;
           font-size: 16px;
@@ -2120,10 +2124,11 @@
         .consult-button {
           width: 100%;
           max-width: none;
-          height: 50px;
-          min-height: 50px;
+          height: 56px;
+          min-height: 56px;
           aspect-ratio: auto;
-          border-radius: 10px;
+          border-radius: 16px;
+          border-width: 2px;
           font-size: 16px;
         }
       }
@@ -2131,6 +2136,12 @@
       @media (min-width: 481px) and (max-width: 1024px) {
         :root {
           --mobile-header-height: 76px;
+        }
+
+        .hero-text {
+          max-width: min(100%, 32ch);
+          line-height: 1.46;
+          padding-inline: 20px;
         }
 
         .top-nav {
@@ -2206,10 +2217,11 @@
         }
 
         .stat-card {
-          padding: 14px 16px;
-          align-items: flex-start;
+          padding: 12px 18px;
+          align-items: center;
           justify-content: center;
-          gap: 8px;
+          flex-direction: row;
+          gap: 16px;
           text-align: left;
         }
 
@@ -2220,10 +2232,12 @@
         }
 
         .stat-card h3 {
+          flex: 0 0 64px;
           font-size: clamp(36px, 6vw, 44px);
         }
 
         .stat-card p {
+          flex: 1;
           font-size: clamp(15px, 2.2vw, 18px);
           line-height: 1.35;
         }
@@ -2258,10 +2272,11 @@
         .consult-button {
           width: 100%;
           max-width: none;
-          height: 50px;
-          min-height: 50px;
+          height: 56px;
+          min-height: 56px;
           aspect-ratio: auto;
-          border-radius: 10px;
+          border-radius: 16px;
+          border-width: 2px;
           font-size: 16px;
         }
       }
@@ -2278,23 +2293,24 @@
 
         .stat-card {
           display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: flex-start;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
           width: 100%;
           min-height: 90px;
-          padding: 14px 16px;
+          padding: 12px 16px;
           border-top: 3px solid #a66a3f;
           border-radius: 10px;
           background: #ffffff;
           box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
           aspect-ratio: auto;
-          gap: 8px;
+          gap: 14px;
           text-align: left;
         }
 
         .stat-card h3 {
           margin: 0;
+          flex: 0 0 56px;
           font-size: 40px;
           line-height: 1;
           color: #0a2339;
@@ -2302,6 +2318,7 @@
 
         .stat-card p {
           margin: 0;
+          flex: 1;
           color: #0a2339;
           text-align: left;
           line-height: 1.35;
