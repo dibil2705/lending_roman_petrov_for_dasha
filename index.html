@@ -1998,16 +1998,19 @@
 
         .hero-text {
           margin: 0 auto 20px;
-          font-size: clamp(15px, 4.2vw, 20px);
+          font-size: 15px;
           line-height: 1.46;
           text-align: center;
           max-width: 100%;
           padding-inline: 24px;
           color: var(--mobile-text-soft);
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
         }
 
         .hero-text-line {
-          display: inline;
+          display: block;
+          white-space: nowrap;
         }
 
         .hero-text-break-mobile {
