@@ -988,10 +988,16 @@
       }
 
       .experience-logos-track img {
-        height: 96px;
+        height: 118px;
         width: auto;
         max-width: 100%;
         object-fit: contain;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
         filter: brightness(0) saturate(100%) invert(86%) sepia(22%) saturate(341%)
           hue-rotate(338deg) brightness(99%) contrast(91%);
       }
@@ -1390,8 +1396,8 @@
         }
 
         .experience-logos-track img {
-          height: clamp(40px, 5.2vw, 62px);
-          max-width: min(100%, 180px);
+          height: clamp(62px, 7.6vw, 88px);
+          max-width: min(100%, 220px);
         }
 
         .experience-logos-track img:nth-child(n + 4) {
@@ -1541,9 +1547,26 @@
         .request-card {
           width: 100%;
           height: auto;
-          padding: clamp(20px, 5vw, 28px) clamp(16px, 4.5vw, 24px) clamp(20px, 5vw, 28px);
+          padding: clamp(22px, 5.4vw, 30px) clamp(16px, 4.5vw, 24px) clamp(24px, 6vw, 32px);
           min-height: auto;
-          aspect-ratio: 1 / 1.19;
+          aspect-ratio: 1 / 1.03;
+          justify-content: space-between;
+        }
+
+        .request-card h3 {
+          margin: 0;
+          font-size: clamp(22px, 7.4vw, 42px);
+          text-transform: none;
+          line-height: 1.14;
+        }
+
+        .request-card ul {
+          margin-top: clamp(8px, 2.4vw, 14px);
+          margin-bottom: clamp(12px, 3vw, 18px);
+          align-self: center;
+          width: min(100%, 260px);
+          font-size: clamp(15px, 4.5vw, 24px);
+          line-height: 1.32;
         }
 
         .cta {
@@ -1639,8 +1662,8 @@
         }
 
         .experience-logos-track img {
-          height: clamp(32px, 8vw, 48px);
-          max-width: min(100%, 140px);
+          height: clamp(56px, 14.8vw, 98px);
+          max-width: min(100%, 220px);
           flex: 0 0 auto;
         }
 
@@ -1661,18 +1684,29 @@
         }
 
         .consult-card {
-          padding: clamp(20px, 5vw, 28px) clamp(16px, 4.5vw, 24px)
+          padding: clamp(22px, 5.4vw, 30px) clamp(16px, 4.5vw, 24px)
             clamp(24px, 6vw, 34px);
           width: 100%;
           max-width: none;
           min-height: 0;
-          aspect-ratio: 1.28 / 1;
+          aspect-ratio: 1 / 1.03;
+          justify-content: space-between;
+          gap: clamp(10px, 2.8vw, 18px);
         }
 
         .consult-title {
-          font-size: clamp(20px, 6.4vw, 28px);
+          font-size: clamp(22px, 7.6vw, 44px);
           text-align: center;
           text-wrap: balance;
+          text-transform: none;
+          line-height: 1.14;
+        }
+
+        .consult-details {
+          margin: clamp(8px, 2.6vw, 14px) 0;
+          font-size: clamp(15px, 4.5vw, 24px);
+          line-height: 1.32;
+          text-shadow: none;
         }
 
         .info-footer-meta-branding {
@@ -1687,10 +1721,10 @@
 
         .request-more,
         .consult-button {
-          width: min(100%, 220px);
-          aspect-ratio: 220 / 54;
+          width: min(100%, 240px);
+          aspect-ratio: 240 / 56;
           padding: 0 16px;
-          font-size: 13px;
+          font-size: 15px;
         }
 
         .contacts-section {
@@ -1783,6 +1817,9 @@
         .method-panel[data-request-crisis-panel] .method-panel__card {
           width: min(100%, 520px);
           max-width: min(100%, 520px);
+          aspect-ratio: 1 / 1.03;
+          padding-top: clamp(24px, 6vw, 34px);
+          padding-bottom: clamp(22px, 5.4vw, 32px);
         }
 
         .method-panel__text {
@@ -1795,6 +1832,7 @@
         .method-panel[data-experience-panel] .method-panel__text {
           padding: 0;
           text-align: center;
+          margin: auto 0;
         }
 
         .method-panel[data-method-panel] .method-panel__text {
@@ -1826,7 +1864,7 @@
         .method-panel[data-request-panel] .method-panel__close,
         .method-panel[data-request-team-panel] .method-panel__close,
         .method-panel[data-request-crisis-panel] .method-panel__close {
-          transform: translateY(8px);
+          transform: none;
         }
 
         .hero-subtitle {
