@@ -1460,8 +1460,9 @@
         }
 
         .hero {
+          --hero-mobile-block-gap: clamp(18px, 4.8vw, 28px);
           grid-template-columns: 1fr;
-          gap: clamp(24px, 6.4vw, 40px);
+          gap: var(--hero-mobile-block-gap);
           width: 100%;
           justify-items: center;
         }
@@ -1530,7 +1531,7 @@
 
         .hero-media > .hero-subtitle--mobile {
           display: block;
-          margin: clamp(18px, 4.8vw, 28px) auto clamp(18px, 4.8vw, 28px);
+          margin: var(--hero-mobile-block-gap) auto 0;
           color: #0a2339;
           -webkit-text-fill-color: #0a2339;
           text-shadow: none;
