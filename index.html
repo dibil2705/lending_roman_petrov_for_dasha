@@ -2522,6 +2522,57 @@
           padding: 0;
         }
 
+        .consult-grid {
+          justify-items: center;
+          gap: clamp(16px, 4.8vw, 24px);
+          padding: 0;
+        }
+
+        .consult-grid .consult-card {
+          width: min(100%, 360px);
+          aspect-ratio: 1.21 / 1;
+          min-height: 0;
+          padding: clamp(20px, 5.4vw, 28px) clamp(16px, 4.8vw, 24px)
+            clamp(18px, 5vw, 24px);
+          border-top: 2px solid #a66a3f;
+          border-radius: 10px;
+          background: #f3f3f3;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          justify-content: flex-start;
+          gap: clamp(12px, 3.2vw, 18px);
+          overflow: hidden;
+        }
+
+        .consult-grid .consult-title {
+          margin: 0;
+          font-size: clamp(36px, 9vw, 48px);
+          font-weight: 400;
+          line-height: 1.1;
+          text-transform: none;
+          color: #2f2a25;
+        }
+
+        .consult-grid .consult-details {
+          margin: auto 0;
+          width: 100%;
+          font-size: clamp(14px, 3.7vw, 18px);
+          line-height: 1.45;
+          color: #2f2a25;
+          text-align: center;
+          text-shadow: none;
+        }
+
+        .consult-grid .consult-button {
+          width: min(100%, 210px);
+          min-height: 42px;
+          height: auto;
+          aspect-ratio: 3.3 / 1;
+          border-radius: 9px;
+          padding: 0 14px;
+          font-size: clamp(13px, 3.4vw, 16px);
+          margin-top: auto;
+        }
+
         .requests-grid .request-card {
           width: min(100%, 360px);
           aspect-ratio: 1 / 1;
