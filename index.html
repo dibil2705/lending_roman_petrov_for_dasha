@@ -488,6 +488,22 @@
         overflow-wrap: anywhere;
       }
 
+      .hero-note--mobile {
+        display: none;
+      }
+
+      .hero-note--desktop {
+        display: block;
+      }
+
+      .requests-subtitle-mobile {
+        display: none;
+      }
+
+      .requests-subtitle-desktop {
+        display: block;
+      }
+
       .cta {
         position: relative;
         display: inline-flex;
@@ -2075,6 +2091,17 @@
           min-width: 0;
           width: 100%;
           max-width: 260px;
+          aspect-ratio: auto;
+          min-height: 48px;
+          height: 48px;
+          border-radius: 10px;
+          font-size: 15px;
+          padding: 0 18px;
+        }
+
+        .cta::before {
+          inset: 4px;
+          border-radius: 7px;
         }
 
         .bottom-actions {
@@ -2238,6 +2265,33 @@
           border-radius: 16px;
           border-width: 2px;
           font-size: 16px;
+        }
+
+        .hero-note--desktop {
+          display: none;
+        }
+
+        .hero-note--mobile {
+          display: block;
+          margin: 20px auto;
+          padding-inline: 16px;
+        }
+
+        .footer-strip {
+          margin-top: 24px;
+        }
+
+        .method-section {
+          padding-top: 0;
+        }
+
+        .requests-subtitle-desktop {
+          display: none;
+        }
+
+        .requests-subtitle-mobile {
+          display: block;
+          white-space: normal;
         }
       }
 
@@ -2536,7 +2590,7 @@
       </div>
 
       <section class="bottom-actions reveal-item reveal-from-bottom" aria-label="Подход и связь" data-reveal>
-        <p class="hero-note">
+        <p class="hero-note hero-note--desktop">
           Научно-обоснованный подход к бизнес-запросам от НИУ ВШЭ / INSEAD
         </p>
         <a
@@ -2557,6 +2611,9 @@
         aria-label="Метод"
         data-reveal
       >
+        <p class="hero-note hero-note--mobile">
+          Научно-обоснованный подход к бизнес-запросам от НИУ ВШЭ / INSEAD
+        </p>
         <div class="method-logos">
           <img src="assets/School.svg" alt="НИУ ВШЭ" />
           <img src="assets/Insead.svg" alt="INSEAD" />
@@ -2567,13 +2624,20 @@
       <section class="requests-section reveal-item reveal-from-bottom" aria-label="Запросы" data-reveal>
         <h2 class="requests-title">Запросы</h2>
         <p class="requests-subtitle">
-          <span class="requests-subtitle-line">
+          <span class="requests-subtitle-line requests-subtitle-desktop">
             Я помогаю предпринимателям, экспертам, руководителям и их
             командам
           </span>
-          <span class="requests-subtitle-line">
+          <span class="requests-subtitle-line requests-subtitle-desktop">
             проходить профессиональные вызовы и изменения через
             научно-обоснованный метод психоаналитического коучинга.
+          </span>
+          <span class="requests-subtitle-line requests-subtitle-mobile">
+            Я помогаю предпринимателям, экспертам,<br />
+            руководителям и их командам проходить <br />
+            профессиональные вызовы и изменения <br />
+            через научно-обоснованный метод <br />
+            психоаналитического коучинга.
           </span>
         </p>
         <div class="requests-grid">
