@@ -1668,19 +1668,22 @@
         }
 
         .request-card h3 {
-          margin: 0;
+          margin: clamp(10px, 2.6vw, 16px) 0 0;
           font-size: clamp(22px, 7.4vw, 42px);
           text-transform: none;
           line-height: 1.14;
         }
 
         .request-card ul {
-          margin-top: clamp(8px, 2.4vw, 14px);
-          margin-bottom: clamp(12px, 3vw, 18px);
+          margin-top: auto;
+          margin-bottom: auto;
           align-self: center;
           width: min(100%, 260px);
-          font-size: clamp(15px, 4.5vw, 24px);
-          line-height: 1.32;
+          font-family: "Roboto Condensed", system-ui, sans-serif;
+          font-size: clamp(16px, 4.5vw, 24px);
+          font-weight: 400;
+          line-height: 1.6;
+          letter-spacing: 0;
         }
 
         .cta {
@@ -1699,9 +1702,9 @@
           margin-top: 0;
           margin-bottom: 0;
           padding: 30px 0;
-          width: 100%;
-          margin-left: 0;
-          margin-right: 0;
+          width: 100vw;
+          margin-left: calc(50% - 50vw);
+          margin-right: calc(50% - 50vw);
         }
 
         .experience-title {
@@ -2114,7 +2117,7 @@
 
         .request-more {
           width: 100%;
-          max-width: 224px;
+          max-width: 260px;
           height: 56px;
           min-height: 56px;
           aspect-ratio: auto;
@@ -2268,11 +2271,15 @@
           list-style: disc;
           list-style-position: outside;
           padding-left: 20px;
-          margin-top: 14px;
+          margin-top: auto;
+          margin-bottom: auto;
           color: #0a2339;
-          text-align: left;
+          text-align: center;
+          font-family: "Roboto Condensed", system-ui, sans-serif;
+          font-weight: 400;
           font-size: 17px;
-          line-height: 1.45;
+          line-height: 1.6;
+          letter-spacing: 0;
         }
 
         .consult-details {
@@ -2584,10 +2591,11 @@
           background: #ffffff;
           box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
           justify-content: flex-start;
+          gap: clamp(8px, 2.4vw, 14px);
         }
 
         .requests-grid .request-card h3 {
-          margin: 0;
+          margin: clamp(8px, 2.4vw, 14px) 0 0;
           font-size: clamp(24px, 9vw, 34px);
           line-height: 1.1;
           font-weight: 400;
@@ -2597,16 +2605,19 @@
         .requests-grid .request-card ul {
           width: 100%;
           max-width: none;
-          margin-top: clamp(10px, 3vw, 14px);
-          margin-bottom: clamp(14px, 4vw, 24px);
+          margin-top: auto;
+          margin-bottom: auto;
           padding-left: 18px;
-          font-size: clamp(15px, 4.2vw, 18px);
-          line-height: 1.45;
+          font-family: "Roboto Condensed", system-ui, sans-serif;
+          font-size: clamp(16px, 4.2vw, 18px);
+          font-weight: 400;
+          line-height: 1.6;
+          letter-spacing: 0;
           align-self: stretch;
         }
 
         .requests-grid .request-more {
-          width: min(100%, 180px);
+          width: min(100%, 232px);
           min-height: 42px;
           height: auto;
           aspect-ratio: 3.2 / 1;
